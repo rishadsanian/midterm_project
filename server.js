@@ -1,8 +1,7 @@
 ////////////////////////////////////////////////////////////////////////////////
-////                         HUNGRY HUMANS                                  ////
+////                   HUNGRY HUMANS /any company                           ////
 ///                        FOOD ORDERING APP                               ////
 //////////////////////////////////////////////////////////////////////////////
-
 
 //MODULES
 
@@ -16,7 +15,6 @@ const sassMiddleware = require("./lib/sass-middleware");
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcryptjs");
 
-
 // Web server setup
 const express = require("express");
 const morgan = require("morgan");
@@ -26,7 +24,6 @@ const app = express();
 
 /////////////////////MIDDLEWARE SETUP //////////////////////////////////////////
 
-
 app.set("view engine", "ejs");
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
@@ -35,6 +32,8 @@ app.set("view engine", "ejs");
 
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
+
+
 app.use(
   "/styles",
   sassMiddleware({
@@ -57,7 +56,6 @@ app.use(
   })
 );
 
-
 ///// ///////////////ROUTES REQUIRE and MOUNT///////////////////////////////////
 
 // Separated Routes for each Resource
@@ -66,12 +64,21 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 
+const menuApi = require("./routes/menu-api");
+
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
+app.use("/api/menu", menuApi)
+
+
 app.use("/users", usersRoutes);
+
+
+
+
 // Note: mount other resources here, using the same pattern above
 
 /////////////////////ROUTES //////////////////////////////////////////////////
@@ -83,14 +90,16 @@ app.use("/users", usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-
   // req.session = null; //delete cookie
-  req.session.user = "SomeUser"; //set random cookie - should be ideally username on login if we do stretch
+  req.session.user = "SomeUser";
+  req.session.userType = "Admin"; //set random cookie - should be ideally be set username and type on login
 
   // Access the session cookie
   console.log(req.session.user);
-  const templateVars = { user: req.session.user };
-
+  const templateVars = {
+    user: req.session.user,
+    userType: req.session.userType,
+  };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
   !templateVars.user

@@ -25,38 +25,68 @@
   </head>
 
   <body>
-    <header>Include from partials which will include nav</header>
+    <header>Include from partials which will include nav?</header>
 
-
+<!-- test cookies -->
     <main>
       <h1>Welcome <%= user %> 🥔</h1>
-       
+      <h2>User Type: <%= userType %></h2>
+       <br>
       <h2>Restaurant Name</h2>
 
-   <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT -->
+   <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT on click with jquery -->
 
-      <section id = 'restaurant-user' class = 'hidden-on-load'>
-      </section>
-
-      <section id = 'customer-user' class = 'hidden-on-load'>
-        
-        <!---------------------------MENU ------------------------------------>
-        <!-- Menu either form or submit button with prevent default
-      add and delete buttons could be added with each item with a counter like tweeter -->
-        <div class = menu> 
-        </div>
+   <section class = 'login'>
+    <button id="restaurant-owner-btn">Restaurant Owner</button>
+    <button id="customer-btn">Customer</button>
+   </section>
 
 
+<!-- ///////////////////////////Restaurant Owner Section////////////////// -->
 
-        <!---------------------------CART ------------------------------------>
+<!-- can be generated or unhide with jquery  on user tpe identification  -->
+
+<section id = 'restaurant-user' class = 'hidden-on-load'>
+  
+  <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, DONE FOR STATUS-->
+
+  <!-- STRETCH ANALYTICS SECTION  -->
+  
+  <!-- STRETCH MENU MODIFICATION SECTION -->
+  
+  
+</section>
+<!-- ///////////////////////////////////////////////////////////////////// -->
+
+
+
+<!-- ///////////////////////////Customer Section/////////////////////////// -->
+
+
+<section id = 'customer-user' class = 'hidden-on-load'></section>
+
+<!---------------------------MENU ------------------------------------>
+
+<!-- Menu section either form or submit button with prevent default
+  add and delete buttons AND   + - button to set quantity -->
+  
+  
+  <div class = menu> 
+  </div>
+  
+  
+  
+  <!---------------------------CART ------------------------------------>
   <div class = cart>
   </div>
-
+  
   
   <!---------------------CONFIRMATION and Status --------------------------->
-   <div class = 'confirmation'>
+
+  <div class = 'confirmation'>
   </div>
-      </section>
+</section>
+<!-- ///////////////////////////////////////////////////////////////////// -->
 
     </main>
 
