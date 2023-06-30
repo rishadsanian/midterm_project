@@ -1,4 +1,4 @@
-// QUERY FUNCTIONS
+// QUERY FUNCTIONS//Can be in seperate files in the folder
 
 
 ///////////CUSTOMER////////////////
