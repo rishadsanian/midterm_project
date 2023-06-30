@@ -1,18 +1,31 @@
+////////////////////////////////////////////////////////////////////////////////
+////                         HUNGRY HUMANS                                  ////
+///                        FOOD ORDERING APP                               ////
+//////////////////////////////////////////////////////////////////////////////
+
+
 //MODULES
+
 // load .env data into process.env
 require("dotenv").config();
 
-// Web server config
+//SASS for scss files
 const sassMiddleware = require("./lib/sass-middleware");
-const express = require("express");
-const morgan = require("morgan");
 
 //Cookies and encryption
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcryptjs");
 
+
+// Web server setup
+const express = require("express");
+const morgan = require("morgan");
+
 const PORT = process.env.PORT || 8080;
 const app = express();
+
+/////////////////////MIDDLEWARE SETUP //////////////////////////////////////////
+
 
 app.set("view engine", "ejs");
 
@@ -43,6 +56,7 @@ app.use(
     maxAge: 24 * 60 * 60 * 1000, // 24 hours
   })
 );
+
 
 ///// ///////////////ROUTES REQUIRE and MOUNT///////////////////////////////////
 
@@ -78,7 +92,7 @@ app.get("/", (req, res) => {
   const templateVars = { user: req.session.user };
 
 
-  //goes to index regardless of cookie or not for now
+  //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
   !templateVars.user
     ? res.render("index", templateVars)
     : res.render("index", templateVars);
