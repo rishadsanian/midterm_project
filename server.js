@@ -1,5 +1,3 @@
-
-
 //MODULES
 // load .env data into process.env
 require("dotenv").config();
@@ -21,6 +19,7 @@ app.set("view engine", "ejs");
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
 //         The :status token will be colored red for server error codes, yellow for client error codes, cyan for redirection codes, and uncolored for all other codes.
+
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(
@@ -34,7 +33,6 @@ app.use(
 
 app.use(express.static("public"));
 
-
 // Security SALT for bcrypt and cookie session management
 const salt = bcrypt.genSaltSync(10);
 app.use(
@@ -46,7 +44,6 @@ app.use(
   })
 );
 
-
 ///// ///////////////ROUTES REQUIRE and MOUNT///////////////////////////////////
 
 // Separated Routes for each Resource
@@ -55,7 +52,6 @@ const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api");
 const usersRoutes = require("./routes/users");
 
-
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -63,9 +59,6 @@ app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/users", usersRoutes);
 // Note: mount other resources here, using the same pattern above
-
-
-
 
 /////////////////////ROUTES //////////////////////////////////////////////////
 
@@ -76,19 +69,21 @@ app.use("/users", usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
+
   // req.session = null; //delete cookie
+  req.session.user = "SomeUser"; //set random cookie - should be ideally username on login if we do stretch
 
-  // Access the session object
-  console.log(req.session);
+  // Access the session cookie
+  console.log(req.session.user);
+  const templateVars = { user: req.session.user };
 
-  const templateVars = { user: req.session};
-  res.render("index", templateVars);
+  //goes to index regardless of cookie or not for now
+  !templateVars.user
+    ? res.render("index", templateVars)
+    : res.render("index", templateVars);
 });
 
 // ----------------------------------------------------------------------------
-
-
-
 
 ///////////////////////////////////////////////////////////////////////////////
 ////////////////////SERVER LISTENING  WHEN FILE RUN/////////////////////////////
