@@ -77,6 +77,7 @@ app.get("/", (req, res) => {
   console.log(req.session.user);
   const templateVars = { user: req.session.user };
 
+
   //goes to index regardless of cookie or not for now
   !templateVars.user
     ? res.render("index", templateVars)
