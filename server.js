@@ -31,7 +31,10 @@ app.use(
     isSass: false, // false => scss, true => sass
   })
 );
+
 app.use(express.static("public"));
+
+
 // Security SALT for bcrypt and cookie session management
 const salt = bcrypt.genSaltSync(10);
 app.use(
@@ -73,11 +76,14 @@ app.use("/users", usersRoutes);
 // Separate them into separate routes files (see above).
 
 app.get("/", (req, res) => {
-  //only cookie as user id for now
-  const templateVars = { userID: req.session.userID };
+  // req.session = null; //delete cookie
+
+  // Access the session object
+  console.log(req.session);
+
+  const templateVars = { user: req.session};
   res.render("index", templateVars);
 });
-
 
 // ----------------------------------------------------------------------------
 
