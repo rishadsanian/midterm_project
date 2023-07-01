@@ -60,15 +60,17 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require("./routes/users-api");
-const widgetApiRoutes = require("./routes/widgets-api");
+const userApiRoutes = require("./routes/users-api");//GETS INFO FROM API IF NEEDED
+const widgetApiRoutes = require("./routes/widgets-api");//
 const usersRoutes = require("./routes/users");
-
-const menuApi = require("./routes/menu-api");
+const userLogin = require("./routes/login");
+const menuApi = require("./routes/menu-api");// GETS MENU FROM SQL
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
+
+
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/menu", menuApi);
@@ -76,7 +78,7 @@ app.use("/api/menu", menuApi);
 
 app.use("/users", usersRoutes);
 
-
+app.use('/login', userLogin);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -96,12 +98,14 @@ app.get("/", (req, res) => {
 
   // Access the session cookie
   console.log(req.session.user);
+  console.log(req.session.userType);
   const templateVars = {
     user: req.session.user,
     userType: req.session.userType,
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
+  
   !templateVars.user
     ? res.render("index", templateVars)
     : res.render("index", templateVars);

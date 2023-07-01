@@ -80,16 +80,16 @@ const menu = [
 
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
-// const getMenu = function () {
-//   $.ajax({
-// url: "/menu-api",
-//     method: "GET",
-//     dataType: "json",
-//     success: function (data) {
-//       renderMenu(data);
-//     },
-//   });
-// };
+const getMenu = function() {
+  $.ajax({
+    url: "/menu-api",
+    method: "GET",
+    dataType: "json",
+    success: function(data) {
+      renderMenu(data);
+    },
+  });
+};
 
 // temp css below SHOULD BE to be moved into scss file
 
@@ -336,4 +336,3 @@ const renderMenu = function (menu, categories) {
   $customerContainer.append($checkoutContainer);
 };
 ////////////////////////////////////////////////////////////////////////////////
-module.exports = renderMenu();
