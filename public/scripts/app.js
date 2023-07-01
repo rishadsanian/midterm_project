@@ -7,9 +7,21 @@
 //////////////////////////////////////////////////////////////////////////////
 
 //When dom is ready
-$(document).ready(function() {
+$(document).ready(function () {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
-  
-  renderMenu(menu, categories);
+
+  userSessionInformation();
+
+  if (!userType) renderUserAuthentication();
+
+  // CUSTOMER VIEW
+  if (userType === "Admin" || userType === "customer") {
+    renderMenu(menu, categories); //completed
+  }
+
+  //  OWNER VIEW
+  if (userType === "Admin" || userType === "restaurant") {
+    console.log("menu is only for customers");
+  }
 });
