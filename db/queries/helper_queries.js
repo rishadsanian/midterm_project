@@ -83,7 +83,6 @@ const getCartSummary = (orderId) =>{};
 // setItemRating
 
 
-
 // suggestEstimatedTime -- major stretch, based on stdv of collected data on preparing and completion time - show to customer and restaurant to accept
 
 //showSugestedRestaurants -- major stretch use classification to match pereferences of similiar users
