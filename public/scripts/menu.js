@@ -112,7 +112,8 @@ const renderMenu = function (menu, categories) {
   // Set title
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
 
-  // SET EACH CATEGORY CONTAINER
+  // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Needto refactor. Via sql and one for loop
+  
   Object.keys(categories).forEach((category) => {
     const $category = $("<article>")
       .addClass("menu-category")
@@ -125,7 +126,7 @@ const renderMenu = function (menu, categories) {
       });
 
     // ADD EACH MENU ITEM FOR THE CATEGORY
-    ///This currently is at O n^2. Needto refactor.
+   
     menu.forEach((item) => {
       // Keep track of quantity for each item
       orderItems[item.menuItemsId] = 0;
