@@ -1,0 +1,55 @@
+DROP TABLE IF EXISTS customers CASCADE;
+DROP TABLE IF EXISTS restaurants CASCADE;
+DROP TABLE IF EXISTS orders CASCADE;
+DROP TABLE IF EXISTS order_items CASCADE;
+DROP TABLE IF EXISTS order_status CASCADE;
+DROP TABLE IF EXISTS menu_items CASCADE;
+
+CREATE TABLE customers (
+  id SERIAL PRIMARY KEY NOT NULL,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  phone VARCHAR(20) NOT NULL,
+  email VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE restaurants (
+  id SERIAL PRIMARY KEY NOT NULL,
+  road VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  province VARCHAR(255) NOT NULL,
+  postal_code VARCHAR(7) NOT NULL,
+  phone VARCHAR(20)
+);
+
+CREATE TABLE menu_items (
+  id SERIAL PRIMARY KEY NOT NULL,
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  category VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  unit_price INTEGER NOT NULL DEFAULT 0
+);
+
+CREATE TABLE order_status (
+  id SERIAL PRIMARY KEY NOT NULL,
+  name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE orders (
+  id SERIAL PRIMARY KEY NOT NULL,
+  customer_id INTEGER REFERENCES customers(id) ON DELETE CASCADE,
+  restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
+  status_id INTEGER REFERENCES order_status(id) ON DELETE CASCADE,
+  ordered_time TIMESTAMP,
+  prepared_time TIMESTAMP,
+  estimated_time TIMESTAMP,
+  completed_time TIMESTAMP,
+  picked_time TIMESTAMP
+);
+
+CREATE TABLE order_items (
+  id SERIAL PRIMARY KEY NOT NULL,
+  menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
+  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
+  quantity INTEGER NOT NULL
+);
