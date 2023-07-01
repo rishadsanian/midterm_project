@@ -77,9 +77,7 @@ const menu = [
   },
 ];
 
-//declare output for cart picing and quantity////////////////////WILL BE USED FOR POST//////////////////
 
-const orderItems = {};
 
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
@@ -95,6 +93,13 @@ const orderItems = {};
 // };
 
 // temp css below SHOULD BE to be moved into scss file
+
+//declare output for cart picing and quantity////////////////////WILL BE USED FOR POST//////////////////
+
+const orderItems = {};
+////////////////////////////////////////////////////////////////////////////////
+
+//Function to render the menu with abiility for user to add or remove quantities of each item from the menu
 
 const renderMenu = function (menu, categories) {
   // IDENTIFY CONTAINER
@@ -182,12 +187,18 @@ const renderMenu = function (menu, categories) {
           .addClass("menu-item card-footer")
           .css({ display: "flex", "justify-content": "space-between" });
 
-        // Create the quantity counter
+        // Create  quantity  container
         const $quantityContainer = $("<div>").addClass("quantity-container");
+
+        // Create  quantity counter placeholder
         const $quantityLabel = $("<span>").text("Quantity:");
         const $quantityValue = $("<span>").addClass("quantity-value").text("0");
 
-        // Create the add and remove buttons
+        // Create the add and remove buttons and container
+        const $quantityButtonContainer = $("<div>")
+          .addClass("quantity-buttons")
+          .addClass({ display: "flex" });
+
         const $addButton = $("<button>")
           .addClass("add-button")
           .text("Add")
@@ -199,15 +210,17 @@ const renderMenu = function (menu, categories) {
         const $removeButton = $("<button>")
           .addClass("remove-button")
           .text("Remove")
-          .on("click", function () {
+          .on("click", function() {
             if (orderItems[item.menuItemsId]) orderItems[item.menuItemsId]--;
             $quantityValue.text(orderItems[item.menuItemsId]);
           });
 
+        $quantityButtonContainer.append($addButton, $removeButton);
+
         $quantityContainer.append($quantityLabel, $quantityValue);
 
         // Add the add and remove buttons and the quantity counter to the item footer
-        $itemFooter.append($addButton, $removeButton, $quantityContainer);
+        $itemFooter.append($quantityButtonContainer, $quantityContainer);
 
         // Add the item footer to the menu item container
         $item.append($itemHeader, $itemBody, $itemFooter);
