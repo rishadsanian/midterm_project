@@ -38,10 +38,13 @@ const getCartSummary = (orderId) =>{};
 
 // const getOrderDetails - will include settime
 
+//getNewOrders
+//getOrdersInProgreess
+//getPreparedOrders
+//getCompletedOrders
 
 
-
-//////system///////////////////
+/////////////////////////
 
 // const setStatus = (x) => {};
 
@@ -78,6 +81,15 @@ const getCartSummary = (orderId) =>{};
 //showAveragePrepareTime
 
 // setItemRating
+
+
+
+// suggestEstimatedTime -- major stretch, based on stdv of collected data on preparing and completion time - show to customer and restaurant to accept
+
+//showSugestedRestaurants -- major stretch use classification to match pereferences of similiar users
+
+
+//showItemRecommendations -- major stretch use classification to match preferences in similar food items
 
 // setRestaurantRating
 
