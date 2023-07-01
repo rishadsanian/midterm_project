@@ -77,8 +77,6 @@ const menu = [
   },
 ];
 
-
-
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 // const getMenu = function () {
@@ -205,14 +203,17 @@ const renderMenu = function (menu, categories) {
           .on("click", function () {
             orderItems[item.menuItemsId]++;
             $quantityValue.text(orderItems[item.menuItemsId]);
+            console.log(orderItems); //LOG
           });
 
         const $removeButton = $("<button>")
           .addClass("remove-button")
           .text("Remove")
-          .on("click", function() {
+          .on("click", function () {
             if (orderItems[item.menuItemsId]) orderItems[item.menuItemsId]--;
             $quantityValue.text(orderItems[item.menuItemsId]);
+         
+            console.log(orderItems);///LOG
           });
 
         $quantityButtonContainer.append($addButton, $removeButton);
@@ -228,10 +229,8 @@ const renderMenu = function (menu, categories) {
         $category.append($item);
       }
     });
-
+   
     $customerContainer.append($category);
     $customerContainer.prepend($menuTitle);
   });
 };
-
-//////////////////////////////////LOAD MENU example data in nosql///////////////
