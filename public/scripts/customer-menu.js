@@ -93,15 +93,25 @@ const menu = [
 
 // temp css below SHOULD BE to be moved into scss file
 
-//declare output for cart picing and quantity////////////////////WILL BE USED FOR POST//////////////////
+//declare output for cart picing and quantit and subtotal for running totaly////////////////////WILL BE USED FOR POST//////////////////
 
 const orderItems = {};
+const subTotalValues = {};
+let subTotal = 0;
+
+const updateSubTotalSum = (subTotal) => {
+  subTotal += Object.values(subTotalValues).reduce(
+    (acc, curr) => acc + curr,
+    0
+  );
+};
+
 ////////////////////////////////////////////////////////////////////////////////
 
 //Function to render the menu with abiility for user to add or remove quantities of each item from the menu
 
 const renderMenu = function (menu, categories) {
-  // IDENTIFY CONTAINER
+  // /////////////////// Define CONTAINER ///////////////////////////////
   const $customerContainer = $("#customer-user").css({
     display: "flex",
     "flex-direction": "column",
@@ -110,14 +120,15 @@ const renderMenu = function (menu, categories) {
     "font-size": "large",
   });
 
-  // Set title
+  /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
 
-  // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Needto refactor. Via sql and one for loop
-  
+  //////////////////////////Menu list by Category //////////////////////////////
+
+  // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Need to refactor. Via sql and one for loop
   Object.keys(categories).forEach((category) => {
-    const $category = $("<article>")
-      .addClass("menu-category")
+    const $menuListByCategory = $("<article>")
+      .addClass(`menu-category`)
       .html(`<strong> ${categories[category]} </strong>`)
       .css({
         display: "flex",
@@ -126,27 +137,28 @@ const renderMenu = function (menu, categories) {
         margin: "5%",
       });
 
-    // ADD EACH MENU ITEM FOR THE CATEGORY
-   
+    //--------------------------------------------------------------//
+    // ADD CONTAINER FOR EACH MENU ITEM IN THE CATEGORY
+
     menu.forEach((item) => {
       // Keep track of quantity for each item
       orderItems[item.menuItemsId] = 0;
 
       if (item.category === category) {
         // Create menu item container
-        const $item = $("<div>")
-          .addClass("menu-item card-hov-shadow")
-          .css({
-            display: "flex",
-            "flex-direction": "column",
-            "justify-content": "space-around",
-            // border: "solid 1px black",
-            border: 'solid 2px black',
-            'border-radius': '7px',
-            padding: '1em',
-            // padding: "10px",
-            margin: "10px 0",
-          });
+        const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
+          display: "flex",
+          "flex-direction": "column",
+          "justify-content": "space-around",
+          // border: "solid 1px black",
+          border: "solid 2px black",
+          "border-radius": "7px",
+          padding: "1em",
+          // padding: "10px",
+          margin: "10px 0",
+        });
+
+        //--------------------------------------------------------------//
 
         ////////////Add Header for item name and price
         const $itemHeader = $("<header>")
@@ -167,30 +179,42 @@ const renderMenu = function (menu, categories) {
         // Add the name and price to card header
         $itemHeader.append($itemName, $itemPrice);
 
+        //--------------------------------------------------------------//
         ////////////////Add Body - For description and image
-        const $itemBody = $("<div>")
-          .addClass("menu-item card-body")
-          .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
+
+        const $itemBody = $("<div>").addClass("menu-item card-body").css({
+          display: "flex",
+          "justify-content": "space-between",
+          alignItems: "center",
+        });
 
         // Create menu item description element
-        const $itemDescription = $("<p>").addClass("menu-description").text(item.description);
+        const $itemDescription = $("<p>")
+          .addClass("menu-description")
+          .text(item.description);
 
         // Create menu item image element (replace with actual image source)
-        const $itemImage = $("<img>")//img tag when picture available
+        const $itemImage = $("<img>") //img tag when picture available
           .addClass("menu-img")
           .text(item.imgUrl)
           .attr("text", item.imgUrl)
           .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
-          // .css({"font-size" : "350%"});
+        // .css({"font-size" : "350%"});
 
         // Add the description and image to card body
         $itemBody.append($itemDescription, $itemImage);
 
+        //--------------------------------------------------------------//
         /////////////////Add Footer - for adding/removing quantity and quantity amount
-        // Create the footer section for the menu item
+
+        // Create  footer container for the menu item
         const $itemFooter = $("<footer>")
           .addClass("menu-item card-footer")
-          .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
+          .css({
+            display: "flex",
+            "justify-content": "space-between",
+            alignItems: "center",
+          });
 
         // Create the quantity container
         const $quantityContainer = $("<div>").addClass("quantity-container");
@@ -200,42 +224,108 @@ const renderMenu = function (menu, categories) {
         const $quantityValue = $("<span>").addClass("quantity-value").text("0");
 
         // Create the add and remove buttons and container
-        const $quantityButtonContainer = $("<div>").addClass("quantity-buttons").css({ display: "flex" });
+        const $quantityButtonContainer = $("<div>")
+          .addClass("quantity-buttons")
+          .css({ display: "flex" });
 
         const $addButton = $("<button>")
           .addClass("add-button")
           .text("Add")
           .on("click", function () {
+            //add to quantitiy counter
             orderItems[item.menuItemsId]++;
             $quantityValue.text(orderItems[item.menuItemsId]);
             console.log(orderItems); // LOG
+
+            //Update Subtotal value for each item qty * price
+            subTotalValues[item.menuItemsId] =
+              orderItems[item.menuItemsId] * item.price;
+
+            console.log(subTotalValues);
+
+            subTotal = Object.values(subTotalValues).reduce(
+              (acc, curr) => acc + curr,
+              0
+            );
+
+            console.log(subTotal);
           });
 
         const $removeButton = $("<button>")
           .addClass("remove-button")
           .text("Remove")
           .on("click", function () {
+            //remove from quantity counter
             if (orderItems[item.menuItemsId]) orderItems[item.menuItemsId]--;
             $quantityValue.text(orderItems[item.menuItemsId]);
             console.log(orderItems); // LOG
+
+            //Update Subtotal value for each item qty * price
+            subTotalValues[item.menuItemsId] =
+              orderItems[item.menuItemsId] * item.price;
+
+            subTotal = Object.values(subTotalValues).reduce(
+              (acc, curr) => acc + curr,
+              0
+            );
+
+            console.log(subTotal);
           });
 
+        // Add the add and remove buttons and the quantity counter to the item footer
         $quantityButtonContainer.append($addButton, $removeButton);
 
         $quantityContainer.append($quantityLabel, $quantityValue);
 
-        // Add the add and remove buttons and the quantity counter to the item footer
         $itemFooter.append($quantityButtonContainer, $quantityContainer);
+        //--------------------------------------------------------------//
 
         // Add the item header, body, and footer to the menu item container
         $item.append($itemHeader, $itemBody, $itemFooter);
 
         // Add item to category container
-        $category.append($item);
+        $menuListByCategory.append($item);
       }
     });
 
-    $customerContainer.append($category);
-    $customerContainer.prepend($menuTitle);
+    ////////////////////////////////////////////////////////////////////////////
+
+    //Add menu list to container for each category
+    $customerContainer.append($menuListByCategory);
   });
+
+  //Add title
+  $customerContainer.prepend($menuTitle);
+  ///////////////////////// Checkout Container ///////////////////////////////
+
+  //checkout button and subtotal
+  const $checkoutContainer = $("<section>").addClass("checkout-container").css({
+    display: "flex",
+    "flex-direction": "column",
+    'background-color': 'white',
+    position: 'sticky',
+    bottom: '0'
+    
+  });
+
+  //checkout button
+  const $checkoutButton = $("<button>")
+    .addClass("checkout-button")
+    .text("Checkout")
+    .on("click", function () {
+      // neeed route to post to order table /hide menuview and toggle cartview
+      console.log("send json object for sql order table");
+    });
+
+  const $subTotalElement = $("<p>")
+    .addClass("subtotal-element")
+    .text("Subtotal: $" + (subTotal / 100).toFixed(2));
+
+  $checkoutContainer.append($checkoutButton, $subTotalElement);
+
+  //Add checkout container
+  // if (orderItems)
+  $customerContainer.append($checkoutContainer);
 };
+////////////////////////////////////////////////////////////////////////////////
+module.exports = renderMenu();
