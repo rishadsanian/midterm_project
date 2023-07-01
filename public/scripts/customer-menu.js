@@ -249,6 +249,7 @@ const renderMenu = function (menu, categories) {
             );
 
             console.log(subTotal);
+            $subTotalElement.text("Subtotal: $" + (subTotal / 100).toFixed(2));
           });
 
         const $removeButton = $("<button>")
