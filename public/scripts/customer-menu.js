@@ -238,17 +238,21 @@ const renderMenu = function (menu, categories) {
             console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
+            // subtotal per item
             subTotalValues[item.menuItemsId] =
               orderItems[item.menuItemsId] * item.price;
 
             console.log(subTotalValues);
 
+            // subtotals sum
             subTotal = Object.values(subTotalValues).reduce(
               (acc, curr) => acc + curr,
               0
             );
 
             console.log(subTotal);
+
+            //update checout container info
             $subTotalElement.text("Subtotal: $" + (subTotal / 100).toFixed(2));
           });
 
@@ -265,12 +269,16 @@ const renderMenu = function (menu, categories) {
             subTotalValues[item.menuItemsId] =
               orderItems[item.menuItemsId] * item.price;
 
+            // subtotals sum
             subTotal = Object.values(subTotalValues).reduce(
               (acc, curr) => acc + curr,
               0
             );
 
             console.log(subTotal);
+
+            //update checout container info
+            $subTotalElement.text("Subtotal: $" + (subTotal / 100).toFixed(2));
           });
 
         // Add the add and remove buttons and the quantity counter to the item footer
@@ -303,10 +311,9 @@ const renderMenu = function (menu, categories) {
   const $checkoutContainer = $("<section>").addClass("checkout-container").css({
     display: "flex",
     "flex-direction": "column",
-    'background-color': 'white',
-    position: 'sticky',
-    bottom: '0'
-    
+    "background-color": "white",
+    position: "sticky",
+    bottom: "0",
   });
 
   //checkout button
