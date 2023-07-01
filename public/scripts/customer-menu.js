@@ -15,7 +15,7 @@ const categories = {
 };
 const menu = [
   {
-    menuItemsId: 1,
+    id: 1,
     restaurantId: 1,
     name: "Fries",
     category: "1",
@@ -24,7 +24,7 @@ const menu = [
     imgUrl: "🍟",
   },
   {
-    menuItemsId: 2,
+    id: 2,
     restaurantId: 1,
     name: "Salad",
     category: "1",
@@ -33,7 +33,7 @@ const menu = [
     imgUrl: "🥗",
   },
   {
-    menuItemsId: 3,
+    id: 3,
     restaurantId: 1,
     name: "Burger",
     category: "2",
@@ -42,7 +42,7 @@ const menu = [
     imgUrl: "🍔",
   },
   {
-    menuItemsId: 4,
+    id: 4,
     restaurantId: 1,
     name: "Ribs",
     category: "2",
@@ -50,16 +50,16 @@ const menu = [
     description: "Fall of the bone beef ribs with bold smokey bbq sauce",
   },
   {
-    menuItemsId: 5,
+    id: 5,
     restaurantId: 1,
     name: "Coffee",
     category: "3",
     price: 200,
     imgUrl: "☕",
   },
-  { menuItemsId: 6, restaurantId: 1, name: "Soda", category: "3", price: 150 },
+  { id: 6, restaurantId: 1, name: "Soda", category: "3", price: 150 },
   {
-    menuItemsId: 7,
+    id: 7,
     restaurantId: 1,
     name: "Cheesecake",
     category: "4",
@@ -68,7 +68,7 @@ const menu = [
     imgUrl: "🍰",
   },
   {
-    menuItemsId: 8,
+    id: 8,
     restaurantId: 1,
     name: "Ice Cream",
     category: "4",
@@ -86,7 +86,8 @@ const getMenu = function() {
     method: "GET",
     dataType: "json",
     success: function(data) {
-      renderMenu(data);
+      console.log(data);
+      //renderMenu(data);
     },
   });
 };
@@ -142,7 +143,7 @@ const renderMenu = function (menu, categories) {
 
     menu.forEach((item) => {
       // Keep track of quantity for each item
-      orderItems[item.menuItemsId] = 0;
+      orderItems[item.id] = 0;
 
       if (item.category === category) {
         // Create menu item container
@@ -233,14 +234,14 @@ const renderMenu = function (menu, categories) {
           .text("Add")
           .on("click", function () {
             //add to quantitiy counter
-            orderItems[item.menuItemsId]++;
-            $quantityValue.text(orderItems[item.menuItemsId]);
+            orderItems[item.id]++;
+            $quantityValue.text(orderItems[item.id]);
             console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
             // subtotal per item
-            subTotalValues[item.menuItemsId] =
-              orderItems[item.menuItemsId] * item.price;
+            subTotalValues[item.id] =
+              orderItems[item.id] * item.price;
 
             console.log(subTotalValues);
 
@@ -261,13 +262,13 @@ const renderMenu = function (menu, categories) {
           .text("Remove")
           .on("click", function () {
             //remove from quantity counter
-            if (orderItems[item.menuItemsId]) orderItems[item.menuItemsId]--;
-            $quantityValue.text(orderItems[item.menuItemsId]);
+            if (orderItems[item.id]) orderItems[item.id]--;
+            $quantityValue.text(orderItems[item.id]);
             console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
-            subTotalValues[item.menuItemsId] =
-              orderItems[item.menuItemsId] * item.price;
+            subTotalValues[item.id] =
+              orderItems[item.id] * item.price;
 
             // subtotals sum
             subTotal = Object.values(subTotalValues).reduce(
