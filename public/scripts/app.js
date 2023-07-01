@@ -11,17 +11,20 @@ $(document).ready(function () {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
 
-  userSessionInformation();
+  // userSessionInformation();
+  console.log("User: " + user);
+  console.log("User Type: " + userType);
 
-  if (!userType) renderUserAuthentication();
+
+  // if (!userType) renderUserAuthentication();
 
   // CUSTOMER VIEW
-  if (userType === "Admin" || userType === "customer") {
-    renderMenu(menu, categories); //completed
-  }
+  // if (userType === "Admin" || userType === "customer") {
+  renderMenu(menu, categories); //completed
+  // }
 
   //  OWNER VIEW
-  if (userType === "Admin" || userType === "restaurant") {
-    console.log("menu is only for customers");
-  }
+  // if (userType === "Admin" || userType === "restaurant") {
+  //   console.log("menu is only for customers");
+  // }
 });

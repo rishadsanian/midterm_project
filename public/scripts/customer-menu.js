@@ -336,4 +336,3 @@ const renderMenu = function (menu, categories) {
   $customerContainer.append($checkoutContainer);
 };
 ////////////////////////////////////////////////////////////////////////////////
-module.exports = renderMenu();

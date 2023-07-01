@@ -20,16 +20,23 @@
     
 
     <!-------------------------APP SCRIPTS ------------------------------------>
-
+    
     <script src="/vendor/jquery-3.0.0.js"></script>
     <script defer src="/scripts/customer-menu.js"></script>
     <script defer src="/scripts/app.js"></script>
+    <script defer src="/scripts/helpers.js"></script>
   </head>
-
+  
+  <!-------------------------BODY  ------------------------------------>
   <body>
-    <header>Include from partials which will include nav?</header>
 
-<!-- test cookies -->
+    <!-------------------------ATTEMPT TO EXTRACT COOKIE INFORMATION TO EXTERNAL SCRIPT ------------------------------------>
+    <div id="dataContainer" data-user="<%= user %>" data-userType="<%= userType %>"></div>
+    <header>Include from partials which will include nav?</header>
+<!--   ------------------------------------------------------ -->
+
+
+<!-- test INTERNAL EJS cookies FROM TEMPLATE VARS -->
     <main>
       <h1>Welcome <%= user %> 🥔</h1>
       <h2>User Type: <%= userType %></h2>
@@ -37,7 +44,7 @@
       <h2>Restaurant Name</h2>
 
    <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT on click with jquery -->
-
+   
    <section class = 'login'>
      <h3 style="font-weight: 600; margin-bottom: 0">Login</h3>
  <br />

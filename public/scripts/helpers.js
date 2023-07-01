@@ -1,4 +1,14 @@
-const userSessionInformation = () => {
-  const user = "<%= user %>";
-  const userType = "<%= userType %>";
-};
+/* eslint-disable no-undef */
+//
+
+
+// const getUserAuthentication = () => {
+//   user = "<%= user %>";
+//   userType = "<%= userType %>";
+//   console.log(user);
+//   console.log(userType);
+// };
+
+
+const user = $("#dataContainer").data("user");
+const userType = $("#dataContainer").data("userType");

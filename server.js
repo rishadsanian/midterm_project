@@ -98,6 +98,7 @@ app.get("/", (req, res) => {
 
   // Access the session cookie
   console.log(req.session.user);
+  console.log(req.session.userType);
   const templateVars = {
     user: req.session.user,
     userType: req.session.userType,
