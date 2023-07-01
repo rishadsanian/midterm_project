@@ -15,10 +15,14 @@ $(document).ready(function () {
   console.log("User: " + user);
   console.log("User Type: " + userType);
 
-  getMenu();
+
   // if (!userType) renderUserAuthentication();
 
   // CUSTOMER VIEW
+
+  getMenu();
+
+  
   // if (userType === "Admin" || userType === "customer") {
   // renderMenu(menu, categories); //completed
   // }

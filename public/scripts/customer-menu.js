@@ -154,7 +154,7 @@ const renderMenu = function (menu, categories) {
       console.log(item.name);
       orderItems[item.id] = 0;
 
-      if (item.category_id === category) {
+      if (item.category_id == category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
           display: "flex",
