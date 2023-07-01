@@ -40,6 +40,7 @@ CREATE TABLE menu_items (
   category_id INTEGER REFERENCES categories(id) ON DELETE CASCADE,
   name VARCHAR(255) NOT NULL,
   description VARCHAR(255),
+  picture_url VARCHAR(255),
   unit_price INTEGER NOT NULL DEFAULT 0
 );
 
