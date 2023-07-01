@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////////////////////
 
 //When dom is ready
-$(document).ready(function () {
+$(document).ready(function() {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
   renderMenu(menu, categories);

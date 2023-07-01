@@ -6,18 +6,18 @@ const db = require("../connection");
 //get menu//
 //route through menuapi
 
-const getMenu = (restaurantId) => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
+// const getMenu = (restaurantId) => {
+//   return db.query('SELECT * FROM users;')
+//     .then(data => {
+//       return data.rows;
+//     });
+// };
 
-/////////////////////////////////////////////////////////
+// /////////////////////////////////////////////////////////
 
-//get cart summary the two below could be combined
-//needed for cart view with running subtotal calculated
-const getCartSummary = (orderId) =>{};
+// //get cart summary the two below could be combined
+// //needed for cart view with running subtotal calculated
+// const getCartSummary = (orderId) =>{};
 
 
 //on Checkout will show subtotal [STRETCH taxes(by province using another table for provincial tax rates based on address), tips and grand total]
