@@ -110,7 +110,6 @@ const renderMenu = function (menu, categories) {
   });
 
   // Set title
-
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
 
   // SET EACH CATEGORY CONTAINER
@@ -127,75 +126,73 @@ const renderMenu = function (menu, categories) {
 
     // ADD EACH MENU ITEM FOR THE CATEGORY
     menu.forEach((item) => {
-      //keep track of quantity for each item
+      // Keep track of quantity for each item
       orderItems[item.menuItemsId] = 0;
 
       if (item.category === category) {
         // Create menu item container
-        const $item = $("<div>").addClass("menu-item card").css({
-          display: "flex",
-          "flex-direction": "column",
-          "justify-content": "space-arpimd",
-          border: "solid 1px black",
-        });
+        const $item = $("<div>")
+          .addClass("menu-item card")
+          .css({
+            display: "flex",
+            "flex-direction": "column",
+            "justify-content": "space-around",
+            border: "solid 1px black",
+            padding: "10px",
+            margin: "10px 0",
+          });
 
         ////////////Add Header for item name and price
-
         const $itemHeader = $("<header>")
           .addClass("menu-item card-header")
           .css({ display: "flex", "justify-content": "space-between" });
 
         // Create menu item name element
-        const $itemName = $("<p>").addClass("menu-name").text(item.name);
+        const $itemName = $("<p>")
+          .addClass("menu-name")
+          .text(item.name)
+          .css({ fontWeight: "bold" });
 
         // Create menu item price element
         const $itemPrice = $("<p>")
           .addClass("menu-price")
           .text("$ " + (item.price / 100).toFixed(2));
 
-        //Add the name and price to card header
+        // Add the name and price to card header
         $itemHeader.append($itemName, $itemPrice);
 
         ////////////////Add Body - For description and image
+        const $itemBody = $("<div>")
+          .addClass("menu-item card-body")
+          .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
 
-        const $itemBody = $("<div>").addClass("menu-item card-body").css({
-          display: "flex",
-          "justify-content": "space-between",
-          "align-items": "center",
-        });
+        // Create menu item description element
+        const $itemDescription = $("<p>").addClass("menu-description").text(item.description);
 
-        // Create menu item name element
-        const $itemDescription = $("<p>")
-          .addClass("menu-description")
-          .text(item.description);
-
-        // Create menu item image element THIS HAS TO BE CHANGED TO SHOW IMG BACKGROUND WITH FOOD IMAGE IN SRC
-
-        const $itemImage = $("<p>")
+        // Create menu item image element (replace with actual image source)
+        const $itemImage = $("<img>")
           .addClass("menu-img")
-          .text(item.imgUrl)
-          .css({ "font-size": "400%" });
+          .attr("src", item.imgUrl)
+          .css({ width: "100px", height: "100px" });
 
-        // Add the descrition and image into card body
+        // Add the description and image to card body
         $itemBody.append($itemDescription, $itemImage);
 
         /////////////////Add Footer - for adding/removing quantity and quantity amount
         // Create the footer section for the menu item
         const $itemFooter = $("<footer>")
           .addClass("menu-item card-footer")
-          .css({ display: "flex", "justify-content": "space-between" });
+          .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
 
-        // Create  quantity  container
+        // Create the quantity container
         const $quantityContainer = $("<div>").addClass("quantity-container");
 
-        // Create  quantity counter placeholder
+        // Create the quantity counter placeholder
         const $quantityLabel = $("<span>").text("Quantity:");
         const $quantityValue = $("<span>").addClass("quantity-value").text("0");
 
         // Create the add and remove buttons and container
-        const $quantityButtonContainer = $("<div>")
-          .addClass("quantity-buttons")
-          .addClass({ display: "flex" });
+        const $quantityButtonContainer = $("<div>").addClass("quantity-buttons").css({ display: "flex" });
 
         const $addButton = $("<button>")
           .addClass("add-button")
@@ -203,7 +200,7 @@ const renderMenu = function (menu, categories) {
           .on("click", function () {
             orderItems[item.menuItemsId]++;
             $quantityValue.text(orderItems[item.menuItemsId]);
-            console.log(orderItems); //LOG
+            console.log(orderItems); // LOG
           });
 
         const $removeButton = $("<button>")
@@ -212,8 +209,7 @@ const renderMenu = function (menu, categories) {
           .on("click", function () {
             if (orderItems[item.menuItemsId]) orderItems[item.menuItemsId]--;
             $quantityValue.text(orderItems[item.menuItemsId]);
-         
-            console.log(orderItems);///LOG
+            console.log(orderItems); // LOG
           });
 
         $quantityButtonContainer.append($addButton, $removeButton);
@@ -223,13 +219,14 @@ const renderMenu = function (menu, categories) {
         // Add the add and remove buttons and the quantity counter to the item footer
         $itemFooter.append($quantityButtonContainer, $quantityContainer);
 
-        // Add the item footer to the menu item container
+        // Add the item header, body, and footer to the menu item container
         $item.append($itemHeader, $itemBody, $itemFooter);
-        // add item to catgory container
+
+        // Add item to category container
         $category.append($item);
       }
     });
-   
+
     $customerContainer.append($category);
     $customerContainer.prepend($menuTitle);
   });
