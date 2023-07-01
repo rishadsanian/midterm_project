@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 //functions  that can be made in to their own files for modularity
@@ -8,86 +9,92 @@
 
 //////////////////////////////////LOAD MENU example data in nosql///////////////
 const categories = {
-  1: "Appetizers",
-  2: "Entrees",
-  3: "Beverages",
-  4: "Desserts",
+  1: "Appetizer",
+  2: "Main",
+  3: "Dessert",
+  4: "Drink",
+  5: "Side",
 };
-const menu = [
-  {
-    id: 1,
-    restaurantId: 1,
-    name: "Fries",
-    category: "1",
-    price: 600,
-    description: "Homemade Fresh cut Fries",
-    imgUrl: "🍟",
-  },
-  {
-    id: 2,
-    restaurantId: 1,
-    name: "Salad",
-    category: "1",
-    price: 800,
-    description: "Fresh garden Salad",
-    imgUrl: "🥗",
-  },
-  {
-    id: 3,
-    restaurantId: 1,
-    name: "Burger",
-    category: "2",
-    price: 1500,
-    description: "Juicy 8 oz with cheddar and all the works",
-    imgUrl: "🍔",
-  },
-  {
-    id: 4,
-    restaurantId: 1,
-    name: "Ribs",
-    category: "2",
-    price: 2500,
-    description: "Fall of the bone beef ribs with bold smokey bbq sauce",
-  },
-  {
-    id: 5,
-    restaurantId: 1,
-    name: "Coffee",
-    category: "3",
-    price: 200,
-    imgUrl: "☕",
-  },
-  { id: 6, restaurantId: 1, name: "Soda", category: "3", price: 150 },
-  {
-    id: 7,
-    restaurantId: 1,
-    name: "Cheesecake",
-    category: "4",
-    price: 800,
-    description: "Melt in your mouth cheesecake",
-    imgUrl: "🍰",
-  },
-  {
-    id: 8,
-    restaurantId: 1,
-    name: "Ice Cream",
-    category: "4",
-    price: 500,
-    description: "Melt if you don't eat it",
-    imgUrl: "🍦",
-  },
-];
+
+// const menu = [
+//   {
+//     id: 1,
+//     restaurant_id: 1,
+//     name: "Fries",
+//     category_id: "1",
+//     unit_price: 600,
+//     description: "Homemade Fresh cut Fries",
+//     picture_url: "🍟",
+//   },
+//   {
+//     id: 2,
+//     restaurant_id: 1,
+//     name: "Salad",
+//     category_id: "1",
+//     unit_price: 800,
+//     description: "Fresh garden Salad",
+//     picture_url: "🥗",
+//   },
+//   {
+//     id: 3,
+//     restaurant_id: 1,
+//     name: "Burger",
+//     category_id: "2",
+//     unit_price: 1500,
+//     description: "Juicy 8 oz with cheddar and all the works",
+//     picture_url: "🍔",
+//   },
+//   {
+//     id: 4,
+//     restaurant_id: 1,
+//     name: "Ribs",
+//     category_id: "2",
+//     unit_price: 2500,
+//     description: "Fall of the bone beef ribs with bold smokey bbq sauce",
+//   },
+//   {
+//     id: 5,
+//     restaurant_id: 1,
+//     name: "Coffee",
+//     category_id: "3",
+//     unit_price: 200,
+//     picture_url: "☕",
+//   },
+//   { id: 6, restaurant_id: 1, name: "Soda", category_id: "3", unit_price: 150 },
+//   {
+//     id: 7,
+//     restaurant_id: 1,
+//     name: "Cheesecake",
+//     category_id: "4",
+//     unit_price: 800,
+//     description: "Melt in your mouth cheesecake",
+//     picture_url: "🍰",
+//   },
+//   {
+//     id: 8,
+//     restaurant_id: 1,
+//     name: "Ice Cream",
+//     category_id: "4",
+//     unit_price: 500,
+//     description: "Melt if you don't eat it",
+//     picture_url: "🍦",
+//   },
+// ];
 
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
-const getMenu = function() {
+const getMenu = function () {
   $.ajax({
-    url: "/menu-api",
+    url: "/api/menu",
     method: "GET",
     dataType: "json",
-    success: function(data) {
-      console.log(data);
-      //renderMenu(data);
+    success: function (data) {
+      let menu = data.menu;
+      console.log(menu);
+      for (let item of menu) {
+        console.log(item.category_id);
+      }
+      renderMenu(menu, categories);
     },
   });
 };
@@ -123,7 +130,8 @@ const renderMenu = function (menu, categories) {
 
   /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
-
+  // const menuList = $("<p>").text(`${menu}`);
+  // $customerContainer.append(menuList);
   //////////////////////////Menu list by Category //////////////////////////////
 
   // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Need to refactor. Via sql and one for loop
@@ -141,11 +149,12 @@ const renderMenu = function (menu, categories) {
     //--------------------------------------------------------------//
     // ADD CONTAINER FOR EACH MENU ITEM IN THE CATEGORY
 
-    menu.forEach((item) => {
+    for (const item of menu) {
       // Keep track of quantity for each item
+      console.log(item.name);
       orderItems[item.id] = 0;
 
-      if (item.category === category) {
+      if (item.category_id === category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
           display: "flex",
@@ -175,7 +184,7 @@ const renderMenu = function (menu, categories) {
         // Create menu item price element
         const $itemPrice = $("<p>")
           .addClass("menu-price")
-          .text("$ " + (item.price / 100).toFixed(2));
+          .text("$ " + (item.unit_price / 100).toFixed(2));
 
         // Add the name and price to card header
         $itemHeader.append($itemName, $itemPrice);
@@ -197,8 +206,8 @@ const renderMenu = function (menu, categories) {
         // Create menu item image element (replace with actual image source)
         const $itemImage = $("<img>") //img tag when picture available
           .addClass("menu-img")
-          .text(item.imgUrl)
-          .attr("text", item.imgUrl)
+          .text(item.picture_url)
+          .attr("text", item.picture_url)
           .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
         // .css({"font-size" : "350%"});
 
@@ -240,8 +249,7 @@ const renderMenu = function (menu, categories) {
 
             //Update Subtotal value for each item qty * price
             // subtotal per item
-            subTotalValues[item.id] =
-              orderItems[item.id] * item.price;
+            subTotalValues[item.id] = orderItems[item.id] * item.unit_price;
 
             console.log(subTotalValues);
 
@@ -267,8 +275,7 @@ const renderMenu = function (menu, categories) {
             console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
-            subTotalValues[item.id] =
-              orderItems[item.id] * item.price;
+            subTotalValues[item.id] = orderItems[item.id] * item.unit_price;
 
             // subtotals sum
             subTotal = Object.values(subTotalValues).reduce(
@@ -296,7 +303,7 @@ const renderMenu = function (menu, categories) {
         // Add item to category container
         $menuListByCategory.append($item);
       }
-    });
+    }
 
     ////////////////////////////////////////////////////////////////////////////
 

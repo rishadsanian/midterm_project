@@ -7,7 +7,7 @@ const db = require("../connection");
 //route through menuapi
 
 // const getMenu = (restaurantId) => {
-//   return db.query('SELECT * FROM users;')
+//   return db.query('SELECT * FROM menu_items WHERE restaurant_id = 1;')
 //     .then(data => {
 //       return data.rows;
 //     });
@@ -111,3 +111,4 @@ const db = require("../connection");
 //updateAddress
 
 
+// module.exports = {getMenu};

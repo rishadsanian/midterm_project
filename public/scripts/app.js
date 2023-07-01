@@ -20,7 +20,7 @@ $(document).ready(function () {
 
   // CUSTOMER VIEW
   // if (userType === "Admin" || userType === "customer") {
-  renderMenu(menu, categories); //completed
+  // renderMenu(menu, categories); //completed
   // }
 
   //  OWNER VIEW
