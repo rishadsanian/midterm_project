@@ -125,6 +125,7 @@ const renderMenu = function (menu, categories) {
       });
 
     // ADD EACH MENU ITEM FOR THE CATEGORY
+    ///This currently is at O n^2. Needto refactor.
     menu.forEach((item) => {
       // Keep track of quantity for each item
       orderItems[item.menuItemsId] = 0;
@@ -132,13 +133,16 @@ const renderMenu = function (menu, categories) {
       if (item.category === category) {
         // Create menu item container
         const $item = $("<div>")
-          .addClass("menu-item card")
+          .addClass("menu-item card-hov-shadow")
           .css({
             display: "flex",
             "flex-direction": "column",
             "justify-content": "space-around",
-            border: "solid 1px black",
-            padding: "10px",
+            // border: "solid 1px black",
+            border: 'solid 2px black',
+            'border-radius': '7px',
+            padding: '1em',
+            // padding: "10px",
             margin: "10px 0",
           });
 
@@ -170,10 +174,12 @@ const renderMenu = function (menu, categories) {
         const $itemDescription = $("<p>").addClass("menu-description").text(item.description);
 
         // Create menu item image element (replace with actual image source)
-        const $itemImage = $("<img>")
+        const $itemImage = $("<img>")//img tag when picture available
           .addClass("menu-img")
-          .attr("src", item.imgUrl)
-          .css({ width: "100px", height: "100px" });
+          .text(item.imgUrl)
+          .attr("text", item.imgUrl)
+          .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
+          // .css({"font-size" : "350%"});
 
         // Add the description and image to card body
         $itemBody.append($itemDescription, $itemImage);
