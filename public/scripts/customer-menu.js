@@ -96,6 +96,10 @@ const getMenu = function () {
       }
       renderMenu(menu, categories);
     },
+    error: function(xhr, status, error) {
+      // Handle errors
+      console.log(error);
+    }
   });
 };
 
@@ -126,6 +130,8 @@ const renderMenu = function (menu, categories) {
     "justify-content": "space-between",
     "background-color": "white",
     "font-size": "large",
+    width:'50vw',
+
   });
 
   /////////////////////////////  title  /////////////////////////////////////
@@ -154,7 +160,7 @@ const renderMenu = function (menu, categories) {
       console.log(item.name);
       orderItems[item.id] = 0;
 
-      if (item.category_id == category) {
+      if (JSON.stringify(item.category_id) === category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
           display: "flex",
