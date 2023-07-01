@@ -77,9 +77,7 @@ const menu = [
   },
 ];
 
-//declare output for cart picing and quantity////////////////////WILL BE USED FOR POST//////////////////
 
-const orderItems = {};
 
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
@@ -95,6 +93,13 @@ const orderItems = {};
 // };
 
 // temp css below SHOULD BE to be moved into scss file
+
+//declare output for cart picing and quantity////////////////////WILL BE USED FOR POST//////////////////
+
+const orderItems = {};
+////////////////////////////////////////////////////////////////////////////////
+
+//Function to render the menu with abiility for user to add or remove quantities of each item from the menu
 
 const renderMenu = function (menu, categories) {
   // IDENTIFY CONTAINER
