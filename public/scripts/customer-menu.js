@@ -84,7 +84,7 @@ const categories = {
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 const getMenu = (restaurant_id) => {
-  $.get("/api/menu", function(data) {
+  $.get("/api/menu", function (data) {
     const menu = data.menu;
     console.log(menu);
 
@@ -93,7 +93,7 @@ const getMenu = (restaurant_id) => {
     }
 
     renderMenu(menu, categories);
-  }).fail(function(xhr, status, error) {
+  }).fail(function (xhr, status, error) {
     // redirect to /error -> error.ejs
     console.log(error);
   });
@@ -125,8 +125,7 @@ const renderMenu = function (menu, categories) {
     "justify-content": "space-between",
     "background-color": "white",
     "font-size": "large",
-    width:'50vw',
-
+    width: "50vw",
   });
 
   /////////////////////////////  title  /////////////////////////////////////
