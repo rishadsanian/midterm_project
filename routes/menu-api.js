@@ -5,7 +5,7 @@ const db = require('../db/connection');
 router.get('/', (req, res) => {
   //should be '/:id'
   // convert this to function
-  const query = `SELECT * FROM menu_items WHERE restaurant_id = 1;`;
+  const query = `SELECT * FROM menu_items WHERE restaurant_id = ;`;
   console.log(query);
   db.query(query)
 
