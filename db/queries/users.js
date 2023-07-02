@@ -17,7 +17,7 @@ const findUserByEmail = (email, callback) => {}; // if found return  true else f
 
 //setCookies if valid user is logged in then set cookies of userId, and userType, and logged in status
 
-//post
+//post to be used in register route
 const addUser = (newUser) => {
   //destructure keys and values into arrays
   const columns = Object.keys(newUser);
