@@ -16,7 +16,12 @@ $(document).ready(function () {
   console.log("User Type: " + userType);
 
 
-  // if (!userType) renderUserAuthentication();
+  if (!user) renderUserAuthentication();
+  if (isCustomer) renderCustomerMain();
+  if (!isCustomer) renderRestaurantDashboard();
+
+  
+
 
   // CUSTOMER VIEW
 
