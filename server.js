@@ -61,6 +61,7 @@ app.use(
 const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api"); //
 const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
+// const sessionApi = require("./routes/session-api");
 
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
@@ -75,6 +76,7 @@ const userLogout = require("./routes/logout");
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/menu", menuApi);
+// app.use("/api/sessionApi");
 // app.use("/api/login", loginApi);
 
 app.use("/users", usersRoutes);
@@ -85,30 +87,11 @@ app.use("/logout", userLogout);
 
 /////////////////////ROUTES //////////////////////////////////////////////////
 
-// ----------------------------------------------------------------------------
-// Home page
 
-// Warning: avoid creating more routes in this file!
-// Separate them into separate routes files (see above).
+// ---------------------------HOME PAGE---------------------------------------//
 
 app.get("/", (req, res) => {
-  // req.session = null; //delete cookie
-  // req.session.user = "SomeUser";
-  // req.session.userType = "customer"; //set random cookie - should be ideally be set username and type on login
-
-  // Access the session cookie
-  console.log(req.session.user);
-  console.log(req.session.userType);
-  const templateVars = {
-    user: req.session.user,
-    userType: req.session.userType,
-  };
-
-  //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
-
-  !templateVars.user
-    ? res.render("index", templateVars)
-    : res.render("index", templateVars);
+  res.render("index");
 });
 
 // ----------------------------------------------------------------------------

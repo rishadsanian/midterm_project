@@ -7,36 +7,44 @@ router.post("/", (req, res) => {
   const { email, password } = req.body;
 
   // Check if the email and password match the credentials in the database
-  const query = `SELECT first_name, last_name, email, password, isCustomer FROM users WHERE email = $1`;
+  const query = `SELECT first_name, last_name, phone, email, password, isCustomer FROM users WHERE email = $1`;
   db.query(query, [email])
-    .then((user) => {
+    .then((data) => {
       //check if email matched - user exists
-      if (user.rows.length === 0) {
+      if (data.rows.length === 0) {
         return res.send("User not found");
       }
 
       // Incorrect password
-      if (!user.password === password) {
+      if (!data.password === password) {
         res.send("Incorrect password");
       }
 
       // Authentication successful
-      console.log("authentication successful");
-      const currentUser = user.rows[0];
-      res.redirect("/");
+      console.log("Authentication successful");
+      const user = data.rows[0];
 
+      //Set Cookies
       req.session.userId = user.id;
       req.session.firstname = user.first_name;
       req.session.lastname = user.last_name;
-      req.session.isCustomer = user.isCustomer;
+      req.session.isCustomer = user.iscustomer;
       req.session.phone = user.phone;
 
-      console.log(currentUser);
+      // console.log(user);
 
-      res.redirect("/");
+      let templateVars = {
+        user: user.first_name,
+        userType: user.iscustomer,
 
-      //save to template vars and send to index
+      };
+
+      //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
+
+      res.render("index", templateVars);
     })
+    // route to index.ejs //need to ensure  cookies goes with it.
+    // res.redirect("/");
 
     .catch((error) => {
       console.log(error);

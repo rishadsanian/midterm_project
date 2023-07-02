@@ -1,43 +1,4 @@
-sass styles.scss styles.css body,
+body,
 html {
-  margin: 0%;
-}
-
-form {
-  background-color: white;
-}
-
-.form-container {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 5px;
-}
-
-.form-group {
-  margin-bottom: 20px;
-}
-
-.form-label {
-  display: block;
-  font-weight: bold;
-}
-
-.form-input {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.form-button {
-  background-color: rgba(0, 0, 0, 0.5);
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.form-button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
+  margin: 0;
 }/*# sourceMappingURL=layout.css.map */
