@@ -12,6 +12,3 @@
 
 // const {getMenu} = require("../../../db/queries/helper_queries");
 
-const user = $("#dataContainer").data("user");
-const userType = $("#dataContainer").data("userType");
-
