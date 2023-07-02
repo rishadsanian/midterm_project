@@ -2,14 +2,17 @@
 // ----------------------------------------------------------------------------
 const express = require("express");
 const router = express.Router();
+const cookieSession = require("cookie-session");
+const bcrypt = require("bcryptjs");
+const salt = bcrypt.genSaltSync(10);
 
-router.get("/register", (req, res) => {
-  const templateVars = { user: users[req.session.userID] };
+// router.get("/register", (req, res) => {
+//   const templateVars = { user: users[req.session.userID] };
 
-  !templateVars.user
-    ? res.render(`user_register`, templateVars)
-    : res.redirect(`/urls`);
-});
+//   !templateVars.user
+//     ? res.render(`user_register`, templateVars)
+//     : res.redirect(`/urls`);
+// });
 
 // ----------------------------------------------------------------------------
 
@@ -31,8 +34,6 @@ router.get("/register", (req, res) => {
 //   const userId = "user" + generateRandomString(users);
 
 //   //password security
-  const password = req.body.password;
-  const hashedPassword = bcrypt.hashSync(password, salt);
 
 //   //Save user to user database
 //   users[userId] = {
@@ -46,17 +47,13 @@ router.get("/register", (req, res) => {
 //   res.redirect(`/urls`);
 // });
 
-
 //saves user settings in users object
 router.post("/", (req, res) => {
   //validation
 
   //Check empty email or passwords
-  if (!req.body.email || !req.body.password) {
-
-    //get username, password, and is customer from body
-    const { username, password, isCustomer } = req.body;
-    return res.status(400).send("Email and password are required.");
+  if (!req.body.email || !req.body.password || !req.body.isCustomer) {
+    return res.status(400).send("Email, password and customer type are required."); //jquery to add error handling snippet
   }
 
   //Check for duplicate emails for reg
@@ -64,11 +61,9 @@ router.post("/", (req, res) => {
     return res.status(409).send("User already exists.");
   }
 
-  //create new userId
-  const userId = "user" + generateRandomString(users);
+  const { username, password, isCustomer } = req.body;
 
   //password security
-  const password = req.body.password;
   const hashedPassword = bcrypt.hashSync(password, salt);
 
   //Save user to user database

@@ -14,6 +14,7 @@ const findUserByEmail = (email, callback) => {}; // if found return  true else f
 
 // userExists will return true or false depending on if their email exists in db
 
+
 //setCookies if valid user is logged in then set cookies of userId, and userType, and logged in status
 
 //post
@@ -30,7 +31,7 @@ const addUser = (newUser) => {
 
   //queryString
   const qs = `
-    INSERT INTO properties (${columns.join(", ")})
+    INSERT INTO users (${columns.join(", ")})
     VALUES (${placeholders.join(", ")})
     RETURNING *;
   `;

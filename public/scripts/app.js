@@ -1,6 +1,8 @@
 /* eslint-disable no-undef */
 // Client facing scripts here
 
+const { load } = require("dotenv");
+
 ////////////////////////////////////////////////////////////////////////////////
 ////                   HUNGRY HUMANS /any company                           ////
 ///                        FOOD ORDERING APP                               ////
@@ -15,19 +17,28 @@ $(document).ready(function () {
   console.log("User: " + user);
   console.log("User Type: " + userType);
 
+  if (!user) {
+    renderUserAuthentication();
+    renderUserLogin(); //need to implement toggle on or load
+    renderCreateUser();//need to implement toggle on or load
+  }
 
-  if (!user) renderUserAuthentication();
-  if (isCustomer) renderCustomerMain();
+  if (isCustomer) {
+    renderCustomerMain();//need to implement
+    getMenu();
+    showCart();//need to implement
+    getStatus();
+  }
+
   if (!isCustomer) renderRestaurantDashboard();
+  renderRestaurantDashboard();
+  loadOrderbyStatus();
 
-  
-
+  //need to implement
 
   // CUSTOMER VIEW
 
-  getMenu();
 
-  
   // if (userType === "Admin" || userType === "customer") {
   // renderMenu(menu, categories); //completed
   // }
