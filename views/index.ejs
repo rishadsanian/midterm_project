@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/menu.css" />
-    
+
 
     <!-------------------------APP SCRIPTS ------------------------------------>
 
@@ -43,7 +43,7 @@
  <br />
 
  <form action="/login" method="POST">
-  <div class="form-group mb-2">
+  <div class="new-user-form">
     <label for="email" style="font-weight: 500">Email Address</label>
     <input
       class="form-control"
@@ -70,18 +70,80 @@
     </button>
   </div>
 </form>
+
     <button id="restaurant-owner-btn">Restaurant Owner</button>
     <button id="customer-btn">Customer</button>
    </section>
 
    <section class = 'create-account'>
+    <h3>Create Account</h3>
+    <br />
+    <form action="/register" method="POST">
+      <div class="register-new-user-customer">
+        <label for="first_name">First Name:</label>
+        <input
+          class="form-control"
+          id="first_name"
+          type="text"
+          name="first_name"
+          placeholder="Enter first name"
+          required
+        />
 
+        <label for="last_name">Last Name:</label>
+        <input
+          class="form-control"
+          id="last_name"
+          type="text"
+          name="last_name"
+          placeholder="Enter last name"
+          required
+          />
+
+
+        <label for="phone">Phone:</label>
+        <input
+          class="form-control"
+          id="phone"
+          type="tel"
+          name="phone"
+          placeholder="Enter phone number"
+          required
+          />
+
+          <label for="email">Email Address:</label>
+          <input
+            class="form-control"
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Enter email"
+            required
+          />
+
+          <label for="password">Password:</label>
+          <input
+            class="form-control"
+            id="password"
+            type="password"
+            name="password"
+            placeholder="Enter password"
+            required
+          />
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">
+          Register
+        </button>
+      </div>
+    </form>
   </section>
 
-  
+
   <section class = 'add-restaurant'>
 
   </section>
+
 
   <section class = 'add-menu'></section>
 
@@ -91,14 +153,14 @@
 <!-- can be generated or unhide with jquery  on user tpe identification  -->
 
 <section id = 'restaurant-user' class = 'hidden-on-load'>
-  
+
   <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, READY COMPLETED FOR STATUS-->
 
   <!-- STRETCH ANALYTICS SECTION  -->
-  
+
   <!-- STRETCH MENU MODIFICATION SECTION -->
-  
-  
+
+
 </section>
 <!-- / -->
 
@@ -113,18 +175,18 @@
 
 <!-- Menu section either form or submit button with prevent default
   add and delete buttons AND   + - button to set quantity -->
-  
-  
-  <div class = 'menu'> 
+
+
+  <div class = 'menu'>
   </div>
-  
-  
-  
+
+
+
   <!---------------------------CART ------------------------------------>
   <div class = 'cart'>
   </div>
-  
-  
+
+
   <!---------------------CONFIRMATION and Status --------------------------->
 
   <div class = 'confirmation'>
@@ -134,10 +196,10 @@
 
     </main>
 
-  
 
 
 
- 
+
+
   </body>
 </html>
