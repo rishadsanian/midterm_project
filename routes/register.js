@@ -1,6 +1,18 @@
 const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
+const cookieSession = require("cookie-session");
+const bcrypt = require("bcryptjs");
+const salt = bcrypt.genSaltSync(10);
+
+
+
+
+
+
+
+
+
 
 
 ////need to be changed
@@ -46,39 +58,6 @@ module.exports = router;
 
 // // ----------------------------------------------------------------------------
 
-// // //saves user settings in users object
-// // router.post("/register", (req, res) => {
-// //   //validation
-
-// //   //Check empty email or passwords
-// //   if (!req.body.email || !req.body.password) {
-// //     return res.status(400).send("Email and password are required.");
-// //   }
-
-// //   //Check for duplicate emails for reg
-// //   if (findUserByEmail(req.body.email, users) !== null) {
-// //     return res.status(409).send("User already exists.");
-// //   }
-
-// //   //create new userId
-// //   const userId = "user" + generateRandomString(users);
-
-// //   //password security
-
-// //   //Save user to user database
-// //   users[userId] = {
-// //     id: userId,
-// //     email: req.body.email,
-// //     password: hashedPassword, //todo hash for security
-// //   };
-
-// //   //Set cookies and redirect to /urls
-// //   req.session.userID = userId;
-// //   res.redirect(`/urls`);
-// // });
-
-// //saves user settings in users object
-
 
 router.post("/", (req, res) => {
   //validation
@@ -93,15 +72,20 @@ router.post("/", (req, res) => {
     return res.status(409).send("User already exists.");
   }
 
+  //Declare variables
   const { username, password, isCustomer } = req.body;
 
   //password security
   const hashedPassword = bcrypt.hashSync(password, salt);
 
-  //Save user to user database
-  addUser
 
-  //Set cookies and redirect to /urls
-  req.session.userID = userId;
-  res.redirect(`/urls`);
+  //Save user to user database
+  addUser();
+
+
+  //Set cookies for username, usertype, user id and iscutomer
+  console.log(req.session);
+  // req.session.userID = userId;
+  //redirect to index
+  res.redirect(`/`);
 });
