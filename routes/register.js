@@ -78,28 +78,30 @@ module.exports = router;
 // // });
 
 // //saves user settings in users object
-// router.post("/", (req, res) => {
-//   //validation
 
-//   //Check empty email or passwords
-//   if (!req.body.email || !req.body.password || !req.body.isCustomer) {
-//     return res.status(400).send("Email, password and customer type are required."); //jquery to add error handling snippet
-//   }
 
-//   //Check for duplicate emails for reg
-//   if (findUserByEmail(email) !== null) {
-//     return res.status(409).send("User already exists.");
-//   }
+router.post("/", (req, res) => {
+  //validation
 
-//   const { username, password, isCustomer } = req.body;
+  //Check empty email or passwords
+  if (!req.body.email || !req.body.password || !req.body.isCustomer) {
+    return res.status(400).send("Email, password and customer type are required."); //jquery to add error handling snippet
+  }
 
-//   //password security
-//   const hashedPassword = bcrypt.hashSync(password, salt);
+  //Check for duplicate emails for reg
+  if (findUserByEmail(email) !== null) {
+    return res.status(409).send("User already exists.");
+  }
 
-//   //Save user to user database
-//   addUser
+  const { username, password, isCustomer } = req.body;
 
-//   //Set cookies and redirect to /urls
-//   req.session.userID = userId;
-//   res.redirect(`/urls`);
-// });
+  //password security
+  const hashedPassword = bcrypt.hashSync(password, salt);
+
+  //Save user to user database
+  addUser
+
+  //Set cookies and redirect to /urls
+  req.session.userID = userId;
+  res.redirect(`/urls`);
+});
