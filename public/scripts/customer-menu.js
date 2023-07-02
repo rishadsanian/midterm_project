@@ -83,26 +83,21 @@ const categories = {
 
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
-const getMenu = function () {
-  $.ajax({
-    url: "/api/menu",
-    method: "GET",
-    dataType: "json",
-    success: function (data) {
-      let menu = data.menu;
-      console.log(menu);
-      for (let item of menu) {
-        console.log(item.category_id);
-      }
-      renderMenu(menu, categories);
-    },
-    error: function(xhr, status, error) {
-      // Handle errors
-      console.log(error);
+const getMenu = () => {
+  $.get("/api/menu", function(data) {
+    const menu = data.menu;
+    console.log(menu);
+
+    for (const item of menu) {
+      console.log(item.category_id);
     }
+
+    renderMenu(menu, categories);
+  }).fail(function(xhr, status, error) {
+    // redirect to /error -> error.ejs
+    console.log(error);
   });
 };
-
 // temp css below SHOULD BE to be moved into scss file
 
 //declare output for cart picing and quantit and subtotal for running totaly////////////////////WILL BE USED FOR POST//////////////////
