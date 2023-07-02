@@ -72,26 +72,6 @@ const db = require("../connection");
 
 // showPopularOrders
 
-//showLeastPopularOrders
-
-//showBusyTimes (period) //day, week, month, year
-
-//showProductivityRate
-
-//showAverageCompletionTime
-
-//showAveragePrepareTime
-
-// setItemRating
-
-
-// suggestEstimatedTime -- major stretch, based on stdv of collected data on preparing and completion time - show to customer and restaurant to accept
-
-//showSugestedRestaurants -- major stretch use classification to match pereferences of similiar users
-
-
-//showItemRecommendations -- major stretch use classification to match preferences in similar food items
-
 // setRestaurantRating
 
 // getUserbyId include restaurant owner or customer
