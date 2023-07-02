@@ -58,16 +58,14 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require("./routes/users-api"); //GETS INFO FROM API IF NEEDED
-const 
+const userApiRoutes = require("./routes/users-api");
 const widgetApiRoutes = require("./routes/widgets-api"); //
+const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
+
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
-
-const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
 const createUser = require("./routes/register");
 const userLogout = require("./routes/logout");
-
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -77,7 +75,7 @@ const userLogout = require("./routes/logout");
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/menu", menuApi);
-
+// app.use("/api/login", loginApi);
 
 app.use("/users", usersRoutes);
 app.use("/login", userLogin);
@@ -95,8 +93,8 @@ app.use("/logout", userLogout);
 
 app.get("/", (req, res) => {
   // req.session = null; //delete cookie
-  req.session.user = "SomeUser";
-  req.session.userType = "customer"; //set random cookie - should be ideally be set username and type on login
+  // req.session.user = "SomeUser";
+  // req.session.userType = "customer"; //set random cookie - should be ideally be set username and type on login
 
   // Access the session cookie
   console.log(req.session.user);

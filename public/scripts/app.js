@@ -16,12 +16,9 @@ $(document).ready(function () {
   // userSessionInformation();
   console.log("User: " + user);
   console.log("User Type: " + userType);
-  // renderUserAuthentication();
 
-
-  
   if (!user) {
-    // renderUserAuthentication();
+    renderUserAuthentication();
     renderUserLogin(); //need to implement toggle on or load
     renderCreateUser();//need to implement toggle on or load
   }

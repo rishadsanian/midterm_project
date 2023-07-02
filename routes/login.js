@@ -2,50 +2,46 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
 
-// router.get("/", (req, res) => {
-//   //should be '/:id'
-//   // convert this to function
-//   const query = `SELECT * FROM menu_items WHERE restaurant_id = ;`;
-//   console.log(query);
-//   db.query(query)
+// POST route for user login
+router.post("/", (req, res) => {
+  const { email, password } = req.body;
 
-//     .then((data) => {
-//       const menu = data.rows;
-//       console.log(menu);
-//       res.json({ menu });
-//     })
-//     .catch((err) => {
-//       res.status(500).json({ error: err.message });
-//     });
-// });
+  // Check if the email and password match the credentials in the database
+  const query = `SELECT first_name, last_name, email, password, isCustomer FROM users WHERE email = $1`;
+  db.query(query, [email])
+    .then((user) => {
+      //check if email matched - user exists
+      if (user.rows.length === 0) {
+        return res.send("User not found");
+      }
 
-router.get("/", (req, res) => {
-  // const inputEmail = req.body.email;
-  const inputEmail = "smacshane8@telegraph.co.uk";
-  const inputPassword = req.body.password;
-  const query = `SELECT email, password from users `;
-  // where email = smacshane8@telegraph.co.uk;`;
+      // Incorrect password
+      if (!user.password === password) {
+        res.send("Incorrect password");
+      }
 
-  db.query(query)
-    .then((userObject) => {
-      console.log(userObject);
-      // res.json({ menu });
+      // Authentication successful
+      console.log("authentication successful");
+      const currentUser = user.rows[0];
+      res.redirect("/");
+
+      req.session.userId = user.id;
+      req.session.firstname = user.first_name;
+      req.session.lastname = user.last_name;
+      req.session.isCustomer = user.isCustomer;
+      req.session.phone = user.phone;
+
+      console.log(currentUser);
+
+      res.redirect("/");
+
+      //save to template vars and send to index
     })
-    .catch((err) => {
-      res.status(500).json({ error: err.message });
-    });
-  // need a sql query that will  take in an email  and check if it exists in email db sq;
 
-  console.log("need jquery to render login form");
-  res.render("users");
+    .catch((error) => {
+      console.log(error);
+      res.status(500).send("An error occurred");
+    });
 });
 
 module.exports = router;
-
-router.post("/", (req, res) => {
-  const userData = req.body;
-  // Process the userData and perform necessary actions
-
-  // Send a response back to the client
-  res.send("User data received and processed successfully!");
-});
