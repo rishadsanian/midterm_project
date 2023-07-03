@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="/styles/main.css" />
     <link rel="stylesheet" href="/styles/layout.css" />
     <link rel="stylesheet" href="/styles/menu.css" />
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
 
     <!-------------------------APP SCRIPTS ------------------------------------>
 
@@ -27,6 +27,10 @@
     <script defer src="/scripts/helpers.js"></script>
   </head>
 
+  <!---------------------External JS------------------------------------------->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
   <!-------------------------DB SCRIPTS  ------------------------------------>
 
 
@@ -35,8 +39,8 @@
 
     <!-------------------------ATTEMPT TO EXTRACT COOKIE INFORMATION TO EXTERNAL SCRIPT ------------------------------------>
     <div id="dataContainer" data-user="<%= user %>" data-userType="<%= userType %>"></div>
-    <header>Include from partials which will include nav?</header>
-<!--   ------------------------------------------------------ -->
+    <header>  <%- include('partials/header') %></header>
+    <!--   ------------------------------------------------------ -->
 
 
 <!-- test INTERNAL EJS cookies FROM TEMPLATE VARS -->
@@ -48,45 +52,7 @@
 
    <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT on click with jquery -->
 
-    <section class = 'login'>
-     <h3 style="font-weight: 600; margin-bottom: 0">Login</h3>
- <br />
 
- <form action="/login" method="POST">
-  <div class="new-user-form">
-    <label for="email" style="font-weight: 500">Email Address</label>
-    <input
-      class="form-control"
-      id="email"
-      type="email"
-      name="email"
-      placeholder="Enter email"
-      style="width: 300px; margin-bottom: 1em"
-    />
-
-    <label for="password" style="font-weight: 500">Password</label>
-    <input
-      class="form-control"
-      id="password"
-      type="password"
-      name="password"
-      placeholder="Password"
-      style="width: 300px; margin-bottom: 1em"
-    />
-  </div>
-  <div class="form-group">
-    <button type="submit" class="btn btn-primary" style="width: 5em">
-      Login
-    </button>
-  </div>
-</form>
-
-    <button id="restaurant-owner-btn">Restaurant Owner</button>
-    <button id="customer-btn">Customer</button>
-   </section>
-
-
-  
 
 
 <!-- Restaurant Owner Section -->

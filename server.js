@@ -18,7 +18,6 @@ const bcrypt = require("bcryptjs");
 // Web server setup
 const express = require("express");
 const morgan = require("morgan");
-
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -63,8 +62,13 @@ const userApiRoutes = require("./routes/users-api"); //GETS INFO FROM API IF NEE
 const widgetApiRoutes = require("./routes/widgets-api"); //
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
+<<<<<<< HEAD
 const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
 const createUser = require("./routes/register");
+=======
+const menuApi = require("./routes/menu-api");// GETS MENU FROM SQL
+const userLogout = require("./routes/logout");
+>>>>>>> mainpage
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -77,8 +81,15 @@ app.use("/api/menu", menuApi);
 
 
 app.use("/users", usersRoutes);
+<<<<<<< HEAD
 app.use("/login", userLogin);
 app.use("/register", createUser);
+=======
+//app.use("/register, ");
+app.use('/login', userLogin);
+app.use('/logout', userLogout);
+
+>>>>>>> mainpage
 
 // Note: mount other resources here, using the same pattern above
 
