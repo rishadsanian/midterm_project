@@ -160,10 +160,11 @@ const renderMenu = function (menu, categories) {
           display: "flex",
           "flex-direction": "column",
           "justify-content": "space-around",
+          
           // border: "solid 1px black",
           border: "solid 2px black",
           "border-radius": "7px",
-          padding: "1em",
+          padding: "0",
           // padding: "10px",
           margin: "10px 0",
         });
@@ -173,13 +174,13 @@ const renderMenu = function (menu, categories) {
         ////////////Add Header for item name and price
         const $itemHeader = $("<header>")
           .addClass("menu-item card-header")
-          .css({ display: "flex", "justify-content": "space-between" });
+          .css({ display: "flex", "justify-content": "space-between", "background-color":"slategray", padding: "0.8em", 'padding-bottom':'0', margin: "0" });
 
         // Create menu item name element
         const $itemName = $("<p>")
           .addClass("menu-name")
           .text(item.name)
-          .css({ fontWeight: "bold" });
+          .css({ fontWeight: "bold",  });
 
         // Create menu item price element
         const $itemPrice = $("<p>")
@@ -196,6 +197,7 @@ const renderMenu = function (menu, categories) {
           display: "flex",
           "justify-content": "space-between",
           alignItems: "center",
+          padding:'1em'
         });
 
         // Create menu item description element
@@ -208,7 +210,7 @@ const renderMenu = function (menu, categories) {
           .addClass("menu-img")
           .text(item.picture_url)
           .attr("text", item.picture_url)
-          .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
+          .css({ width: "6em", height: "6em" }); //for img needs to be changed into em...
         // .css({"font-size" : "350%"});
 
         // Add the description and image to card body
@@ -224,19 +226,20 @@ const renderMenu = function (menu, categories) {
             display: "flex",
             "justify-content": "space-between",
             alignItems: "center",
+            padding: '0.8em'
           });
 
         // Create the quantity container
         const $quantityContainer = $("<div>").addClass("quantity-container");
 
         // Create the quantity counter placeholder
-        const $quantityLabel = $("<span>").text("Quantity:");
+        const $quantityLabel = $("<span>").text("Quantity: ");
         const $quantityValue = $("<span>").addClass("quantity-value").text("0");
 
         // Create the add and remove buttons and container
         const $quantityButtonContainer = $("<div>")
           .addClass("quantity-buttons")
-          .css({ display: "flex" });
+          .css({ display: "flex", 'justify-content':'space-between' });
 
         const $addButton = $("<button>")
           .addClass("add-button")
@@ -268,6 +271,7 @@ const renderMenu = function (menu, categories) {
         const $removeButton = $("<button>")
           .addClass("remove-button")
           .text("Remove")
+          
           .on("click", function () {
             //remove from quantity counter
             if (orderItems[item.id]) orderItems[item.id]--;
@@ -320,8 +324,11 @@ const renderMenu = function (menu, categories) {
     display: "flex",
     "flex-direction": "column",
     "background-color": "white",
+    'text-align':'center',
+    'width':'91.2%',
     position: "sticky",
     bottom: "0",
+    margin: "5%"
   });
 
   //checkout button

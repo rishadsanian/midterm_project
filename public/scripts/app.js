@@ -16,10 +16,11 @@ $(document).ready(function () {
   // userSessionInformation();
 
   // fetchUserInfo();
-
+  $(".login-form").hide();
+  getMenu();
   if (!user) authenticateUser();
 
-  if (currentUser) console.log("Current User: ", currentUser);
+  // if (currentUser) console.log("Current User: ", currentUser);
 
   console.log(currentUser());
 
