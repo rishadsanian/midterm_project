@@ -9,3 +9,11 @@ router.get("/", (req, res) => {
 });
 
 module.exports = router;
+
+router.post("/", (req, res) => {
+  const userData = req.body;
+  // Process the userData and perform necessary actions
+
+  // Send a response back to the client
+  res.send("User data received and processed successfully!");
+});

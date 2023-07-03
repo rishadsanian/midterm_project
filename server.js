@@ -33,7 +33,6 @@ app.set("view engine", "ejs");
 app.use(morgan("dev"));
 app.use(express.urlencoded({ extended: true }));
 
-
 app.use(
   "/styles",
   sassMiddleware({
@@ -60,26 +59,26 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require("./routes/users-api");//GETS INFO FROM API IF NEEDED
-const widgetApiRoutes = require("./routes/widgets-api");//
+const userApiRoutes = require("./routes/users-api"); //GETS INFO FROM API IF NEEDED
+const widgetApiRoutes = require("./routes/widgets-api"); //
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
-const menuApi = require("./routes/menu-api");// GETS MENU FROM SQL
+const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
+const createUser = require("./routes/register");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
-
+//GET DATA FROM SQL
 app.use("/api/users", userApiRoutes);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/menu", menuApi);
 
 
 app.use("/users", usersRoutes);
-
-app.use('/login', userLogin);
-
+app.use("/login", userLogin);
+app.use("/register", createUser);
 
 // Note: mount other resources here, using the same pattern above
 
@@ -94,7 +93,7 @@ app.use('/login', userLogin);
 app.get("/", (req, res) => {
   // req.session = null; //delete cookie
   req.session.user = "SomeUser";
-  req.session.userType = "Admin"; //set random cookie - should be ideally be set username and type on login
+  req.session.userType = "customer"; //set random cookie - should be ideally be set username and type on login
 
   // Access the session cookie
   console.log(req.session.user);
@@ -105,7 +104,7 @@ app.get("/", (req, res) => {
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
-  
+
   !templateVars.user
     ? res.render("index", templateVars)
     : res.render("index", templateVars);
