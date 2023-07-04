@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Home Page</title>
+    <title>feed Hungry</title>
 
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -39,25 +39,24 @@
   <!-------------------------BODY  ------------------------------------>
   <body>
 
-    <!-------------------------ATTEMPT TO EXTRACT COOKIE INFORMATION TO EXTERNAL SCRIPT ------------------------------------>
-    <div id="dataContainer" data-user="<%= user %>" data-userType="<%= userType %>"></div>
-
-
-    <header>  <%- include('partials/header') %></header>
+    
+    <!-- <header>  <%- include('partials/header') %></header> -->
     <!--   ------------------------------------------------------ -->
 
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Welcome to the feedHungry</h1>
+        <p>Order your favorite food online and have it delivered right to your doorstep.</p>
+        <a href="/login" class="btn">Get Started</a>
+      </div>
+    </section>
 
-<!-- test INTERNAL EJS cookies FROM TEMPLATE VARS -->
-    <main>
-      <h1>Welcome <%= user %> 🥔</h1>
-      <h2>User Type: <%= userType %></h2>
-       <br>
-      <h2>Restaurant Name</h2>
-
-   <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT on click with jquery -->
-
+    <!-- Other sections for customer and restaurant views -->
+     <!-- USER AUTHENTICATION  -->
    <section id = 'user-authentication' class = 'user-authentication'>
-    <section class = 'login-form'>
+
+    <!-- on click show below -->
+    <!-- <section class = 'login-form'>
       <h1>Login</h1>
       <form action="/login" method="POST">
         <div>
@@ -71,9 +70,50 @@
           <input type="submit" value="Login">
         </div>
       </form>
-      </section>
+      </section> -->
 
    </section>
+
+   <section id = 'restaurant-user' class = 'hidden-on-load'>
+
+    <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, READY COMPLETED FOR STATUS-->
+  
+    <!-- STRETCH ANALYTICS SECTION  -->
+  
+    <!-- STRETCH MENU MODIFICATION SECTION -->
+  
+  
+  </section>
+  <!-- / -->
+
+    <section class="footer">
+      <div class="footer-content">
+        <p>&copy; 2023 Food Ordering App. All rights reserved.</p>
+      </div>
+    </section>
+
+
+
+
+
+ 
+
+
+      <!-- <h1>Welcome <%= user %> 🥔</h1>
+      <h2>User Type: <%= userType %></h2>
+       <br>  move to nav-->
+
+
+      <!-- <h2>Restaurant Name</h2> move to menu view -->
+
+   <!-- LOGIC TO DETERMINE IF USER IS CUSTOMER OR RESTAURANT on click with jquery -->
+
+
+
+
+
+
+  
 
 
 
@@ -81,17 +121,7 @@
 
 <!-- can be generated or unhide with jquery  on user tpe identification  -->
 
-<section id = 'restaurant-user' class = 'hidden-on-load'>
 
-  <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, READY COMPLETED FOR STATUS-->
-
-  <!-- STRETCH ANALYTICS SECTION  -->
-
-  <!-- STRETCH MENU MODIFICATION SECTION -->
-
-
-</section>
-<!-- / -->
 
 
 
