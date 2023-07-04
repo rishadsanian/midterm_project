@@ -6,6 +6,9 @@ header {
   background-color: $color-secondary;
   color: $color-neutral;
   padding: 0.625rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   
 
   .custom-nav {
@@ -46,9 +49,12 @@ header {
           text-decoration: none;
           color: $color-neutral;
           transition: color 0.3s ease;
+          border-radius: 7em;
 
           &:hover {
             color: $color-highlight;
+            background-color: $color-neutral;
+            padding:0.5em;
           }
         }
       }

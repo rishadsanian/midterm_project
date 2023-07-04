@@ -161,11 +161,12 @@ const renderMenu = function (menu, categories) {
           "flex-direction": "column",
           "justify-content": "space-around",
           // border: "solid 1px black",
-          border: "solid 2px black",
-          "border-radius": "7px",
-          padding: "1em",
+          border: "solid 1px black",
+          "border-radius": "7em",
+          padding: "2.5em",
           // padding: "10px",
           margin: "10px 0",
+          overflow: "hidden"
         });
 
         //--------------------------------------------------------------//
