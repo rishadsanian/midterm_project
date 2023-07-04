@@ -1,0 +1,66 @@
+
+
+@import 'variables';
+
+header {
+  background-color: $color-secondary;
+  color: $color-neutral;
+  padding: 0.625rem;
+  
+
+  .custom-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-brand {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+
+      .logo-img {
+        width: 40px;
+        height: 40px;
+        margin-right: 0.5rem;
+      }
+
+      .logo-text {
+        font-family: $font-family-logo;
+        font-size: 1.2rem;
+      }
+    }
+
+    .nav-links {
+      display: flex;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 1rem;
+
+        .nav-link {
+          text-decoration: none;
+          color: $color-neutral;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $color-highlight;
+          }
+        }
+      }
+    }
+
+    .nav-links-end {
+      li {
+        margin-left: 0.5rem;
+        font-family: $font-family-primary;
+      
+        ;
+      }
+    }
+  }
+}

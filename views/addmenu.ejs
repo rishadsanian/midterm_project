@@ -1,0 +1,67 @@
+<section class="add-menu">
+  <h3>Add Menu Item</h3>
+  <br />
+  <form action="/add-menu-item" method="POST">
+    <div class="menu-item-details">
+      <label for="restaurant_id">Restaurant ID:</label>
+      <input
+        class="form-control"
+        id="restaurant_id"
+        type="number"
+        name="restaurant_id"
+        required
+      />
+
+      <label for="category_id">Category ID:</label>
+      <input
+        class="form-control"
+        id="category_id"
+        type="number"
+        name="category_id"
+        required
+      />
+
+      <label for="name">Name:</label>
+      <input
+        class="form-control"
+        id="name"
+        type="text"
+        name="name"
+        placeholder="Enter item name"
+        required
+      />
+
+      <label for="description">Description:</label>
+      <input
+        class="form-control"
+        id="description"
+        type="text"
+        name="description"
+        placeholder="Enter item description"
+      />
+
+      <label for="picture_url">Picture URL:</label>
+      <input
+        class="form-control"
+        id="picture_url"
+        type="text"
+        name="picture_url"
+        placeholder="Enter picture URL"
+      />
+
+      <label for="unit_price">Unit Price:</label>
+      <input
+        class="form-control"
+        id="unit_price"
+        type="number"
+        name="unit_price"
+        placeholder="Enter unit price"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Menu Item</button>
+    </div>
+  </form>
+</section>
