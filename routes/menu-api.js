@@ -5,11 +5,11 @@ const db = require('../db/connection');
 
 //GET menu by restaurant id
 
-router.get('/:id', (req, res) => {
-  const restaurantId = req.params.id;
+router.get('/', (req, res) => {
+  // const restaurantId = req.params.id;
   const query = 'SELECT * FROM menu_items WHERE restaurant_id = $1;';
   
-  db.query(query, [restaurantId])
+  db.query(query, [1])
     .then(data => {
       const menu = data.rows;
       console.log(menu);
