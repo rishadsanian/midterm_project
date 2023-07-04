@@ -65,6 +65,7 @@ const widgetApiRoutes = require("./routes/widgets-api");//
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
 const menuApi = require("./routes/menu-api");// GETS MENU FROM SQL
+const logout = require("./routes/logout"); // to to perform logout clear cookies
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -79,6 +80,7 @@ app.use("/api/menu", menuApi);
 app.use("/users", usersRoutes);
 
 app.use('/login', userLogin);
+app.use('/logout', logout);
 
 
 // Note: mount other resources here, using the same pattern above
@@ -105,7 +107,7 @@ app.get("/", (req, res) => {
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
-  
+
   !templateVars.user
     ? res.render("index", templateVars)
     : res.render("index", templateVars);
