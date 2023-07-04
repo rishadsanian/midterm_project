@@ -1,0 +1,52 @@
+/* style.scss */
+/* Global styles */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&family=Pacifico&family=Source+Sans+Pro:wght@300;600&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Header */
+header {
+  background-color: #220901 !important;
+  color: #fff;
+  padding: 1rem;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-family: "Pacifico", cursive;
+  font-weight: bold;
+}
+
+.logo-img {
+  width: 2.5em;
+  height: 2.5em;
+  margin-right: 0.5rem;
+}
+
+.navbar-toggler {
+  border-color: #fff;
+}
+
+.navbar-toggler-icon {
+  background-color: #fff;
+}
+
+.navbar-nav {
+  margin-left: auto;
+}
+
+.nav-link {
+  color: #fff;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+.nav-link:hover {
+  color: #F6AA1C;
+}/*# sourceMappingURL=nav.css.map */

@@ -1,4 +1,4 @@
-
+@import '~bootstrap/scss/variables';
 $hero-background-image: 'bla://unsplash.com/photos/nA6Xhnq2Od8';
 
 //COLOURS
@@ -7,3 +7,12 @@ $color-secondary: #621708;
 $color-accent: #941B0C;
 $color-highlight: #BC3908;
 $color-neutral: #F6AA1C;
+
+
+//FONTS
+
+$font-family-primary: 'Montserrat', sans-serif;
+$font-family-secondary: 'Source Sans 3', sans-serif;
+$font-family-logo: 'Pacifico', cursive;
+
+@import '~bootstrap/scss/bootstrap';
