@@ -9,7 +9,7 @@ router.get('/', (req, res) => {
   // const restaurantId = req.params.id;
   const query = 'SELECT * FROM menu_items WHERE restaurant_id = $1;';
   
-  db.query(query, [1])
+  db.query(query, ["1"])
     .then(data => {
       const menu = data.rows;
       console.log(menu);
