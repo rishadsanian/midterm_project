@@ -1,32 +1,23 @@
-<header>
-  <nav class="navbar navbar-expand-md navbar-dark bg-success">
-    <a class="navbar-brand" href="/">FeedHunger</a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-toggle="collapse"
-      data-target="#navbarNavAltMarkup"
-      aria-controls="navbarNavAltMarkup"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-item nav-link" href="/modify">Modify menu</a>
-        <% if (user) { %>
-          <p>Logged in as: <%= user.email %></p>
-          <form action="/logout" method="post">
-            <button type ="submit" class="btn btn-secondary"> logout</button>
-          </form>
-        <% } else { %>
-          <a class="nav-item nav-link" href="/login">Login</a>
-          <a class="nav-item nav-link" href="/register">Signup</a>
-          <a class="nav-item nav-link" href="/logout">Logout</a>
-          <a class="nav-item nav-link" href="/register">Restaurant manager? Sign up here</a>
-        <% } %>
-      </div>
-    </div>
-  </nav>
-</header>
+<nav class="custom-nav">
+  <a class="navbar-brand" href="#">
+    <img src="" alt="" class="logo-img">
+    <span class="logo-text">FeedHungry</span>
+  </a>
+  <!-- <ul class="nav-links">
+    <li>
+      <a href="#" class="nav-link">Home</a>
+      <a href="#" class="nav-link">Restaurants</a>
+      <a href="#" class="nav-link">Status</a>
+      <a href="#" class="nav-link">History</a>
+
+    </li>
+  </ul> -->
+  <ul class="nav-links nav-links-end">
+    <li>
+      <a href="#" class="nav-link">Login</a>
+    </li>
+    <li>
+      <a href="#" class="nav-link">Logout</a>
+    </li>
+  </ul>
+</nav>

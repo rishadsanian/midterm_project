@@ -84,7 +84,7 @@ const categories = {
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 const getMenu = (restaurant_id) => {
-  $.get("/api/menu", function (data) {
+  $.get(`/api/menu/${restaurant_id}`, function (data) {
     const menu = data.menu;
     console.log(menu);
 
@@ -206,8 +206,8 @@ const renderMenu = function (menu, categories) {
         // Create menu item image element (replace with actual image source)
         const $itemImage = $("<img>") //img tag when picture available
           .addClass("menu-img")
-          .text(item.picture_url)
-          .attr("text", item.picture_url)
+          // .text(item.picture_url)
+          .attr("src", item.picture_url)
           .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
         // .css({"font-size" : "350%"});
 

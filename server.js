@@ -60,8 +60,9 @@ app.use(
 
 // Separated Routes for each Resource
 // Note: Feel free to replace the example routes below with your own
-const userApiRoutes = require("./routes/users-api");//GETS INFO FROM API IF NEEDED
 const widgetApiRoutes = require("./routes/widgets-api");//
+const restaurantApi = require("./routes/restaurants-api");
+const userApiRoutes = require("./routes/users-api");//
 const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
 const menuApi = require("./routes/menu-api");// GETS MENU FROM SQL
@@ -72,13 +73,11 @@ const logout = require("./routes/logout"); // to to perform logout clear cookies
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 
-app.use("/api/users", userApiRoutes);
+app.use("/api/restaurants", restaurantApi);
 app.use("/api/widgets", widgetApiRoutes);
-app.use("/api/menu", menuApi);
-
-
+app.use("/api/users", userApiRoutes);
 app.use("/users", usersRoutes);
-
+app.use("/api/menu", menuApi);
 app.use('/login', userLogin);
 app.use('/logout', logout);
 
