@@ -1,18 +1,78 @@
+/* style.scss */
+
+/* Global styles */
+@import 'variables';
+
 body {
+  font-family: $font-family-primary;
+  margin: 0;
+  padding: 0;
+}
+
+/* Hero section */
+.hero {
+  background-image: url($hero-background-image);
+  background-size: cover;
+  background-position: center;
+  height: 31.25em;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+}
 
-  background: rgb(163, 208, 219);
-  background: linear-gradient(
-    227deg,
-    rgba(163, 208, 219, 1) 0%,
-    rgba(163, 176, 219, 1) 20%,
-    rgba(163, 173, 219, 1) 34%,
-    rgba(163, 219, 208, 1) 59%,
-    rgba(163, 208, 219, 1) 74%,
-    rgba(163, 208, 219, 1) 100%
-  );
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
+  text-align: center;
+  color: $color-secondary;
+  font-family: $font-family-primary;
+  border-radius: 7em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+p {
+  font-size: 1em;
+  margin-bottom: 1.25em;
+  color: $color-highlight
+}
+
+.btn {
+  background-color: $color-accent;
+  color: $color-primary;
+  padding: 0.625em 1.25em;
+  border-radius: 0.3125em;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+  background-color: $color-highlight;
+}
+
+/* Footer */
+.footer {
+  background-color: $color-secondary;
+  color: $color-neutral;
+  padding: 0.625em;
+  text-align: center;
+  font-family: $font-family-primary;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 48em) {
+  h1 {
+    font-size: 2em;
+  }
+
+  p {
+    font-size: 0.875em;
+  }
 }
