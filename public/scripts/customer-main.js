@@ -4,15 +4,15 @@
 // renderMenu();
 
 // const getRestaurants = () => {
-//   $.get("/api/menu", function (data) {
-//     const menu = data.menu;
-//     console.log(menu);
+//   $.get("/api/restaurants", function (data) {
+//     const restaurants = data.restaurants;
+//     console.log(restaurants);
 
-//     for (const item of menu) {
-//       console.log(item.category_id);
+//     for (const location of restaurants) {
+//       console.log(item.restaurant_id);
 //     }
 
-//     renderMenu(menu, categories);
+//     renderRestaurants(menu, categories);
 //   }).fail(function (xhr, status, error) {
 //     // redirect to /error -> error.ejs
 //     console.log(error);

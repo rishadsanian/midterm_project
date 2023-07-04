@@ -1,38 +1,33 @@
 /* style.scss */
-
 /* Global styles */
-@import 'variables';
-
 body {
-  font-family: $font-family-primary;
+  font-family: "Montserrat", sans-serif;
   margin: 0;
   padding: 0;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
 
 /* Hero section */
 .hero {
-  background-image: url($hero-background-image);
+  background-image: url("https://images.pexels.com/photos/6977372/pexels-photo-6977372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   background-size: cover;
   background-position: center;
   height: 31.25em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 4em $color-secondary solid;
-
+  border-bottom: 4em #621708 solid;
 }
 
 .hero-content {
   background-color: rgba(255, 255, 255, 0.769);
   padding: 2rem;
   text-align: center;
-  color: $color-secondary;
-  font-family: $font-family-primary;
+  color: #621708;
+  font-family: "Montserrat", sans-serif;
   border-radius: 7em;
   box-shadow: 0px 0px em darkgrey;
-  
 }
 
 h1 {
@@ -42,12 +37,12 @@ h1 {
 p {
   font-size: 1em;
   margin-bottom: 1.25em;
-  color: $color-highlight
+  color: #BC3908;
 }
 
 .btn {
-  background-color: $color-accent;
-  color: $color-primary;
+  background-color: #941B0C;
+  color: #220901;
   padding: 0.625em 1.25em;
   border-radius: 7em;
   text-decoration: none;
@@ -56,16 +51,16 @@ p {
 }
 
 .btn:hover {
-  background-color: $color-highlight;
+  background-color: #BC3908;
 }
 
 /* Footer */
 .footer {
-  background-color: $color-secondary;
-  color: $color-neutral;
+  background-color: #621708;
+  color: #F6AA1C;
   padding: 0.625em;
   text-align: center;
-  font-family: $font-family-primary;
+  font-family: "Montserrat", sans-serif;
 }
 
 .footer p {
@@ -77,8 +72,7 @@ p {
   h1 {
     font-size: 2em;
   }
-
   p {
     font-size: 0.875em;
   }
-}
+}/*# sourceMappingURL=main.css.map */
