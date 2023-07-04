@@ -1,6 +1,7 @@
 /* style.scss */
 
 /* Global styles */
+@import 'variables';
 
 body {
   font-family: $font-family-primary;
@@ -20,9 +21,12 @@ body {
 }
 
 .hero-content {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 2rem;
   text-align: center;
-  color: $color-primary;
+  color: $color-secondary;
   font-family: $font-family-primary;
+  border-radius: 7em;
 }
 
 h1 {
@@ -32,6 +36,7 @@ h1 {
 p {
   font-size: 1em;
   margin-bottom: 1.25em;
+  color: $color-highlight
 }
 
 .btn {
@@ -50,11 +55,11 @@ p {
 
 /* Footer */
 .footer {
-  background-color: $color-primary;
-  color: #fff;
+  background-color: $color-secondary;
+  color: $color-neutral;
   padding: 0.625em;
   text-align: center;
-  font-family: $se;
+  font-family: $font-family-primary;
 }
 
 .footer p {
