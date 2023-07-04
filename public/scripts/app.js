@@ -16,7 +16,7 @@ $(document).ready(function () {
   // userSessionInformation();
 
   // fetchUserInfo();
-  getMenu();
+  getMenu("1");
   if (!user) authenticateUser();
 
   if (currentUser) console.log("Current User: ", currentUser);

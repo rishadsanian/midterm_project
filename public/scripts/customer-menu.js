@@ -84,7 +84,7 @@ const categories = {
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 const getMenu = (restaurant_id) => {
-  $.get("/api/menu", function (data) {
+  $.get(`/api/menu/${restaurant_id}`, function (data) {
     const menu = data.menu;
     console.log(menu);
 
