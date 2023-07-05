@@ -119,7 +119,7 @@ const updateSubTotalSum = (subTotal) => {
 
 const renderMenu = function (menu, categories) {
   // /////////////////// Define CONTAINER ///////////////////////////////
-  const $customerContainer = $("#customer-user").css({
+  const $menuContainer = $(".menu-container").css({
     display: "flex",
     "flex-direction": "column",
     "justify-content": "space-between",
@@ -131,7 +131,7 @@ const renderMenu = function (menu, categories) {
   /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
   // const menuList = $("<p>").text(`${menu}`);
-  // $customerContainer.append(menuList);
+  // $menuContainer.append(menuList);
   //////////////////////////Menu list by Category //////////////////////////////
 
   // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Need to refactor. Via sql and one for loop
@@ -309,11 +309,11 @@ const renderMenu = function (menu, categories) {
     ////////////////////////////////////////////////////////////////////////////
 
     //Add menu list to container for each category
-    $customerContainer.append($menuListByCategory);
+    $menuContainer.append($menuListByCategory);
   });
 
   //Add title
-  $customerContainer.prepend($menuTitle);
+  $menuContainer.prepend($menuTitle);
   ///////////////////////// Checkout Container ///////////////////////////////
 
   //checkout button and subtotal
@@ -342,6 +342,6 @@ const renderMenu = function (menu, categories) {
 
   //Add checkout container
   // if (orderItems)
-  $customerContainer.append($checkoutContainer);
+  $menuContainer.append($checkoutContainer);
 };
 ////////////////////////////////////////////////////////////////////////////////

@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
   db.query(query)
     .then(data => {
       const restaurants = data.rows;
-      console.log(restaurants);
+      // console.log(restaurants);
       res.json({ restaurants });
     })
     .catch(err => {
