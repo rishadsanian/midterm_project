@@ -84,7 +84,7 @@ const categories = {
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 const getMenu = (restaurant_id) => {
-  $.get("/api/menu", function (data) {
+  $.get(`/api/menu/${restaurant_id}`, function (data) {
     const menu = data.menu;
     console.log(menu);
 
@@ -119,7 +119,7 @@ const updateSubTotalSum = (subTotal) => {
 
 const renderMenu = function (menu, categories) {
   // /////////////////// Define CONTAINER ///////////////////////////////
-  const $customerContainer = $("#customer-user").css({
+  const $menuContainer = $(".menu-container").css({
     display: "flex",
     "flex-direction": "column",
     "justify-content": "space-between",
@@ -131,7 +131,7 @@ const renderMenu = function (menu, categories) {
   /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
   // const menuList = $("<p>").text(`${menu}`);
-  // $customerContainer.append(menuList);
+  // $menuContainer.append(menuList);
   //////////////////////////Menu list by Category //////////////////////////////
 
   // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Need to refactor. Via sql and one for loop
@@ -162,11 +162,18 @@ const renderMenu = function (menu, categories) {
           "justify-content": "space-around",
           
           // border: "solid 1px black",
+<<<<<<< HEAD
           border: "solid 2px black",
           "border-radius": "7px",
           padding: "0",
+=======
+          border: "solid 1px black",
+          "border-radius": "7em",
+          padding: "2.5em",
+>>>>>>> 625d98049f535630af434d8214a5ceb4bd2f2385
           // padding: "10px",
           margin: "10px 0",
+          overflow: "hidden"
         });
 
         //--------------------------------------------------------------//
@@ -208,9 +215,15 @@ const renderMenu = function (menu, categories) {
         // Create menu item image element (replace with actual image source)
         const $itemImage = $("<img>") //img tag when picture available
           .addClass("menu-img")
+<<<<<<< HEAD
           .text(item.picture_url)
           .attr("text", item.picture_url)
           .css({ width: "6em", height: "6em" }); //for img needs to be changed into em...
+=======
+          // .text(item.picture_url)
+          .attr("src", item.picture_url)
+          .css({ width: "100px", height: "100px" }); //for img needs to be changed into em...
+>>>>>>> 625d98049f535630af434d8214a5ceb4bd2f2385
         // .css({"font-size" : "350%"});
 
         // Add the description and image to card body
@@ -312,11 +325,11 @@ const renderMenu = function (menu, categories) {
     ////////////////////////////////////////////////////////////////////////////
 
     //Add menu list to container for each category
-    $customerContainer.append($menuListByCategory);
+    $menuContainer.append($menuListByCategory);
   });
 
   //Add title
-  $customerContainer.prepend($menuTitle);
+  $menuContainer.prepend($menuTitle);
   ///////////////////////// Checkout Container ///////////////////////////////
 
   //checkout button and subtotal
@@ -348,6 +361,6 @@ const renderMenu = function (menu, categories) {
 
   //Add checkout container
   // if (orderItems)
-  $customerContainer.append($checkoutContainer);
+  $menuContainer.append($checkoutContainer);
 };
 ////////////////////////////////////////////////////////////////////////////////

@@ -1,13 +1,5 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-
-// const  fetchUserInfo= ()=> {
-//   const templateVars = <%= JSON.stringify(templateVars) %>;
-//   let currentUser = templateVars;
-//   console.log(currentUser);
-//   // Perform any further operations with the currentUser object
-// }
-
-//////////////////////
 
 const authenticateUser = () =>
   $("#login-form").submit(function (event) {
@@ -32,4 +24,64 @@ const getUserCredentials = (email, password) => {
       // Handle the failed response
       console.log(error);
     });
+};
+
+const showLoginFormModal = () => {
+  const $loginModal = $("<div>").addClass("login-modal");
+
+  // Create the modal content
+  const $loginForm = $("<section>").addClass("login-form");
+  const $heading = $("<h1>").text();
+  const $closeButton = $("<button>").addClass("close-button").text("x");
+  const $form = $("<form>").attr({
+    action: "/login",
+    method: "POST",
+  });
+  const $emailDiv = $("<div>").addClass("form-row");
+  const $emailLabel = $("<label>").attr("for", "email").text("Email");
+  const $emailInput = $("<input>").attr({
+    type: "text",
+    id: "email",
+    name: "email",
+    placeholder: "email",
+    required: true,
+  });
+  const $passwordDiv = $("<div>").addClass("form-row");
+  const $passwordLabel = $("<label>").attr("for", "password").text("Password");
+  const $passwordInput = $("<input>").attr({
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "password",
+    required: true,
+  });
+  const $submitDiv = $("<div>");
+  const $submitButton = $("<input>").attr({
+    type: "submit",
+    value: "Login",
+  });
+
+  $emailDiv.append($emailLabel, $emailInput);
+  $passwordDiv.append($passwordLabel, $passwordInput);
+  $submitDiv.append($submitButton);
+  $form.append($emailDiv, $passwordDiv, $submitDiv);
+  $loginForm.append($closeButton, $form);
+
+  // Append the modal content to the modal container
+  $loginModal.append($loginForm);
+
+  // Append the modal container to the body
+  $(".not-logged-in").append($loginModal);
+
+  // Open the modal
+  $(".open-login").click(function (event) {
+    event.preventDefault();
+    $(".login-modal").toggle();
+    $(".hero-content").toggle();
+  });
+  //Close the modal
+  $closeButton.on("click", function () {
+    $loginModal.toggle();
+    $(".hero-content").toggle();
+  });
 };
