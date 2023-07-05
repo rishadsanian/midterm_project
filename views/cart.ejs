@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+</head>
+<body>
+  <h1>Shopping Cart</h1>
+  <div id="cart-items">
+    <% cartItems.forEach(function(item) { %>
+      <div class="cart-item">
+        <p><%= item.name %></p>
+        <p><%= item.price %></p>
+      </div>
+    <% }); %>
+  </div>
+  <div id="cart-total"><%= cartTotal(order_items) %></div>
+
+  <button id="checkout-button">Checkout</button>
+
+  <script src="placeholder.js"></script>
+</body>
+</html>
