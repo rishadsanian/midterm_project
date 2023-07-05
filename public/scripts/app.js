@@ -13,26 +13,28 @@ $(document).ready(function () {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
 
-  getUserSessionData()
-    .done(function (response) {
-      const userId = response.userId;
-      const firstName = response.firstName;
-      const isCustomer = response.isCustomer;
+  renderPageAndLoadOrders(orders);
 
-      console.log(userId);
-      console.log(firstName);
-      console.log(isCustomer);
+  // getUserSessionData()
+  //   .done(function (response) {
+  //     const userId = response.userId;
+  //     const firstName = response.firstName;
+  //     const isCustomer = response.isCustomer;
 
-      // Continue working with the session data here
-    })
-    .fail(function (xhr, status, error) {
-      console.error(error); // Handle the error if the AJAX request fails
-    });
-  showLoginForm();
+  //     console.log(userId);
+  //     console.log(firstName);
+  //     console.log(isCustomer);
+
+  // Continue working with the session data here
+  //   })
+  //   .fail(function (xhr, status, error) {
+  //     console.error(error); // Handle the error if the AJAX request fails
+  //   });
+  // showLoginForm();
 
   // getUserSessionData();
 
-  showRestaurants(); // fetchUserInfo();
+  // showRestaurants(); // fetchUserInfo();
   // getMenu("1");
   // if (!user) authenticateUser();
 
