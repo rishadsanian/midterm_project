@@ -109,10 +109,11 @@
         <div class="cart-container">
           <h1>Shopping Cart</h1>
           <div id="cart-items">
-            <% order_item.forEach(function(item) { %>
+            <% order_items.forEach(function(item) { %>
               <div class="cart-item">
                 <p><%= item.name %></p>
-                <p><%= item.price %></p>
+                <p><%= item.unit_price %></p>
+                <img src="<%= item.picture_url %>"></p>
               </div>
             <% }); %>
           </div>
