@@ -78,7 +78,7 @@ app.use("/api/restaurants", restaurantApi);
 app.use("/api/", userSession);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/users", userApiRoutes);
-app.use("/placeorder", placeorder);
+app.use("/cart", placeorder);
 app.use("/api/status", statusApi);
 app.use("/users", usersRoutes);
 app.use("/api/menu", menuApi);
