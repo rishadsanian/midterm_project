@@ -32,10 +32,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: #621708;
+  background-color: rgb(98, 23, 8);
   width: 100%;
   position: sticky;
   bottom: 0px;
+  padding: 1em;
+  padding-bottom: 0;
+  border-radius: 5px;
 }
 
 .checkout-button {
@@ -48,6 +51,11 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color: #F6AA1C;
+  color: #941B0C;
 }
 
 .subtotal-element {

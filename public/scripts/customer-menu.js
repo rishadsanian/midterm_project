@@ -16,71 +16,6 @@ const categories = {
   5: "Side",
 };
 
-// const menu = [
-//   {
-//     id: 1,
-//     restaurant_id: 1,
-//     name: "Fries",
-//     category_id: "1",
-//     unit_price: 600,
-//     description: "Homemade Fresh cut Fries",
-//     picture_url: "🍟",
-//   },
-//   {
-//     id: 2,
-//     restaurant_id: 1,
-//     name: "Salad",
-//     category_id: "1",
-//     unit_price: 800,
-//     description: "Fresh garden Salad",
-//     picture_url: "🥗",
-//   },
-//   {
-//     id: 3,
-//     restaurant_id: 1,
-//     name: "Burger",
-//     category_id: "2",
-//     unit_price: 1500,
-//     description: "Juicy 8 oz with cheddar and all the works",
-//     picture_url: "🍔",
-//   },
-//   {
-//     id: 4,
-//     restaurant_id: 1,
-//     name: "Ribs",
-//     category_id: "2",
-//     unit_price: 2500,
-//     description: "Fall of the bone beef ribs with bold smokey bbq sauce",
-//   },
-//   {
-//     id: 5,
-//     restaurant_id: 1,
-//     name: "Coffee",
-//     category_id: "3",
-//     unit_price: 200,
-//     picture_url: "☕",
-//   },
-//   { id: 6, restaurant_id: 1, name: "Soda", category_id: "3", unit_price: 150 },
-//   {
-//     id: 7,
-//     restaurant_id: 1,
-//     name: "Cheesecake",
-//     category_id: "4",
-//     unit_price: 800,
-//     description: "Melt in your mouth cheesecake",
-//     picture_url: "🍰",
-//   },
-//   {
-//     id: 8,
-//     restaurant_id: 1,
-//     name: "Ice Cream",
-//     category_id: "4",
-//     unit_price: 500,
-//     description: "Melt if you don't eat it",
-//     picture_url: "🍦",
-//   },
-// ];
-
 //note that when using sql for getting data it has to go through route and then ajaxrequst to receive the data in JSON format.
 
 const getMenu = (restaurant_id) => {
@@ -150,16 +85,16 @@ const renderMenu = function (menu, categories) {
       if (JSON.stringify(item.category_id) === category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
-          //   display: "flex",
-          //   "flex-direction": "column",
-          //   "justify-content": "space-around",
-          //   // border: "solid 1px black",
+          display: "flex",
+          "flex-direction": "column",
+          "justify-content": "space-around",
           // border: "solid 1px black",
-          // "border-radius": "7em",
-          //   padding: "2.5em",
-          //   // padding: "10px",
-          //   margin: "10px 0",
-          //   overflow: "hidden",
+          border: "solid 1px black",
+          "border-radius": "2em",
+          padding: "2.5em",
+          // padding: "10px",
+          margin: "10px 0",
+          overflow: "hidden",
         });
 
         //--------------------------------------------------------------//
@@ -230,11 +165,27 @@ const renderMenu = function (menu, categories) {
         // Create the add and remove buttons and container
         const $quantityButtonContainer = $("<div>")
           .addClass("quantity-buttons")
-          .css({ display: "flex" });
+          .css({
+            display: "flex",
+            "justify-content": "space-around",
+            width: "25%",
+          });
 
         const $addButton = $("<button>")
-          .addClass("add-button")
+          .addClass("add-button ")
           .text("Add")
+          .css({
+            padding: "0.5em",
+            color: "#F6AA1C",
+            "background-color": "#941B0C",
+            "border-radius": "4px",
+            "font-family": '"Source Sans 3", sans-serif',
+            "font-size": "16px",
+            "font-weight": "bold",
+            width: "200px",
+            cursor: "pointer",
+          })
+
           .on("click", function () {
             //add to quantitiy counter
             orderItems[item.id]++;
@@ -261,6 +212,18 @@ const renderMenu = function (menu, categories) {
 
         const $removeButton = $("<button>")
           .addClass("remove-button")
+          .css({
+            padding: "0.5em",
+            color: "#F6AA1C",
+            "background-color": "#941B0C",
+            "border-radius": "4px",
+            "font-family": '"Source Sans 3", sans-serif',
+            "font-size": "16px",
+            "font-weight": "bold",
+            width: "200px",
+            cursor: "pointer",
+          })
+
           .text("Remove")
           .on("click", function () {
             //remove from quantity counter

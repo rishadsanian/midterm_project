@@ -27,6 +27,7 @@
     margin: 10px 0;
     overflow: hidden;
     justify-content: space-around;
+
   }
 }
 
@@ -35,10 +36,13 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  background-color: $color-secondary;
+  background-color: rgba(98, 23, 8, 1);
   width: 100%;
   position: sticky;
   bottom: 0px;
+  padding: 1em;
+  padding-bottom: 0;
+  border-radius:5px;
 }
 
 .checkout-button {
@@ -51,6 +55,11 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+}
+
+.checkout-button:hover {
+  background-color:$color-neutral;
+  color: $color-accent;
 }
 
 .subtotal-element {
