@@ -1,7 +1,8 @@
 const twilio = require("twilio");
-const accountSid = "YOUR_ACCOUNT_SID";
-const authToken = "YOUR_AUTH_TOKEN";
+const accountSid = "AC840a4d6af1ef3c76b749f9a49a5da1b3";
+const authToken = "17a7db90f806691f7f4fff139deb8ce3";
 const client = twilio(accountSid, authToken); //needs to be filled out from twillo account
+
 
 const twilloSMS = (message, restaurantPhoneNumber, customerPhoneNumber) => {
   //asynch functions needed here to fetch restaurant and customer phone numbers first and then send appropriate message
