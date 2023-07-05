@@ -1,15 +1,6 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
-// const  fetchUserInfo= ()=> {
-//   const templateVars = <%= JSON.stringify(templateVars) %>;
-//   let currentUser = templateVars;
-//   console.log(currentUser);
-//   // Perform any further operations with the currentUser object
-// }
-
-//////////////////////
-
 const authenticateUser = () =>
   $("#login-form").submit(function (event) {
     event.preventDefault(); // Prevent the default form submission behavior
@@ -41,7 +32,7 @@ const showLoginFormModal = () => {
   // Create the modal content
   const $loginForm = $("<section>").addClass("login-form");
   const $heading = $("<h1>").text("Login");
-  const $closeButton = $("<button>").addClass("close-button").text("Close");
+  const $closeButton = $("<button>").addClass("close-button").text("x");
   const $form = $("<form>").attr({
     action: "/login",
     method: "POST",
@@ -74,16 +65,21 @@ const showLoginFormModal = () => {
   $passwordDiv.append($passwordLabel, $passwordInput);
   $submitDiv.append($submitButton);
   $form.append($emailDiv, $passwordDiv, $submitDiv);
-  $loginForm.append($heading, $form);
+  $loginForm.append($closeButton, $heading,  $form);
 
   // Append the modal content to the modal container
   $loginModal.append($loginForm);
 
   // Append the modal container to the body
-  $("body").append($loginModal);
+  $(".not-logged-in").append($loginModal);
 
+  // Open the modal
+  $(".open-login").click(function(event) {
+    event.preventDefault();
+    $('.login-modal').toggle();
+  });
   //Close the modal
-  $closeButton.click(function () {
-    $loginModal.remove();
+  $closeButton.on('click', function () {
+    $loginModal.toggle();
   });
 };

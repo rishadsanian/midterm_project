@@ -35,7 +35,7 @@ const renderRestaurants = function (restaurants) {
 
   for (const location of restaurants) {
     const $location = $("<div>")
-      .addClass(`location-${location.id} card-hov-shadow `)
+      .addClass(`location-${location.id} card-hov-shadow `);
       // .css({
       //   display: "flex",
       //   "flex-direction": "column",
@@ -65,7 +65,7 @@ const renderRestaurants = function (restaurants) {
     const $locationBody = $("<div>").addClass("location-item card-body").css({
       display: "flex",
       "justify-content": "space-between",
-      alignItems: "center",
+      alignItems: "center"
     });
 
     const $locationAddress = $("<div>")

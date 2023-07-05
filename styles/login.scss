@@ -15,10 +15,13 @@
   }
 
   .login-form {
-    background-color: #fff;
-    width: 400px;
-    margin: 100px auto;
-    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.769);
+    padding: 2rem;
+    text-align: center;
+    color: $color-secondary;
+    font-family: $font-family-primary;
+    border-radius: 7em;
+    box-shadow: 0px 0px em darkgrey;
 
     h1 {
       text-align: center;
@@ -44,12 +47,12 @@
       }
 
       input[type="submit"] {
-        background-color: #4caf50;
+        background-color:$color-secondary;
         color: #fff;
         cursor: pointer;
 
         &:hover {
-          background-color: #45a049;
+          background-color: $color-neutral;
         }
       }
     }

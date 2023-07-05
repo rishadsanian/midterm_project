@@ -66,7 +66,8 @@ const usersRoutes = require("./routes/users");
 const userLogin = require("./routes/login");
 const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
 const logout = require("./routes/logout"); // to to perform logout clear cookies
-// const placeorder = require("./routes/place-order");
+const statusApi = require("./routes/status-api");
+const placeorder = require("./routes/placeorder");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -79,7 +80,8 @@ app.use("/users", usersRoutes);
 app.use("/api/menu", menuApi);
 app.use("/login", userLogin);
 app.use("/logout", logout);
-// app.use("/placeorder", placeorder);
+app.use("/api/status", statusApi);
+app.use("/placeorder", placeorder);
 
 // Note: mount other resources here, using the same pattern above
 
