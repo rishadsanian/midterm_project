@@ -63,7 +63,7 @@
         <p>Order online, pick up, and satisfy your cravings effortlessly.</p>
         <a href="/login" class="btn open-login">Get Started</a>
       </div>
-  
+
     </section>
 
     <span class="hero-span"></span>
@@ -72,7 +72,7 @@
       <!-- Other sections for customer and restaurant views -->
       <!-- USER AUTHENTICATION  -->
       <section id="user-authentication" class="user-authentication">
-        
+
       </section>
       <section id="restaurant-user" class="hidden-on-load">
         <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, READY COMPLETED FOR STATUS-->
@@ -98,7 +98,7 @@
       <!-- /Customer Section/ -->
 
       <section id="customer-user" class="hidden-on-load">
-        
+
         <!---------------------------Restaurants------------------------------->
         <div class="restaurants-container"></div>
         <!---------------------------MENU ------------------------------------>
@@ -106,8 +106,20 @@
         <div class="menu-container"></div>
 
         <!---------------------------CART ------------------------------------>
-        <div class="cart-container"></div>
+        <div class="cart-container">
+          <h1>Shopping Cart</h1>
+          <div id="cart-items">
+            <% order_item.forEach(function(item) { %>
+              <div class="cart-item">
+                <p><%= item.name %></p>
+                <p><%= item.price %></p>
+              </div>
+            <% }); %>
+          </div>
+          <div id="cart-total"><%= cartTotal(order_items) %></div>
 
+          <button id="checkout-button">Checkout</button>
+        </div>
         <!-----------------CONFIRMATION and Status --------------------------->
 
         <div class="status-container"></div>
