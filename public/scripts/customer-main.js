@@ -36,19 +36,19 @@ const renderRestaurants = function (restaurants) {
   for (const location of restaurants) {
     const $location = $("<div>")
       .addClass(`location-${location.id} card-hov-shadow `)
-      .css({
-        display: "flex",
-        "flex-direction": "column",
-        "justify-content": "space-around",
-        "background-color": "white",
-        "font-size": "large",
-        width: "50vw",
-        border: "solid 1px black",
-        "border-radius": "7em",
-        padding: "2.5em",
-        margin: "10px 0",
-        overflow: "hidden",
-      });
+      // .css({
+      //   display: "flex",
+      //   "flex-direction": "column",
+      //   "justify-content": "space-around",
+      //   "background-color": "white",
+      //   "font-size": "large",
+      //   width: "50vw",
+      //   border: "solid 1px black",
+      //   "border-radius": "7em",
+      //   padding: "2.5em",
+      //   margin: "10px 0",
+      //   overflow: "hidden",
+      // });
 
     const $locationHeader = $("<header>")
       .addClass("location card-header")

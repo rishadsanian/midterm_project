@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db/connection");
 
-// POST route for user login
 router.post("/", (req, res) => {
   const { menu_item_id, order_id, quantity } = req.body;
 

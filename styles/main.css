@@ -68,6 +68,9 @@ p {
   margin: 0;
 }
 
+
+
+
 /* Media queries for responsiveness */
 @media (max-width: 48em) {
   h1 {
