@@ -9,14 +9,9 @@
 
 const showRestaurants = () => {
   $.get("/api/restaurants", function (data) {
-    console.log(data);
+  
     const restaurants = data.restaurants;
-    console.log(restaurants);
-
-    // for (const location of restaurants) {
-    //   console.log(location.restaurant_id);
-    // }
-
+  
     renderRestaurants(restaurants);
   }).fail(function (xhr, status, error) {
     // redirect to /error -> error.ejs
@@ -36,19 +31,6 @@ const renderRestaurants = function (restaurants) {
   for (const location of restaurants) {
     const $location = $("<div>")
       .addClass(`location-${location.id} card-hov-shadow `);
-      // .css({
-      //   display: "flex",
-      //   "flex-direction": "column",
-      //   "justify-content": "space-around",
-      //   "background-color": "white",
-      //   "font-size": "large",
-      //   width: "50vw",
-      //   border: "solid 1px black",
-      //   "border-radius": "7em",
-      //   padding: "2.5em",
-      //   margin: "10px 0",
-      //   overflow: "hidden",
-      // });
 
     const $locationHeader = $("<header>")
       .addClass("location card-header")
@@ -65,7 +47,8 @@ const renderRestaurants = function (restaurants) {
     const $locationBody = $("<div>").addClass("location-item card-body").css({
       display: "flex",
       "justify-content": "space-between",
-      alignItems: "center"
+      'flex-wrap': 'wrap',
+      'align-items': "center"
     });
 
     const $locationAddress = $("<div>")

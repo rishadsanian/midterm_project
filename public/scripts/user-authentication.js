@@ -71,13 +71,13 @@ const showLoginForm = () => {
   $("#user-authentication").append($userAuthentication);
 
   // Show the login form
-  $(".open-login").click(function (event) {
+  $(".open-login").on("click", function (event) {
     event.preventDefault();
-    $userAuthentication.show();
+    $userAuthentication.slideToggle();
   });
 
   // Close the login form
   $closeButton.on("click", function () {
-    $userAuthentication.hide();
+    $userAuthentication.slideToggle();
   });
 };
