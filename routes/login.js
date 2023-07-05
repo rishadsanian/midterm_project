@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
       }
 
       // Incorrect password
-      if (!data.row[0].password === password) {
+      if (!data.rows[0].password === password) {
         res.send("Incorrect password");
       }
 
