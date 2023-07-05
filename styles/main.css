@@ -1,7 +1,7 @@
 /* style.scss */
 /* Global styles */
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Crimson Text", serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -25,13 +25,14 @@ body {
   padding: 2rem;
   text-align: center;
   color: #621708;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Crimson Text", serif;
   border-radius: 7em;
   box-shadow: 0px 0px em darkgrey;
 }
 
 h1 {
-  font-size: 2.5em;
+  font-size: 3.5em;
+  font-family: 'Crimson Text', serif;
 }
 
 p {
@@ -60,7 +61,7 @@ p {
   color: #F6AA1C;
   padding: 0.625em;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Crimson Text", serif;
 }
 
 .footer p {

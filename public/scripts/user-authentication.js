@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 
 // const  fetchUserInfo= ()=> {
@@ -32,4 +33,57 @@ const getUserCredentials = (email, password) => {
       // Handle the failed response
       console.log(error);
     });
+};
+
+const showLoginFormModal = () => {
+  const $loginModal = $("<div>").addClass("login-modal");
+
+  // Create the modal content
+  const $loginForm = $("<section>").addClass("login-form");
+  const $heading = $("<h1>").text("Login");
+  const $closeButton = $("<button>").addClass("close-button").text("Close");
+  const $form = $("<form>").attr({
+    action: "/login",
+    method: "POST",
+  });
+  const $emailDiv = $("<div>");
+  const $emailLabel = $("<label>").attr("for", "email").text("Email");
+  const $emailInput = $("<input>").attr({
+    type: "text",
+    id: "email",
+    name: "email",
+    placeholder: "email",
+    required: true,
+  });
+  const $passwordDiv = $("<div>");
+  const $passwordLabel = $("<label>").attr("for", "password").text("Password");
+  const $passwordInput = $("<input>").attr({
+    type: "password",
+    id: "password",
+    name: "password",
+    placeholder: "password",
+    required: true,
+  });
+  const $submitDiv = $("<div>");
+  const $submitButton = $("<input>").attr({
+    type: "submit",
+    value: "Login",
+  });
+
+  $emailDiv.append($emailLabel, $emailInput);
+  $passwordDiv.append($passwordLabel, $passwordInput);
+  $submitDiv.append($submitButton);
+  $form.append($emailDiv, $passwordDiv, $submitDiv);
+  $loginForm.append($heading, $form);
+
+  // Append the modal content to the modal container
+  $loginModal.append($loginForm);
+
+  // Append the modal container to the body
+  $("body").append($loginModal);
+
+  //Close the modal
+  $closeButton.click(function () {
+    $loginModal.remove();
+  });
 };

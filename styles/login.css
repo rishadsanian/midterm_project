@@ -1,0 +1,47 @@
+.login-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+.login-modal.show {
+  display: block;
+}
+.login-modal .login-form {
+  background-color: #fff;
+  width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+}
+.login-modal .login-form h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.login-modal .login-form form {
+  display: flex;
+  flex-direction: column;
+}
+.login-modal .login-form form label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.login-modal .login-form form input[type=text],
+.login-modal .login-form form input[type=password],
+.login-modal .login-form form input[type=submit] {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.login-modal .login-form form input[type=submit] {
+  background-color: #4caf50;
+  color: #fff;
+  cursor: pointer;
+}
+.login-modal .login-form form input[type=submit]:hover {
+  background-color: #45a049;
+}/*# sourceMappingURL=login.css.map */
