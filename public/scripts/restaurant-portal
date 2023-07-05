@@ -1,0 +1,45 @@
+/* eslint-disable no-undef */
+//page component
+
+const createPortal = () => {
+  const $ordersContainer = $("<div>").addClass("orders-container");
+  const $h1 = $("<h1>").text("Order Management Portal");
+  const $orderStatusColumns = $("<div>").addClass("order-status-columns");
+
+  const $newOrdersColumn = $("<div>")
+    .addClass("column")
+    .attr("id", "new-orders-column");
+  const $newOrdersHeading = $("<h2>").text("New Orders");
+  const $newOrdersList = $("<ul>").addClass("order-list");
+  $newOrdersColumn.append($newOrdersHeading, $newOrdersList);
+
+  const $preparingColumn = $("<div>")
+    .addClass("column")
+    .attr("id", "preparing-column");
+  const $preparingHeading = $("<h2>").text("Preparing");
+  const $preparingList = $("<ul>").addClass("order-list");
+  $preparingColumn.append($preparingHeading, $preparingList);
+
+  const $completedColumn = $("<div>")
+    .addClass("column")
+    .attr("id", "completed-column");
+  const $completedHeading = $("<h2>").text("Completed");
+  const $completedList = $("<ul>").addClass("order-list");
+  $completedColumn.append($completedHeading, $completedList);
+
+  const $pickedUpColumn = $("<div>")
+    .addClass("column")
+    .attr("id", "picked-up-column");
+  const $pickedUpHeading = $("<h2>").text("Picked Up");
+  const $pickedUpList = $("<ul>").addClass("order-list");
+  $pickedUpColumn.append($pickedUpHeading, $pickedUpList);
+
+  $orderStatusColumns.append(
+    $newOrdersColumn,
+    $preparingColumn,
+    $completedColumn,
+    $pickedUpColumn
+  );
+
+  $ordersContainer.append($h1, $orderStatusColumns);
+};
