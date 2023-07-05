@@ -35,7 +35,7 @@ router.post("/", (req, res) => {
 
       let templateVars = {
         user: user.first_name,
-        userType: user.iscustomer,
+        userType: user.isCustomer,
 
       };
 
