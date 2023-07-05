@@ -4,8 +4,8 @@
 // fake order
 const orders = {
   newOrders: [
-    { id: 1, name: "Order 1", },
-    { id: 2, name: "Order 2", },
+    { id: 1, name: "Order 1" },
+    { id: 2, name: "Order 2" },
   ],
   preparing: [
     { id: 3, name: "Order 3" },
@@ -21,14 +21,25 @@ const orders = {
   ],
 };
 
+//---------------------------------------------------------------------------//
+
 const renderPageAndLoadOrders = (orders) => {
   createPortal(); // Render the page
 
-  setTimeout(() => {
-    loadAllOrders(orders); // Load all the orders
-  }, 0);
-};
+  let intervalId = null;
 
+  if (user) {
+    intervalId = setInterval(() => {
+      loadAllOrders(orders); // Load all the orders
+    }, 5000);
+  }
+
+  // Clear the interval when the user condition changes (e.g., user logs out)
+  if (!user) {
+    clearInterval(intervalId);
+  }
+};
+//---------------------------------------------------------------------------//
 // load each order
 const loadOrders = function (columnId, orders) {
   const $column = $("." + columnId); //figureout  class for column
@@ -39,36 +50,46 @@ const loadOrders = function (columnId, orders) {
   orders.forEach(function (order) {
     const $orderItem = $("<li>").text(order.name);
     $orderList.append($orderItem);
-    console.log('order loaded: ', order.name);
+    console.log("order loaded: ", order.name);
   });
 };
+//---------------------------------------------------------------------------//
 
 const loadAllOrders = function (orders) {
+  //iterate through the orders and pass each one to loadorders
   Object.entries(orders).forEach(([columnId, columnOrders]) => {
     loadOrders(columnId, columnOrders);
-    console.log('all orders loaded');
+    console.log("all orders loaded");
   });
 };
+
+//---------------------------------------------------------------------------//
+
+// Jquery to create
+
+//identify
 const createPortal = () => {
-  
   const $ordersContainer = $("<div>").addClass("orders-container");
-  const $h1 = $("<h1>").text("Order Management Portal");
+  const $h1 = $("<h2>").text("Order Management Portal");
   const $orderStatusColumns = $("<div>").addClass("order-status-columns");
 
+  //column for new orders
   const $newOrdersColumn = $("<div>")
     .addClass("column")
     .attr("id", "new-orders-column");
-  const $newOrdersHeading = $("<h2>").text("New Orders");
+  const $newOrdersHeading = $("<h3>").text("New Orders");
   const $newOrdersList = $("<ul>").addClass("order-list");
   $newOrdersColumn.append($newOrdersHeading, $newOrdersList);
 
+  //column for preparing items
   const $preparingColumn = $("<div>")
     .addClass("column")
     .attr("id", "preparing-column");
-  const $preparingHeading = $("<h2>").text("Preparing");
+  const $preparingHeading = $("<h3>").text("Preparing");
   const $preparingList = $("<ul>").addClass("order-list");
   $preparingColumn.append($preparingHeading, $preparingList);
 
+  //column for completed items
   const $completedColumn = $("<div>")
     .addClass("column")
     .attr("id", "completed-column");
@@ -76,6 +97,7 @@ const createPortal = () => {
   const $completedList = $("<ul>").addClass("order-list");
   $completedColumn.append($completedHeading, $completedList);
 
+  // column for picked up - maybe not needed clear completed
   const $pickedUpColumn = $("<div>")
     .addClass("column")
     .attr("id", "picked-up-column");
@@ -83,6 +105,7 @@ const createPortal = () => {
   const $pickedUpList = $("<ul>").addClass("order-list");
   $pickedUpColumn.append($pickedUpHeading, $pickedUpList);
 
+  //append  all columns
   $orderStatusColumns.append(
     $newOrdersColumn,
     $preparingColumn,
@@ -93,4 +116,4 @@ const createPortal = () => {
   $ordersContainer.append($h1, $orderStatusColumns);
   $(".restaurant-user").append($ordersContainer);
 };
-
+//---------------------------------------------------------------------------//

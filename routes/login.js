@@ -10,18 +10,16 @@ router.post("/", (req, res) => {
   const query = `SELECT first_name, last_name, phone, email, password, isCustomer FROM users WHERE email = $1`;
   db.query(query, [email])
     .then((data) => {
-
-      console.log('user password',password);
-      console.log('db password', data.rows[0].password);
+      console.log("user password", password);
+      console.log("db password", data.rows[0].password);
       //check if email matched - user exists
       if (data.rows.length === 0) {
         return res.send("User not found");
       }
 
       // Incorrect password
-      if (!data.rows[0].password === password) {
+      if (data.rows[0].password !== password) {
         return res.send("Incorrect password");
-        
       }
 
       // Authentication successful
@@ -32,19 +30,17 @@ router.post("/", (req, res) => {
       req.session.userId = user.id;
       req.session.firstname = user.first_name;
       req.session.lastname = user.last_name;
-      req.session.isCustomer = user.isCustomer;
+      req.session.iscustomer = user.isCustomer;
       req.session.phone = user.phone;
 
       console.log(user);
 
       let templateVars = {
         user: user.first_name,
-        userType: user.isCustomer,
-
+        userType: user.isCustomer ? "customer" : "restaurant",
       };
 
-      //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
-
+      // goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
       res.render("index", templateVars);
     })
     // route to index.ejs //need to ensure  cookies goes with it.

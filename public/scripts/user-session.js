@@ -2,9 +2,9 @@
 /* eslint-disable no-undef */
 // Client facing scripts here
 
-let userId;
-let firstName;
-let isCustomer;
+// let userId;
+// let firstName;
+// let isCustomer;
 
 
 // const getUserSessionData = () => {

@@ -37,7 +37,7 @@ router.get("/", (req, res) => {
     })
     .then((userObject) => {
       if (userObject.rows[0]["password"] === inputPassword) {
-        res.send("success");
+        res.send("userObject.rows");
       }
       //check if password
     })

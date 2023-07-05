@@ -76,7 +76,7 @@ const cartApi = require("./routes/cart-api");
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 app.use("/api/restaurants", restaurantApi);
-app.use("/api/", userSession);
+app.use("/api/session", userSession);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/users", userApiRoutes);
 // app.use("/cart", placeorder);
@@ -107,7 +107,7 @@ app.get("/", (req, res) => {
   // console.log(req.session.userType);
   const templateVars = {
     user: req.session.user,
-    userType: req.session.userType,
+    userType: req.session.iscustomer,
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER

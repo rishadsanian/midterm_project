@@ -14,11 +14,11 @@ const authenticateUser = () =>
   });
 
 const getUserCredentials = (email, password) => {
-  $.post("/login", { email, password })
+  $.get("login", { email, password })
     .done(function (response) {
       // Handle the successful response
       currentUser = response;
-      // console.log(currentUser);
+      console.log(currentUser);
     })
     .then(getUserSessionData) //(getUserSessionData())
     .fail(function (xhr, status, error) {
