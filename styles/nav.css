@@ -37,6 +37,7 @@ header .custom-nav .nav-links li .nav-link {
   color: #F6AA1C;
   transition: color 0.3s ease;
   border-radius: 7em;
+  size: 1em;
 }
 header .custom-nav .nav-links li .nav-link:hover {
   color: #BC3908;
@@ -45,5 +46,8 @@ header .custom-nav .nav-links li .nav-link:hover {
 }
 header .custom-nav .nav-links-end li {
   margin-left: 0.5rem;
-  font-family: "Crimson Text", serif;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  width: 70px;
+  height: auto;
 }/*# sourceMappingURL=nav.css.map */

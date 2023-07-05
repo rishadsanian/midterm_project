@@ -1,14 +1,11 @@
-@import 'variables';
-
 #user-authentication {
-
-  color: $color-secondary;
+  color: #621708;
   padding: 20px;
 }
 
 .login-form {
-  background-color: $color-secondary;
-  color: $color-secondary;
+  background-color: #621708;
+  color: #621708;
   padding: 20px;
 }
 
@@ -17,32 +14,31 @@
 }
 
 .login-form label {
-  font-family: $font-family-secondary;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 16px;
   font-weight: bold;
-  color: $color-neutral;
+  color: #F6AA1C;
 }
 
-.login-form input[type="text"],
-.login-form input[type="password"] {
+.login-form input[type=text],
+.login-form input[type=password] {
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 4px;
-  font-family: $font-family-secondary;
+  font-family: "Source Sans 3", sans-serif;
 }
 
-.login-form input[type="submit"] {
-  background-color: $color-accent;
-  color: $color-neutral;
+.login-form input[type=submit] {
+  background-color: #941B0C;
+  color: #F6AA1C;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
-  font-family: $font-family-secondary;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
- 
 }
 
 .login-form .close-button {
@@ -51,11 +47,11 @@
   right: 10px;
   background: none;
   border: none;
-  color: $color-secondary;
+  color: #621708;
   font-size: 20px;
   cursor: pointer;
 }
 
 .login-form .close-button:hover {
-  color: $color-highlight;
-}
+  color: #BC3908;
+}/*# sourceMappingURL=login.css.map */

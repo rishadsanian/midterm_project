@@ -46,6 +46,7 @@ header {
           color: $color-neutral;
           transition: color 0.3s ease;
           border-radius: 7em;
+          size: 1em;;
 
           &:hover {
             color: $color-highlight;
@@ -59,7 +60,11 @@ header {
     .nav-links-end {
       li {
         margin-left: 0.5rem;
-        font-family: $font-family-primary;
+        font-family: $font-family-secondary;
+        font-weight: bold;
+        // padding: auto;
+        width:70px;
+        height: auto;
       
         ;
       }

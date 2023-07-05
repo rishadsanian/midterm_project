@@ -119,14 +119,7 @@ const updateSubTotalSum = (subTotal) => {
 
 const renderMenu = function (menu, categories) {
   // /////////////////// Define CONTAINER ///////////////////////////////
-  const $menuContainer = $(".menu-container").css({
-    display: "flex",
-    "flex-direction": "column",
-    "justify-content": "space-between",
-    "background-color": "white",
-    "font-size": "large",
-    width: "50vw",
-  });
+  const $menuContainer = $(".menu-container");
 
   /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
@@ -157,16 +150,16 @@ const renderMenu = function (menu, categories) {
       if (JSON.stringify(item.category_id) === category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
-          display: "flex",
-          "flex-direction": "column",
-          "justify-content": "space-around",
+          //   display: "flex",
+          //   "flex-direction": "column",
+          //   "justify-content": "space-around",
+          //   // border: "solid 1px black",
           // border: "solid 1px black",
-          border: "solid 1px black",
-          "border-radius": "7em",
-          padding: "2.5em",
-          // padding: "10px",
-          margin: "10px 0",
-          overflow: "hidden"
+          // "border-radius": "7em",
+          //   padding: "2.5em",
+          //   // padding: "10px",
+          //   margin: "10px 0",
+          //   overflow: "hidden",
         });
 
         //--------------------------------------------------------------//
@@ -317,18 +310,12 @@ const renderMenu = function (menu, categories) {
   ///////////////////////// Checkout Container ///////////////////////////////
 
   //checkout button and subtotal
-  const $checkoutContainer = $("<section>").addClass("checkout-container").css({
-    display: "flex",
-    "flex-direction": "column",
-    "background-color": "white",
-    position: "sticky",
-    bottom: "0",
-  });
-
+  const $checkoutContainer = $("<section>").addClass("checkout-container");
   //checkout button
   const $checkoutButton = $("<button>")
     .addClass("checkout-button")
     .text("Checkout")
+
     .on("click", function () {
       // neeed route to post to order table /hide menuview and toggle cartview
       console.log("send json object for sql order table");
