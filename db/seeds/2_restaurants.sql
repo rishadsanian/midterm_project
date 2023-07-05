@@ -1,3 +1,4 @@
-insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Ottawa Pizza', '1890 Innes Rd, Gloucester', 'Ottawa', 'ON', 'K1B3K5', '6131234567','');
-insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Toronto Pizza','345 Bloor St E', 'Toronto', 'ON', 'M4W3J6', '4169671081','');
-insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Montreal Pizza','3026 Notre-Dame St W', 'Montreal', 'QC', 'H4C1P1', '5148463766','');
+insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Crust & Co. Pizzeria', '1890 Innes Rd, Gloucester', 'Ottawa', 'ON', 'K1B3K5', '6131234567','https://i.ibb.co/X5Xq4vN/pizza-meatlover.png');
+insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Bangkok Bistro','345 Bloor St E', 'Ottawa', 'ON', 'K1B3K6', '4169671081','https://cdn.discordapp.com/attachments/1101699886413529139/1126190240034467850/yiyaochen_pad_thai_picture_size_100100px_it_is_for_a_thai_resta_f373ab4f-352d-4bb0-8df8-23819310aaa1.png');
+insert into restaurants (name, road, city, province, postal_code, phone, picture_url) values ('Winglicious','3026 Notre-Dame St W', 'Ottawa', 'ON', 'K1B3K7', '5148463766','https://cdn.discordapp.com/attachments/1101699886413529139/1126190492724510830/yiyaochen_photo_of_wings_and_beer_and_fries_photo_size_100100px_7b9c0a88-ba58-4af6-9e13-bd086ea5f177.png');
+
