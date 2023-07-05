@@ -61,27 +61,29 @@ app.use(
 // Note: Feel free to replace the example routes below with your own
 const widgetApiRoutes = require("./routes/widgets-api"); //
 const restaurantApi = require("./routes/restaurants-api");
-const userApiRoutes = require("./routes/users-api"); //
-const usersRoutes = require("./routes/users");
-const userLogin = require("./routes/login");
-const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
-const logout = require("./routes/logout"); // to to perform logout clear cookies
-const statusApi = require("./routes/status-api");
 const placeorder = require("./routes/placeorder");
+const userApiRoutes = require("./routes/users-api"); //
+const statusApi = require("./routes/status-api");
+const usersRoutes = require("./routes/users");
+const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
+const userLogin = require("./routes/login");
+const logout = require("./routes/logout");
+const userSession = require("./routes/session-api");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 app.use("/api/restaurants", restaurantApi);
+app.use("/api/", userSession);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/users", userApiRoutes);
+app.use("/placeorder", placeorder);
+app.use("/api/status", statusApi);
 app.use("/users", usersRoutes);
 app.use("/api/menu", menuApi);
 app.use("/login", userLogin);
 app.use("/logout", logout);
-app.use("/api/status", statusApi);
-app.use("/placeorder", placeorder);
 
 // Note: mount other resources here, using the same pattern above
 
