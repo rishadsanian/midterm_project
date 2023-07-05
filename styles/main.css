@@ -64,6 +64,8 @@ p {
 }
 
 main {
+  display: flex;
+  flex-direction: column;
   flex: 1; /* Fill remaining vertical space */
   padding: 4% 25%; /* Example padding */
   margin: 0;

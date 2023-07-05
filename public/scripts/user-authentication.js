@@ -25,13 +25,11 @@ const getUserCredentials = (email, password) => {
       console.log(error);
     });
 };
+const showLoginForm = () => {
+  const $userAuthentication = $("#user-authentication");
 
-const showLoginFormModal = () => {
-  const $loginModal = $("<div>").addClass("login-modal");
-
-  // Create the modal content
+  // Create the login form
   const $loginForm = $("<section>").addClass("login-form");
-  const $heading = $("<h1>").text();
   const $closeButton = $("<button>").addClass("close-button").text("x");
   const $form = $("<form>").attr({
     action: "/login",
@@ -55,7 +53,6 @@ const showLoginFormModal = () => {
     placeholder: "password",
     required: true,
   });
-  const $submitDiv = $("<div>");
   const $submitButton = $("<input>").attr({
     type: "submit",
     value: "Login",
@@ -63,25 +60,23 @@ const showLoginFormModal = () => {
 
   $emailDiv.append($emailLabel, $emailInput);
   $passwordDiv.append($passwordLabel, $passwordInput);
-  $submitDiv.append($submitButton);
-  $form.append($emailDiv, $passwordDiv, $submitDiv);
+  $form.append($emailDiv, $passwordDiv, $submitButton);
   $loginForm.append($closeButton, $form);
 
-  // Append the modal content to the modal container
-  $loginModal.append($loginForm);
+  // Append the login form to the user authentication section
+  $userAuthentication.append($loginForm);
 
-  // Append the modal container to the body
-  $(".not-logged-in").append($loginModal);
+  // Append the user authentication section to the main section
+  $("#user-authentication").append($userAuthentication);
 
-  // Open the modal
+  // Show the login form
   $(".open-login").click(function (event) {
     event.preventDefault();
-    $(".login-modal").toggle();
-    $(".hero-content").toggle();
+    $userAuthentication.show();
   });
-  //Close the modal
+
+  // Close the login form
   $closeButton.on("click", function () {
-    $loginModal.toggle();
-    $(".hero-content").toggle();
+    $userAuthentication.hide();
   });
 };
