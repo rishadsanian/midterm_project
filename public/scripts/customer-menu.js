@@ -119,19 +119,12 @@ const updateSubTotalSum = (subTotal) => {
 
 const renderMenu = function (menu, categories) {
   // /////////////////// Define CONTAINER ///////////////////////////////
-  const $customerContainer = $("#customer-user").css({
-    display: "flex",
-    "flex-direction": "column",
-    "justify-content": "space-between",
-    "background-color": "white",
-    "font-size": "large",
-    width: "50vw",
-  });
+  const $menuContainer = $(".menu-container");
 
   /////////////////////////////  title  /////////////////////////////////////
   const $menuTitle = $("<h2>").addClass("section-title").text("Menu");
   // const menuList = $("<p>").text(`${menu}`);
-  // $customerContainer.append(menuList);
+  // $menuContainer.append(menuList);
   //////////////////////////Menu list by Category //////////////////////////////
 
   // SET EACH CATEGORY CONTAINER  ///This currently is at O n^2. Need to refactor. Via sql and one for loop
@@ -157,15 +150,16 @@ const renderMenu = function (menu, categories) {
       if (JSON.stringify(item.category_id) === category) {
         // Create menu item container
         const $item = $("<div>").addClass("menu-item card-hov-shadow").css({
-          display: "flex",
-          "flex-direction": "column",
-          "justify-content": "space-around",
+          //   display: "flex",
+          //   "flex-direction": "column",
+          //   "justify-content": "space-around",
+          //   // border: "solid 1px black",
           // border: "solid 1px black",
-          border: "solid 2px black",
-          "border-radius": "7px",
-          padding: "1em",
-          // padding: "10px",
-          margin: "10px 0",
+          // "border-radius": "7em",
+          //   padding: "2.5em",
+          //   // padding: "10px",
+          //   margin: "10px 0",
+          //   overflow: "hidden",
         });
 
         //--------------------------------------------------------------//
@@ -308,26 +302,20 @@ const renderMenu = function (menu, categories) {
     ////////////////////////////////////////////////////////////////////////////
 
     //Add menu list to container for each category
-    $customerContainer.append($menuListByCategory);
+    $menuContainer.append($menuListByCategory);
   });
 
   //Add title
-  $customerContainer.prepend($menuTitle);
+  $menuContainer.prepend($menuTitle);
   ///////////////////////// Checkout Container ///////////////////////////////
 
   //checkout button and subtotal
-  const $checkoutContainer = $("<section>").addClass("checkout-container").css({
-    display: "flex",
-    "flex-direction": "column",
-    "background-color": "white",
-    position: "sticky",
-    bottom: "0",
-  });
-
+  const $checkoutContainer = $("<section>").addClass("checkout-container");
   //checkout button
   const $checkoutButton = $("<button>")
     .addClass("checkout-button")
     .text("Checkout")
+
     .on("click", function () {
       // neeed route to post to order table /hide menuview and toggle cartview
       console.log("send json object for sql order table");
@@ -341,6 +329,6 @@ const renderMenu = function (menu, categories) {
 
   //Add checkout container
   // if (orderItems)
-  $customerContainer.append($checkoutContainer);
+  $menuContainer.append($checkoutContainer);
 };
 ////////////////////////////////////////////////////////////////////////////////

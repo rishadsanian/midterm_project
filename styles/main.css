@@ -1,7 +1,5 @@
 /* style.scss */
 /* Global styles */
-@import 'variables';
-
 body {
   font-family: "Crimson Text", serif;
   margin: 0;
@@ -69,11 +67,10 @@ main {
   display: flex;
   flex-direction: column;
   flex: 1; /* Fill remaining vertical space */
-  padding: 6% 15%; 
+  padding: 6% 15%;
   margin: 0;
   background-color: #f1f1f1; /* Example background color */
 }
-
 
 .footer p {
   margin: 0;
@@ -87,4 +84,4 @@ main {
   p {
     font-size: 0.875em;
   }
-}/*# sourceMappingURL=main.css.map */
+} /*# sourceMappingURL=main.css.map */

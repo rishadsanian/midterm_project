@@ -1,0 +1,53 @@
+header {
+  background-color: #621708;
+  color: #F6AA1C;
+  padding: 0.625rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+header .custom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header .custom-nav .navbar-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+header .custom-nav .navbar-brand .logo-text {
+  font-family: "Pacifico", cursive;
+  font-size: 2rem;
+}
+header .custom-nav .nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+header .custom-nav .nav-links li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 1rem;
+}
+header .custom-nav .nav-links li .nav-link {
+  text-decoration: none;
+  color: #F6AA1C;
+  transition: color 0.3s ease;
+  border-radius: 7em;
+  size: 1em;
+}
+header .custom-nav .nav-links li .nav-link:hover {
+  color: #BC3908;
+  background-color: #F6AA1C;
+  padding: 0.5em;
+}
+header .custom-nav .nav-links-end li {
+  margin-left: 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
+  font-weight: bold;
+  width: 70px;
+  height: auto;
+}/*# sourceMappingURL=nav.css.map */

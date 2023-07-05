@@ -6,6 +6,9 @@ header {
   background-color: $color-secondary;
   color: $color-neutral;
   padding: 0.625rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
   
 
   .custom-nav {
@@ -18,15 +21,11 @@ header {
       align-items: center;
       text-decoration: none;
 
-      .logo-img {
-        width: 40px;
-        height: 40px;
-        margin-right: 0.5rem;
-      }
+    
 
       .logo-text {
         font-family: $font-family-logo;
-        font-size: 1.2rem;
+        font-size: 2rem;
       }
     }
 
@@ -46,9 +45,13 @@ header {
           text-decoration: none;
           color: $color-neutral;
           transition: color 0.3s ease;
+          border-radius: 7em;
+          size: 1em;;
 
           &:hover {
             color: $color-highlight;
+            background-color: $color-neutral;
+            padding:0.5em;
           }
         }
       }
@@ -57,7 +60,11 @@ header {
     .nav-links-end {
       li {
         margin-left: 0.5rem;
-        font-family: $font-family-primary;
+        font-family: $font-family-secondary;
+        font-weight: bold;
+        // padding: auto;
+        width:70px;
+        height: auto;
       
         ;
       }

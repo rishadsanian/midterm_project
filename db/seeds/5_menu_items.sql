@@ -8,3 +8,5 @@ VALUES
   (1, 4, '355ML Coke', '1 unit', ' ', 295),
   (1, 5, 'Garlic bread', '5 pieces', 'https://cdn.discordapp.com/attachments/1101699886413529139/1125928637246480504/yiyaochen_garlic_bread_picture_for_a_menu_in_a_pizza_restaurant_792bab5b-26cb-448e-90aa-caaed63b7717.png', 840);
 
+  (1, 4, '355ML Coke', '1 unit', 'https://cdn.discordapp.com/attachments/1101699886413529139/1125947046193545307/yiyaochen_coke_photo_for_a_pizza_restaurant_wood_background_100_92e5fd88-436d-490c-aadd-075c64ac9931.png', 295),
+  (1, 5, 'Garlic bread', '5 pieces', 'https://cdn.discordapp.com/attachments/1101699886413529139/1125928637246480504/yiyaochen_garlic_bread_picture_for_a_menu_in_a_pizza_restaurant_792bab5b-26cb-448e-90aa-caaed63b7717.png', 840);

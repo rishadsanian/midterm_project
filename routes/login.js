@@ -16,7 +16,7 @@ router.post("/", (req, res) => {
       }
 
       // Incorrect password
-      if (!data.password === password) {
+      if (!data.row[0].password === password) {
         res.send("Incorrect password");
       }
 
@@ -28,14 +28,14 @@ router.post("/", (req, res) => {
       req.session.userId = user.id;
       req.session.firstname = user.first_name;
       req.session.lastname = user.last_name;
-      req.session.isCustomer = user.iscustomer;
+      req.session.isCustomer = user.isCustomer;
       req.session.phone = user.phone;
 
       // console.log(user);
 
       let templateVars = {
         user: user.first_name,
-        userType: user.iscustomer,
+        userType: user.isCustomer,
 
       };
 
