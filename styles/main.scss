@@ -55,6 +55,8 @@ p {
   transition: background-color 0.3s ease;
 }
 
+
+
 .btn:hover {
   background-color: $color-highlight;
 }
@@ -67,6 +69,14 @@ p {
   text-align: center;
   font-family: $font-family-primary;
 }
+
+main {
+  flex: 1; /* Fill remaining vertical space */
+  padding: 4% 25%; /* Example padding */
+  margin:0;
+  background-color: #f1f1f1; /* Example background color */
+}
+
 
 .footer p {
   margin: 0;

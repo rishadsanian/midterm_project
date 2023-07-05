@@ -16,14 +16,9 @@ header .custom-nav .navbar-brand {
   align-items: center;
   text-decoration: none;
 }
-header .custom-nav .navbar-brand .logo-img {
-  width: 40px;
-  height: 40px;
-  margin-right: 0.5rem;
-}
 header .custom-nav .navbar-brand .logo-text {
   font-family: "Pacifico", cursive;
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 header .custom-nav .nav-links {
   display: flex;

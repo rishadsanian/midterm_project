@@ -31,13 +31,13 @@ const showLoginFormModal = () => {
 
   // Create the modal content
   const $loginForm = $("<section>").addClass("login-form");
-  const $heading = $("<h1>").text("Login");
+  const $heading = $("<h1>").text();
   const $closeButton = $("<button>").addClass("close-button").text("x");
   const $form = $("<form>").attr({
     action: "/login",
     method: "POST",
   });
-  const $emailDiv = $("<div>");
+  const $emailDiv = $("<div>").addClass("form-row");
   const $emailLabel = $("<label>").attr("for", "email").text("Email");
   const $emailInput = $("<input>").attr({
     type: "text",
@@ -46,7 +46,7 @@ const showLoginFormModal = () => {
     placeholder: "email",
     required: true,
   });
-  const $passwordDiv = $("<div>");
+  const $passwordDiv = $("<div>").addClass("form-row");
   const $passwordLabel = $("<label>").attr("for", "password").text("Password");
   const $passwordInput = $("<input>").attr({
     type: "password",
@@ -65,7 +65,7 @@ const showLoginFormModal = () => {
   $passwordDiv.append($passwordLabel, $passwordInput);
   $submitDiv.append($submitButton);
   $form.append($emailDiv, $passwordDiv, $submitDiv);
-  $loginForm.append($closeButton, $heading,  $form);
+  $loginForm.append($closeButton, $form);
 
   // Append the modal content to the modal container
   $loginModal.append($loginForm);
@@ -74,12 +74,14 @@ const showLoginFormModal = () => {
   $(".not-logged-in").append($loginModal);
 
   // Open the modal
-  $(".open-login").click(function(event) {
+  $(".open-login").click(function (event) {
     event.preventDefault();
-    $('.login-modal').toggle();
+    $(".login-modal").toggle();
+    $(".hero-content").toggle();
   });
   //Close the modal
-  $closeButton.on('click', function () {
+  $closeButton.on("click", function () {
     $loginModal.toggle();
+    $(".hero-content").toggle();
   });
 };

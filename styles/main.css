@@ -63,6 +63,13 @@ p {
   font-family: "Crimson Text", serif;
 }
 
+main {
+  flex: 1; /* Fill remaining vertical space */
+  padding: 4% 25%; /* Example padding */
+  margin: 0;
+  background-color: #f1f1f1; /* Example background color */
+}
+
 .footer p {
   margin: 0;
 }
