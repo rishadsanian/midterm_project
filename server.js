@@ -69,6 +69,7 @@ const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
 const userLogin = require("./routes/login");
 const logout = require("./routes/logout");
 const userSession = require("./routes/session-api");
+const cartApi = require("./routes/cart-api");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -84,6 +85,7 @@ app.use("/users", usersRoutes);
 app.use("/api/menu", menuApi);
 app.use("/login", userLogin);
 app.use("/logout", logout);
+app.use("/api/carts", cartApi);
 
 // Note: mount other resources here, using the same pattern above
 
