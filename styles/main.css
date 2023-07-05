@@ -68,6 +68,20 @@ p {
   margin: 0;
 }
 
+.location {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: white;
+  font-size: large;
+  width: 50vw;
+  border: solid 1px black;
+  border-radius: 7em;
+  padding: 2.5em;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
 
 
 
