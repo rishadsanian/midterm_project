@@ -1,3 +1,3 @@
-const showCart = () => {
-  const $(cart
-}
+// const showCart = () => {
+//   const $(cart
+// }

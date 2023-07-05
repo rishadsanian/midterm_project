@@ -13,7 +13,9 @@ $(document).ready(function () {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
 
+  showLoginForm();
   renderPageAndLoadOrders(orders);
+  showRestaurants(); // fetchUserInfo();
 
   // getUserSessionData()
   //   .done(function (response) {
@@ -30,11 +32,9 @@ $(document).ready(function () {
   //   .fail(function (xhr, status, error) {
   //     console.error(error); // Handle the error if the AJAX request fails
   //   });
-  // showLoginForm();
 
   // getUserSessionData();
 
-  // showRestaurants(); // fetchUserInfo();
   // getMenu("1");
   // if (!user) authenticateUser();
 

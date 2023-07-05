@@ -10,6 +10,9 @@ router.post("/", (req, res) => {
   const query = `SELECT first_name, last_name, phone, email, password, isCustomer FROM users WHERE email = $1`;
   db.query(query, [email])
     .then((data) => {
+
+      console.log('user password',password);
+      console.log('db password', data.rows[0].password);
       //check if email matched - user exists
       if (data.rows.length === 0) {
         return res.send("User not found");
@@ -17,7 +20,8 @@ router.post("/", (req, res) => {
 
       // Incorrect password
       if (!data.rows[0].password === password) {
-        res.send("Incorrect password");
+        return res.send("Incorrect password");
+        
       }
 
       // Authentication successful
