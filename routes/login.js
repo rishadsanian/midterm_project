@@ -28,7 +28,7 @@ router.post("/", (req, res) => {
       req.session.userId = user.id;
       req.session.firstname = user.first_name;
       req.session.lastname = user.last_name;
-      req.session.iscustomer = user.iscustomer;
+      req.session.isCustomer = user.iscustomer;
       req.session.phone = user.phone;
 
       // console.log(user);
