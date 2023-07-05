@@ -31,6 +31,7 @@
     <link rel="stylesheet" href="/styles/menu.css" />
     <link rel="stylesheet" href="/styles/nav.css" />
     <link rel="stylesheet" href="/styles/login.css" />
+    <link rel="stylesheet" href="/styles/orderStatus.css" />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -63,7 +64,7 @@
         <p>Order online, pick up, and satisfy your cravings effortlessly.</p>
         <a href="/login" class="btn open-login">Get Started</a>
       </div>
-  
+
     </section>
 
     <span class="hero-span"></span>
@@ -72,7 +73,7 @@
       <!-- Other sections for customer and restaurant views -->
       <!-- USER AUTHENTICATION  -->
       <section id="user-authentication" class="user-authentication">
-        
+
       </section>
       <section id="restaurant-user" class="hidden-on-load">
         <!--ORDER SECTION -LIKE SHOW TWEETS SECTION BUT FOR ORDERS NEWEST ORDER COMES FIRST WITH BUTTONS FOR ACCEPT, COMPLETED ESTIMATED TIME AND (STRETCH) A COUNTER FOR KEEPING TRACK OF TIME. COULD BE SETUP LIKE A TO DO LIST, WITH NEW, IN PROGRESS, READY COMPLETED FOR STATUS-->
@@ -98,7 +99,7 @@
       <!-- /Customer Section/ -->
 
       <section id="customer-user" class="hidden-on-load">
-        
+
         <!---------------------------Restaurants------------------------------->
         <div class="restaurants-container"></div>
         <!---------------------------MENU ------------------------------------>
@@ -110,10 +111,33 @@
 
         <!-----------------CONFIRMATION and Status --------------------------->
 
-        <div class="status-container"></div>
+        <div class="status-container">
+          <h2 class="order-number"> Hi $(name), Your order number is ${orderNumber} </h2>
+            <table class="status-table">
+              <thead>
+                <tr class="status-table-name">
+                  <th>Order ID</th>
+                  <th>Order Status</th>
+                  <th>Estimated Time</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="status-table-content">
+                  <td>1</td>
+                  <td>100</td>
+                  <td>2023-07-04 15:30:00</td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
       </section>
-      <!-- / -->
     </main>
+
+
+
+
+
+
 
     <section class="footer">
       <div class="footer-content">
