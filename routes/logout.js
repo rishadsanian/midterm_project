@@ -3,7 +3,7 @@ const router = express.Router();
 const db = require("../db/connection");
 
 
-router.post('/', (req, res) => {
+router.get('/', (req, res) => {
   req.session = null;
   res.redirect('../');
 });
