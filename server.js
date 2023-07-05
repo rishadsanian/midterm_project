@@ -61,7 +61,7 @@ app.use(
 // Note: Feel free to replace the example routes below with your own
 const widgetApiRoutes = require("./routes/widgets-api"); //
 const restaurantApi = require("./routes/restaurants-api");
-const placeorder = require("./routes/placeorder");
+// const placeorder = require("./routes/placeorder");
 const userApiRoutes = require("./routes/users-api"); //
 const statusApi = require("./routes/status-api");
 const usersRoutes = require("./routes/users");
@@ -78,7 +78,7 @@ app.use("/api/restaurants", restaurantApi);
 app.use("/api/", userSession);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/users", userApiRoutes);
-app.use("/cart", placeorder);
+// app.use("/cart", placeorder);
 app.use("/api/status", statusApi);
 app.use("/users", usersRoutes);
 app.use("/api/menu", menuApi);
