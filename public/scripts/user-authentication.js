@@ -20,6 +20,7 @@ const getUserCredentials = (email, password) => {
       currentUser = response;
       // console.log(currentUser);
     })
+    .then(getUserSessionData) //(getUserSessionData())
     .fail(function (xhr, status, error) {
       // Handle the failed response
       console.log(error);
