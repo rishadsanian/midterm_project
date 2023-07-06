@@ -32,3 +32,17 @@
 
 // module.exports = twilloSMS;
 
+const smoothScrollToMain = function() {
+  $(".scroll-to-main").on("click", function (event) {
+    event.preventDefault();
+    
+    $("html, body").animate(
+      {
+        scrollTop: $("#main").offset().top,
+      },
+      800
+    );
+  });
+};
+
+

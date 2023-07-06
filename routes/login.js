@@ -30,14 +30,14 @@ router.post("/", (req, res) => {
       req.session.userId = user.id;
       req.session.firstname = user.first_name;
       req.session.lastname = user.last_name;
-      req.session.iscustomer = user.isCustomer;
+      req.session.isCustomer = user.iscustomer;
       req.session.phone = user.phone;
 
       console.log(user);
 
       let templateVars = {
         user: user.first_name,
-        userType: user.isCustomer ? "customer" : "restaurant",
+        userType: user.iscustomer ? "customer" : "restaurant",
       };
 
       // goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER

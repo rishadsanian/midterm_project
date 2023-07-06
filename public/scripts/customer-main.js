@@ -3,11 +3,9 @@
 //mount all customer functions here
 // const {renderMenu} = require('./customer-menu');
 
-// renderMenu();
-
-// let restaurants;
 
 const showRestaurants = () => {
+//get all restaurants
   $.get("/api/restaurants", function (data) {
   
     const restaurants = data.restaurants;
@@ -18,6 +16,8 @@ const showRestaurants = () => {
     console.log(error);
   });
 };
+
+//construct the page
 const renderRestaurants = function (restaurants) {
   const $restaurantsContainer = $(".restaurants-container");
   $restaurantsContainer.empty(); // Clear any existing content

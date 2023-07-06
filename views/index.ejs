@@ -48,6 +48,7 @@
     <script defer src="/scripts/customer-menu.js"></script>
     <script defer src="/scripts/customer-main.js"></script>
     <script defer src="/scripts/user-authentication.js"></script>
+    <script defer src="/scripts/hero.js"></script>
     <script defer src="/scripts/helpers.js"></script>
     <script defer src="/scripts/restaurant-portal.js"></script>
   </head>
@@ -58,28 +59,36 @@
   <!-------------------------BODY  ------------------------------------>
   <body>
     <!-----------------------IN LINE SCRIPT----------------------------------->
+    <script>
+     const user = '<%= user %>';
+     const userType = '<%= userType %>';
+    //  showHero(user);
+     </script>
 
     <header><%- include('partials/header') %></header>
 
     <section class="hero">
       <div class="hero-content">
-        <h1>Welcome to FeedHungry</h1>
-        <p>Order online, pick up, and satisfy your cravings effortlessly.</p>
-        <a href="/login" class="btn open-login">Get Started</a>
+        <% if (user) { %>
+          <% if (userType === 'customer') { %>
+            <h1>Welcome <%= user %></h1>
+            <p>Find your favorite restaurants below.</p>
+            <a href="#main" class="scroll-to-main">Find Food</a>
+          <% } %>
+        <% } else { %>
+          <h1>Welcome to FeedHungry</h1>
+          <p>Order online, pick up, and satisfy your cravings effortlessly.</p>
+          <a href="/login" class="btn open-login">Get Started</a>
+        <% } %>
       </div>
     </section>
-
     <span class="hero-span"></span>
 
-    <script>
-     const user = '<%= user %>';
-     const userType = '<%= userType %>';
-     </script>
-    
+<!--     
     <h1>Welcome <%= user %> 🥔</h1>
-    <h2>User Type: <%= userType %></h2>
+    <h2>User Type: <%= userType %></h2> -->
 
-    <main>
+    <main id = 'main'>
       <!-- Other sections for customer and restaurant views -->
       <!-- USER AUTHENTICATION  -->
       
