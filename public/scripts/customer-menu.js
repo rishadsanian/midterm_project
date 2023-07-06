@@ -280,6 +280,7 @@ const renderMenu = function (menu, categories) {
     .text("Checkout")
 
     .on("click", function () {
+
       // neeed route to post to order table /hide menuview and toggle cartview
       console.log("send json object for sql order table");
     });
