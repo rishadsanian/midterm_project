@@ -8,7 +8,7 @@
 }
 
 .section-title {
-  font-family: "Crimson Text", serif;
+  font-family: "Source Sans 3", sans-serif;
   font-size: 24px;
   font-weight: bold;
   color: #220901;
@@ -33,6 +33,7 @@
   font-size: 18px;
   color: #220901;
   margin-bottom: 0.5rem;
+  font-family: "Source Sans 3", sans-serif;
 }
 .location .location-item {
   display: flex;
