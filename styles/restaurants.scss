@@ -1,0 +1,48 @@
+@import 'variables';
+
+.restaurants-container {
+  // Your existing styles for the restaurants container
+}
+
+.section-title {
+  // Your existing styles for the section title
+}
+
+.location {
+  // Your existing styles for the location container
+  &.card-hov-shadow {
+    // Additional styles for card hover shadow
+  }
+
+  .location-name {
+    // Your existing styles for the location name
+    font-weight: bold;
+  }
+
+  .location-item {
+    // Your existing styles for the location item container
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  .location-address {
+    // Your existing styles for the location address
+    display: flex;
+    flex-direction: column;
+  }
+
+  .location-img {
+    // Your existing styles for the location image
+    width: 100px;
+    height: 100px;
+  }
+
+  .location-footer {
+    // Your existing styles for the location footer
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}

@@ -6,33 +6,45 @@ display: none;
   padding: 20px;
 }
 
+form {
+  width:60%;
+  padding: 1em 0;
+}
 .login-form {
-  background-color: $color-secondary;
+  display: flex;
+  background-color:  #f1f1f1;
   color: $color-secondary;
   padding: 20px;
   border-radius: 2em;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form .form-row {
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .login-form label {
   font-family: $font-family-secondary;
   font-size: 16px;
   font-weight: bold;
-  color: $color-neutral;
+  color: $color-secondary;
+  width: 100px;
+  margin-right: 10px; /* Adjust the margin as needed */
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
-  width: 100%;
+  width: 80%;
+  margin:auto;
   padding: 10px;
   border: none;
   border-radius: 4px;
+  
   font-family: $font-family-secondary;
 }
-
 .login-form input[type="submit"] {
   background-color: $color-accent;
   color: $color-neutral;
@@ -43,7 +55,14 @@ display: none;
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  display: block;
+  margin: auto;
  
+}
+
+.login-form input[type="submit"]:hover {
+  background-color: $color-neutral;
+  color: $color-highlight;
 }
 
 .login-form .close-button {

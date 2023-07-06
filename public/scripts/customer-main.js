@@ -18,6 +18,7 @@ const showRestaurants = () => {
 };
 
 //construct the page
+// Construct the page
 const renderRestaurants = function (restaurants) {
   const $restaurantsContainer = $(".restaurants-container");
   $restaurantsContainer.empty(); // Clear any existing content
@@ -34,30 +35,29 @@ const renderRestaurants = function (restaurants) {
 
     const $locationHeader = $("<header>")
       .addClass("location card-header")
-      .css({ display: "flex", "justify-content": "space-between" });
+      .append(
+        $("<p>")
+          .addClass("location-name")
+          .text(location.name)
+      );
 
-    const $locationName = $("<p>")
-      .addClass("location-name")
-      .text(location.name)
-      .css({ fontWeight: "bold" });
-
-    $locationHeader.append($locationName);
     $location.append($locationHeader);
 
-    const $locationBody = $("<div>").addClass("location-item card-body").css({
-      display: "flex",
-      "justify-content": "space-between",
-      'flex-wrap': 'wrap',
-      'align-items': "center"
-    });
+    const $locationBody = $("<div>")
+      .addClass("location-item card-body")
+      .css({
+        display: "flex",
+        "justify-content": "space-between",
+        "flex-wrap": "wrap",
+        "align-items": "center",
+      });
 
     const $locationAddress = $("<div>")
       .addClass("location-address")
       .html(
         `<p>${location.road}</p>
          <p>${location.city}</p>`
-      )
-      .css({ display: "flex", "flex-direction": "column" });
+      );
 
     const $locationImage = $("<img>")
       .addClass("location-img")
@@ -67,11 +67,9 @@ const renderRestaurants = function (restaurants) {
     $locationBody.append($locationAddress, $locationImage);
     $location.append($locationBody);
 
-    const $locationFooter = $("<footer>").addClass("location card-footer").css({
-      display: "flex",
-      "justify-content": "space-between",
-      alignItems: "center",
-    });
+    const $locationFooter = $("<footer>")
+      .addClass("location card-footer")
+      .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
 
     $location.append($locationFooter);
     $location.on("click", () => {
