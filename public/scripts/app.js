@@ -16,6 +16,7 @@ $(document).ready(function () {
   showLoginForm();
   renderPageAndLoadOrders(orders);
   showRestaurants(); // fetchUserInfo();
+  getCart();
 
   // getUserSessionData()
   //   .done(function (response) {
