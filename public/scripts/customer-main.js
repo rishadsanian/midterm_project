@@ -3,13 +3,11 @@
 //mount all customer functions here
 // const {renderMenu} = require('./customer-menu');
 
-
 const showRestaurants = () => {
-//get all restaurants
+  //get all restaurants
   $.get("/api/restaurants", function (data) {
-  
     const restaurants = data.restaurants;
-  
+
     renderRestaurants(restaurants);
   }).fail(function (xhr, status, error) {
     // redirect to /error -> error.ejs
@@ -30,27 +28,22 @@ const renderRestaurants = function (restaurants) {
   $restaurantsContainer.append($restuarantsTitle);
 
   for (const location of restaurants) {
-    const $location = $("<div>")
-      .addClass(`location-${location.id} card-hov-shadow `);
+    const $location = $("<div>").addClass(
+      `location-${location.id} card-hov-shadow `
+    );
 
     const $locationHeader = $("<header>")
       .addClass("location card-header")
-      .append(
-        $("<p>")
-          .addClass("location-name")
-          .text(location.name)
-      );
+      .append($("<p>").addClass("location-name").text(location.name));
 
     $location.append($locationHeader);
 
-    const $locationBody = $("<div>")
-      .addClass("location-item card-body")
-      .css({
-        display: "flex",
-        "justify-content": "space-between",
-        "flex-wrap": "wrap",
-        "align-items": "center",
-      });
+    const $locationBody = $("<div>").addClass("location-item card-body").css({
+      display: "flex",
+      "justify-content": "space-between",
+      "flex-wrap": "wrap",
+      "align-items": "center",
+    });
 
     const $locationAddress = $("<div>")
       .addClass("location-address")
@@ -69,12 +62,17 @@ const renderRestaurants = function (restaurants) {
 
     const $locationFooter = $("<footer>")
       .addClass("location card-footer")
-      .css({ display: "flex", "justify-content": "space-between", alignItems: "center" });
+      .css({
+        display: "flex",
+        "justify-content": "space-between",
+        alignItems: "center",
+      });
 
     $location.append($locationFooter);
     $location.on("click", () => {
       getMenu(location.id);
       $restaurantsContainer.hide();
+      $(".menu-container").toggle();
     });
 
     $restaurantsContainer.append($location);

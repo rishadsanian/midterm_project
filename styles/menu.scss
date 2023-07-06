@@ -15,8 +15,10 @@
   flex-direction: column;
   justify-content: space-between;
   background-color: rgba(255, 255, 255, 0.769);
+  border-radius: 5px;
   font-size: large;
   width: 100%;
+  padding:1em;
 
   .menu-item.card-hov-shadow {
     display: flex;

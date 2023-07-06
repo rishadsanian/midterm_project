@@ -13,37 +13,19 @@ $(document).ready(function () {
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
   smoothScrollToMain();
+  $(".menu-container").toggle();
+  $(".restaurants-container").toggle();
+  $(".restaurants-user").toggle();
 
   showLoginForm();
   if (user) {
-    if (userType === "restaurant") renderPageAndLoadOrders(orders);
-    if (userType === "customer") showRestaurants();
+    if (userType === "restaurant") {
+      $(".restaurants-user").toggle();
+      renderPageAndLoadOrders(orders);
+    }
+    if (userType === "customer") {
+      $(".restaurants-container").toggle();
+      showRestaurants();
+    }
   }
-  // renderPageAndLoadOrders(orders);
-  // showRestaurants(); // fetchUserInfo();
-  // getCart();
-
-  // getUserSessionData()
-  //   .done(function (response) {
-  //     const userId = response.userId;
-  //     const firstName = response.firstName;
-  //     const isCustomer = response.isCustomer;
-
-  //     console.log(userId);
-  //     console.log(firstName);
-  //     console.log(isCustomer);
-
-  // fetchUserInfo();
-
-  // getUserSessionData();
-
-  // if (!user) authenticateUser();
-
-  // if (currentUser) console.log("Current User: ", currentUser);
-
-  // console.log(currentUser());
-
-  // if (!isCustomer) renderRestaurantDashboard();
-  // renderRestaurantDashboard();
-  // loadOrderbyStatus();
 });
