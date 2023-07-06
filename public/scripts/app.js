@@ -10,7 +10,7 @@
 
 //When dom is ready
 $(document).ready(function () {
-  twilloSMS("Testing", '+16474611907');
+
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
   smoothScrollToMain();

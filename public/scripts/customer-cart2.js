@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 
 // const { response } = require("express");
-const twilio = require("twilio");
+
 
 const placeOrder = (cart) =>
   $.post("/cart", { cart }, function (response) {
@@ -106,21 +106,20 @@ const statusMessage = (status_id, estimated_time) => {
   if (status_id === 1) {
     const message = "Order Placed. Waiting for the restaurant to accept.";
     const messageForRestaurant = "New Order, please check the portal";
-    twilioSMS(messageForRestaurant, restaurantPhoneNumber);
+    // twilioSMS(messageForRestaurant, restaurantPhoneNumber);
   }
 
   if (status_id === 2) {
     const message = `Order Accepted. Waiting for the restaurant to prepare your order. Estimated Time: ${estimated_time}. We will send you a confirmation on your phone when your order is ready for pickup.`;
-    twilioSMS(message, customerPhoneNumber);
+    // twilioSMS(message, customerPhoneNumber);
   }
 
   if (status_id === 3) {
     const message = "Order ready for pickup!";
-    twilioSMS(message, restaurantPhoneNumber, customerPhoneNumber);
+    // twilioSMS(message, restaurantPhoneNumber, customerPhoneNumber);
   }
 
   return message;
 };
 
-//  
-
+//
