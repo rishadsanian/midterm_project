@@ -22,7 +22,6 @@ const morgan = require("morgan");
 //Twilio
 
 const twilio = require("twilio");
-const tw
 
 const PORT = process.env.PORT || 8080;
 const app = express();
@@ -125,7 +124,7 @@ app.get("/", (req, res) => {
     ? res.render("index", templateVars)
     : res.render("index", templateVars);
 });
-twilloSMS("Testing", '+16474611907');
+// twilloSMS("Testing", '+16474611907');
 // ----------------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////////////////////////
