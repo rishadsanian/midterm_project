@@ -15,9 +15,9 @@ $(document).ready(function () {
 
 
   showLoginForm();
-
-  if (userType === "customer") renderPageAndLoadOrders(orders);
-  if (userType === "restaurant") showRestaurants();
+  
+  if (userType === "restaurant") renderPageAndLoadOrders(orders);
+  if (userType === "customer") showRestaurants();
 
   // fetchUserInfo();
 
