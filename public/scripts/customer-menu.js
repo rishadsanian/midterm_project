@@ -7,6 +7,9 @@
 
 //TOGGLE/LOAD RESTAURANT OWNER SECTION *IF COOKIE SESSION USERTYPE = RESTAURANT OWNER
 
+const cart = [];
+let cartObject = {};
+
 //////////////////////////////////LOAD MENU example data in nosql///////////////
 const categories = {
   1: "Appetizer",
@@ -37,7 +40,7 @@ const getMenu = (restaurant_id) => {
 
 //declare output for cart picing and quantit and subtotal for running totaly////////////////////WILL BE USED FOR POST//////////////////
 
-const orderItems = {};
+orderItems = {};
 const subTotalValues = {};
 let subTotal = 0;
 
@@ -280,9 +283,31 @@ const renderMenu = function (menu, categories) {
     .text("Checkout")
 
     .on("click", function () {
+      const items = Object.keys(orderItems);
+      console.log(orderItems);
+      const quantity = Object.values(orderItems);
+
+      
+      for (let item of items) {
+        const cartObject = {};
+        console.log(orderItems[item]);
+        if (orderItems[item] !== 0) {
+          cartObject.customer_id = userId;
+          cartObject.restaurant_id = menu[item - 1].restaurant_id;
+          cartObject.menu_item_id = item;
+          cartObject.status_id = 1;
+          cartObject.quantity = orderItems[item];
+          cartObject.unit_price = menu[item - 1].unit_price;
+          cartObject.ordered_time = new Date();
+          cartObject.cart_id =
+            String(userId) + "-" + String(cartObject.ordered_time.getTime());
+          cart.push(cartObject);
+        }
+      }
 
       // neeed route to post to order table /hide menuview and toggle cartview
-      console.log("send json object for sql order table");
+      console.log(cart);
+      showCart(cart);
     });
 
   const $subTotalElement = $("<p>")

@@ -106,6 +106,7 @@ app.get("/", (req, res) => {
   const templateVars = {
     user: req.session.user,
     userType: req.session.iscustomer,
+    userId: req.session.user_id
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER

@@ -7,7 +7,7 @@ router.post("/", (req, res) => {
   const { email, password } = req.body;
 
   // Check if the email and password match the credentials in the database
-  const query = `SELECT first_name, last_name, phone, email, password, isCustomer FROM users WHERE email = $1`;
+  const query = `SELECT id, first_name, last_name, phone, email, password, isCustomer FROM users WHERE email = $1`;
   db.query(query, [email])
     .then((data) => {
       console.log("user password", password);
@@ -36,6 +36,7 @@ router.post("/", (req, res) => {
       console.log(user);
 
       let templateVars = {
+        userId: user.id,
         user: user.first_name,
         userType: user.iscustomer ? "customer" : "restaurant",
       };

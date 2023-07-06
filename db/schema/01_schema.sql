@@ -53,16 +53,11 @@ CREATE TABLE orders (
   customer_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
   restaurant_id INTEGER REFERENCES restaurants(id) ON DELETE CASCADE,
   status_id INTEGER REFERENCES order_status(id) ON DELETE CASCADE,
+  menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
+  cart_id VARCHAR(255),
   ordered_time TIMESTAMP,
   prepared_time TIMESTAMP,
   estimated_time TIMESTAMP,
   completed_time TIMESTAMP,
   picked_time TIMESTAMP
-);
-
-CREATE TABLE order_items (
-  id SERIAL PRIMARY KEY NOT NULL,
-  menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
-  order_id INTEGER REFERENCES orders(id) ON DELETE CASCADE,
-  quantity INTEGER NOT NULL
 );

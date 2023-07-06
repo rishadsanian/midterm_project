@@ -52,6 +52,7 @@
     <script defer src="/scripts/helpers.js"></script>
     <script defer src="/scripts/restaurant-portal.js"></script>
     <script defer src="/scripts/customer-cart.js"></script>
+    <script defer src="/scripts/customer-cart2.js"></script>
   </head>
 
   <!---------------------External JS------------------------------------------->
@@ -63,6 +64,7 @@
     <script>
      const user = '<%= user %>';
      const userType = '<%= userType %>';
+     const userId = '<%= userId %>';
     //  showHero(user);
      </script>
 
@@ -107,37 +109,11 @@
         <div class="menu-container"></div>
 
         <!---------------------------CART ------------------------------------>
-<<<<<<< HEAD
         <div class="cart-container"></div>
-=======
 
->>>>>>> feature/cart
         <!-----------------CONFIRMATION and Status --------------------------->
 
-        <div class="status-container">
-          <h2 class="order-number">
-            Hi $(name), Your order number is ${orderNumber}
-          </h2>
-          <table class="status-table">
-            <thead>
-              <tr class="status-table-name">
-                <th>Order ID</th>
-                <th>Order Status</th>
-                <th>Estimated Time</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr class="status-table-content">
-                <td>1</td>
-                <td>100</td>
-                <td>2023-07-04 15:30:00</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-    </main>
-
+   
     <section class="footer">
       <div class="footer-content">
         <p>&copy; 2023 feedHungry App. All rights reserved.</p>

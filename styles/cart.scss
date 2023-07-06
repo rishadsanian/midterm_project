@@ -1,0 +1,49 @@
+@import 'variables';
+
+.cart-container {
+  padding: 20px;
+  background-color: #F9F9F9;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+thead th {
+  padding: 10px;
+  background-color: $color-secondary;
+  color: white;
+  font-family: $font-family-secondary;
+}
+
+tbody td {
+  padding: 10px;
+}
+
+tfoot td {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.place-order-button {
+  background-color: $color-accent;
+  color: white;
+  font-family: $font-family-primary;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.place-order-button:hover {
+  background-color: $color-highlight;
+}

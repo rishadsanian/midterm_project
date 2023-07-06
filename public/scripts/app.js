@@ -15,11 +15,13 @@ $(document).ready(function () {
   smoothScrollToMain();
 
   showLoginForm();
-  if (userType === "restaurant") renderPageAndLoadOrders(orders);
-  if (userType === "customer") showRestaurants();
-  renderPageAndLoadOrders(orders);
-  showRestaurants(); // fetchUserInfo();
-  getCart();
+  if (user) {
+    if (userType === "restaurant") renderPageAndLoadOrders(orders);
+    if (userType === "customer") showRestaurants();
+  }
+  // renderPageAndLoadOrders(orders);
+  // showRestaurants(); // fetchUserInfo();
+  // getCart();
 
   // getUserSessionData()
   //   .done(function (response) {
