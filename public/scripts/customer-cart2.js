@@ -2,7 +2,7 @@
 /* eslint-disable camelcase */
 
 // const { response } = require("express");
-const twilio = require("twilio");
+// const twilio = require("twilio");
 
 const placeOrder = (cart) =>
   $.post("/cart", { cart }, function (response) {
@@ -122,5 +122,4 @@ const statusMessage = (status_id, estimated_time) => {
   return message;
 };
 
-//  
-
+//
