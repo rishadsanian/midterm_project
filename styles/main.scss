@@ -63,11 +63,10 @@ p {
 main {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Fill remaining vertical space */
-  padding: 6% 15%;
+  flex: 1; 
+  padding: 4% 15%;
   margin: 0;
-  background-color: $color-secondary; /* Example background color */
-
+  background-color: $color-secondary; 
 }
 /* Footer */
 .footer {
