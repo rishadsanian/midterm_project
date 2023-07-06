@@ -22,6 +22,25 @@ router.get('/:id', (req, res) => {
     .catch(err => {
       res.status(500).json({ error: err.message });
     });
-  });
+});
 
+  
+  
+router.post("/api/cart", (req, res) => {
+  const cart = req.body;
+
+  const query =
+    "INSERT INTO orders (cart_id, quantity, ordered_time) VALUES ($1, $2, $3)";
+  const values = [cart.cart_id, cart.quantity, cart.order_time];
+  db.query(query, values);
+  // eslint-disable-next-line camelcase
+  db.addOrder(cart)
+    .then((response) => {
+      res.send(response);
+    })
+    .catch((e) => {
+      console.error(e);
+      res.send(e);
+    });
+});
 module.exports = router;

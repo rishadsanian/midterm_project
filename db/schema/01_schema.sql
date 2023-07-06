@@ -55,9 +55,12 @@ CREATE TABLE orders (
   status_id INTEGER REFERENCES order_status(id) ON DELETE CASCADE,
   menu_item_id INTEGER REFERENCES menu_items(id) ON DELETE CASCADE,
   cart_id VARCHAR(255),
-  ordered_time TIMESTAMP,
-  prepared_time TIMESTAMP,
-  estimated_time TIMESTAMP,
-  completed_time TIMESTAMP,
-  picked_time TIMESTAMP
+  item_name VARCHAR(255),
+  unit_price INTEGER,
+  quantity INTEGER,
+  ordered_time VARCHAR(255),
+  prepared_time VARCHAR(255),
+  estimated_time VARCHAR(255),
+  completed_time VARCHAR(255),
+  picked_time VARCHAR(255)
 );

@@ -286,7 +286,7 @@ const renderMenu = function (menu, categories) {
       const items = Object.keys(orderItems);
       console.log(orderItems);
       const quantity = Object.values(orderItems);
-
+      const timestamp = (new Date()).getTime();
       
       for (let item of items) {
         const cartObject = {};
@@ -298,9 +298,9 @@ const renderMenu = function (menu, categories) {
           cartObject.status_id = 1;
           cartObject.quantity = orderItems[item];
           cartObject.unit_price = menu[item - 1].unit_price;
-          cartObject.ordered_time = new Date();
+          cartObject.ordered_time = (new Date()).toString();
           cartObject.cart_id =
-            String(userId) + "-" + String(cartObject.ordered_time.getTime());
+            String(userId) + "-" + String(timestamp);
           cart.push(cartObject);
         }
       }

@@ -3,19 +3,19 @@ const router = express.Router();
 const db = require("../db/connection");
 
 
-router.post("/cart", (req, res) => {
-  const newCart = req.body;
-  // eslint-disable-next-line camelcase
-  db
-    .addOrder(newCart)
-    .then((cart) => {
-      res.send(cart);
-    })
-    .catch((e) => {
-      console.error(e);
-      res.send(e);
-    });
-});
+// router.post("/cart", (req, res) => {
+//   const newCart = req.body;
+//   // eslint-disable-next-line camelcase
+//   db
+//     .addOrder(newCart)
+//     .then((cart) => {
+//       res.send(cart);
+//     })
+//     .catch((e) => {
+//       console.error(e);
+//       res.send(e);
+//     });
+// });
 
 module.exports = router;
 

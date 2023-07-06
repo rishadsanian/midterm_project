@@ -5,22 +5,22 @@
 
 // renderMenu();
 
-const getCart = (id) => {
-  $.get("/api/cart/", function (data) {
-    console.log(data);
-    const orderItems = data.order_items;
-    console.log(order_items);
+// const getCart = (id) => {
+//   $.get("/api/cart/", function (data) {
+//     console.log(data);
+//     const orderItems = data.order_items;
+//     console.log(order_items);
 
-    // for (const location of restaurants) {
-    //   console.log(location.restaurant_id);
-    // }
+//     // for (const location of restaurants) {
+//     //   console.log(location.restaurant_id);
+//     // }
 
-    renderOrderItems(order_items);
-  }).fail(function (xhr, status, error) {
-    // redirect to /error -> error.ejs
-    console.log(error);
-  });
-};
+//     renderOrderItems(order_items);
+//   }).fail(function (xhr, status, error) {
+//     // redirect to /error -> error.ejs
+//     console.log(error);
+//   });
+// };
 
 const renderOrderItems = function (orderItems) {
   const $cartContainer = $(".cart-container");
@@ -86,6 +86,7 @@ const renderOrderItems = function (orderItems) {
 
     $confirmationButton.on("click", function () {
       $cartContainer.hide();
+
       console.log("order sent");
     });
 

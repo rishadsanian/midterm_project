@@ -1,6 +1,15 @@
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 
+const placeOrder = (cart) =>
+  $.post("/cart", {cart}, function (response) {
+    console.log("Cart in Callback function", cart);
+    console.log(response);
+  }).fail(function (xhr, status, error) {
+    // redirect to /error -> error.ejs
+    console.log(error);
+  });
+
 const showCart = (cart) => {
   $(".menu-container").slideToggle();
   const $table = $("<table>");
@@ -44,35 +53,13 @@ const showCart = (cart) => {
     .addClass("place-order-button")
     .text("Confirm")
     .on("click", function () {
+      console.log("From Ajax Request", cart);
+      // return;'
       placeOrder(cart);
-      // Handle the place order functionality here
+
       console.log("Place Order button clicked");
-      // You can add your logic for placing the order, such as making an API request or performing any other necessary actions.
     });
 
   // Append the table to the document body
   $(".cart-container").append($table, $placeOrderButton);
 };
-
-const placeOrder = (cart) =>
-  $.post("/cart", cart, function (response) {
-    console.log(response);
-  }).fail(function (xhr, status, error) {
-    // redirect to /error -> error.ejs
-    console.log(error);
-  });
-
-
-//   {
-//     "customer_id": "3",
-//     "restaurant_id": 1,
-//     "menu_item_id": "3",
-//     "status_id": 1,
-//     "quantity": 1,
-//     "unit_price": 1860,
-//     "ordered_time": "2023-07-06T06:14:02.397Z",
-//     "cart_id": "3-1688624042397"
-// }
-
-  
-

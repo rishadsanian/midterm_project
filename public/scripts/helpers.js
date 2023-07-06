@@ -45,20 +45,18 @@ const smoothScrollToMain = function () {
   });
 };
 
-const getCartId = function(user) {
+const getCartId = function (user) {
   let date = new Date();
   let cartId = string(user) + "-" + string(date);
   return cartId;
 };
-
-
 
 // const addOrder = (cart) => {
 //   //destructure keys and values into arrays
 //   const columns = Object.keys(order);
 //   const values = Object.values(order);
 //   const placeholders = [];
-  
+
 //   //placeholders for parameterized queries
 //   for (let i = 0; i < values.length; i++) {
 //     placeholders.push(`$${i + 1}`);
@@ -80,3 +78,13 @@ const getCartId = function(user) {
 //       console.log(err.message);
 //     });
 // };
+const convertToSqlTimestamp = function (date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+  const seconds = String(date.getSeconds()).padStart(2, "0");
+
+  return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
+};
