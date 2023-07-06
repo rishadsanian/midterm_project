@@ -10,12 +10,14 @@
 
 //When dom is ready
 $(document).ready(function () {
+  twilloSMS("Testing", '+16474611907');
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
   smoothScrollToMain();
   $(".menu-container").toggle();
   $(".restaurants-container").toggle();
   $(".restaurants-user").toggle();
+  $(".cart-container").toggle();
 
   showLoginForm();
   if (user) {

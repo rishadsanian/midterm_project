@@ -33,8 +33,6 @@ router.post("/", (req, res) => {
       req.session.isCustomer = user.iscustomer;
       req.session.phone = user.phone;
 
-      console.log(user);
-
       let templateVars = {
         userId: user.id,
         user: user.first_name,

@@ -50,7 +50,7 @@ const loadOrders = function (columnId, orders) {
   orders.forEach(function (order) {
     const $orderItem = $("<li>").text(order.name);
     $orderList.append($orderItem);
-    console.log("order loaded: ", order.name);
+    // console.log("order loaded: ", order.name);
   });
 };
 //---------------------------------------------------------------------------//
@@ -59,7 +59,7 @@ const loadAllOrders = function (orders) {
   //iterate through the orders and pass each one to loadorders
   Object.entries(orders).forEach(([columnId, columnOrders]) => {
     loadOrders(columnId, columnOrders);
-    console.log("all orders loaded");
+    // console.log("all orders loaded");
   });
 };
 

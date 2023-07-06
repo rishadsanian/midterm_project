@@ -12,7 +12,6 @@ router.get('/:id', (req, res) => {
   db.query(query, [restaurantId])
     .then(data => {
       const menu = data.rows;
-      console.log(menu);
       res.json({ menu });
     })
     .catch(err => {

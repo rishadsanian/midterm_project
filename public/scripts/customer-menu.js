@@ -24,11 +24,6 @@ const categories = {
 const getMenu = (restaurant_id) => {
   $.get(`/api/menu/${restaurant_id}`, function (data) {
     const menu = data.menu;
-    console.log(menu);
-
-    for (const item of menu) {
-      console.log(item.category_id);
-    }
 
     renderMenu(menu, categories);
   }).fail(function (xhr, status, error) {
@@ -82,7 +77,6 @@ const renderMenu = function (menu, categories) {
 
     for (const item of menu) {
       // Keep track of quantity for each item
-      console.log(item.name);
       orderItems[item.id] = 0;
 
       if (JSON.stringify(item.category_id) === category) {
@@ -193,21 +187,16 @@ const renderMenu = function (menu, categories) {
             //add to quantitiy counter
             orderItems[item.id]++;
             $quantityValue.text(orderItems[item.id]);
-            console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
             // subtotal per item
             subTotalValues[item.id] = orderItems[item.id] * item.unit_price;
-
-            console.log(subTotalValues);
 
             // subtotals sum
             subTotal = Object.values(subTotalValues).reduce(
               (acc, curr) => acc + curr,
               0
             );
-
-            console.log(subTotal);
 
             //update checout container info
             $subTotalElement.text("Subtotal: $" + (subTotal / 100).toFixed(2));
@@ -232,7 +221,6 @@ const renderMenu = function (menu, categories) {
             //remove from quantity counter
             if (orderItems[item.id]) orderItems[item.id]--;
             $quantityValue.text(orderItems[item.id]);
-            console.log(orderItems); // LOG
 
             //Update Subtotal value for each item qty * price
             subTotalValues[item.id] = orderItems[item.id] * item.unit_price;
@@ -242,8 +230,6 @@ const renderMenu = function (menu, categories) {
               (acc, curr) => acc + curr,
               0
             );
-
-            console.log(subTotal);
 
             //update checout container info
             $subTotalElement.text("Subtotal: $" + (subTotal / 100).toFixed(2));
@@ -284,13 +270,11 @@ const renderMenu = function (menu, categories) {
 
     .on("click", function () {
       const items = Object.keys(orderItems);
-      console.log(orderItems);
       const quantity = Object.values(orderItems);
-      const timestamp = (new Date()).getTime();
-      
+      const timestamp = new Date().getTime();
+
       for (let item of items) {
         const cartObject = {};
-        console.log(orderItems[item]);
         if (orderItems[item] !== 0) {
           cartObject.customer_id = userId;
           cartObject.restaurant_id = menu[item - 1].restaurant_id;
@@ -298,16 +282,16 @@ const renderMenu = function (menu, categories) {
           cartObject.status_id = 1;
           cartObject.quantity = orderItems[item];
           cartObject.unit_price = menu[item - 1].unit_price;
-          cartObject.ordered_time = (new Date()).toString();
-          cartObject.cart_id =
-            String(userId) + "-" + String(timestamp);
+          cartObject.ordered_time = new Date().toString();
+          cartObject.item_name = menu[item - 1].name; //
+          cartObject.cart_id = String(userId) + "-" + String(timestamp);
           cart.push(cartObject);
         }
       }
 
       // neeed route to post to order table /hide menuview and toggle cartview
-      console.log(cart);
       showCart(cart);
+      $(".cart-container").slideToggle();
     });
 
   const $subTotalElement = $("<p>")

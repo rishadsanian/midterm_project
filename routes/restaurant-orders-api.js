@@ -1,6 +1,6 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const db = require('../db/connection');
+const db = require("../db/connection");
 
 // // GET orders by ID
 // router.get('/cart', (req, res) => {
@@ -33,20 +33,19 @@ const db = require('../db/connection');
 //     });
 // });
 
-router.get("/:customer_id", (req, res) => {
-  const customerId = req.params.customer_id;
-  const query = "SELECT * FROM orders WHERE status_id = $1;";
+router.get("/:restaurant_id", (req, res) => {
+  const restaurantId = req.params.restaurant_id;
+  const query = `SELECT * FROM orders WHERE restaurant_id = $1
+  JOIN users ON users.id = orders.customer_id`;
 
-  db.query(query, [customerId])
+  db.query(query, [restaurantId])
     .then((data) => {
-      const menu = data.rows;
-      console.log(menu);
-      res.json({ menu });
+      const order = data.rows;
+      res.json({ order });
     })
     .catch((err) => {
       res.status(500).json({ error: err.message });
     });
 });
-
 
 module.exports = router;

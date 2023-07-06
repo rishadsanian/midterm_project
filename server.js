@@ -19,6 +19,11 @@ const bcrypt = require("bcryptjs");
 const express = require("express");
 const morgan = require("morgan");
 
+//Twilio
+
+const twilio = require("twilio");
+const tw
+
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -69,6 +74,9 @@ const userLogin = require("./routes/login");
 const logout = require("./routes/logout");
 const cartApi = require("./routes/cart-api");
 const cart = require("./routes/cart");
+const restaurantOrdersApi = require("./routes/restaurant-orders-api");
+const userOrderStatus = require("./routes/userOrderStatus-api");
+const customerPhoneApi = require("./routes/customerPhone-api");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -84,7 +92,9 @@ app.use("/login", userLogin);
 app.use("/logout", logout);
 app.use("/api/carts", cartApi);
 app.use("/cart", cart);
-
+app.use("/api/restaurant-orders/", restaurantOrdersApi);
+app.use("/api/orders/", userOrderStatus);
+app.use("/api/customerPhones/", customerPhoneApi);
 // Note: mount other resources here, using the same pattern above
 
 /////////////////////ROUTES //////////////////////////////////////////////////
@@ -106,7 +116,7 @@ app.get("/", (req, res) => {
   const templateVars = {
     user: req.session.user,
     userType: req.session.iscustomer,
-    userId: req.session.user_id
+    userId: req.session.user_id,
   };
 
   //goes to index regardless of cookie or not for now TODO ADD ERROR HANDLER
@@ -115,7 +125,7 @@ app.get("/", (req, res) => {
     ? res.render("index", templateVars)
     : res.render("index", templateVars);
 });
-
+twilloSMS("Testing", '+16474611907');
 // ----------------------------------------------------------------------------
 
 ///////////////////////////////////////////////////////////////////////////////
