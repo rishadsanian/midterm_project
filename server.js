@@ -68,7 +68,6 @@ const usersRoutes = require("./routes/users");
 const menuApi = require("./routes/menu-api"); // GETS MENU FROM SQL
 const userLogin = require("./routes/login");
 const logout = require("./routes/logout");
-const userSession = require("./routes/session-api");
 const cartApi = require("./routes/cart-api");
 
 // Mount all resource routes
@@ -76,7 +75,6 @@ const cartApi = require("./routes/cart-api");
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
 
 app.use("/api/restaurants", restaurantApi);
-app.use("/api/session", userSession);
 app.use("/api/widgets", widgetApiRoutes);
 app.use("/api/users", userApiRoutes);
 app.use("/cart", cart);
