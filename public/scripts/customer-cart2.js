@@ -15,7 +15,7 @@ const placeOrder = (cart) =>
 const showCart = (cart) => {
   console.log("cart in showCart", cart);
   $(".menu-container").slideToggle();
-  const $table = $("<table>");
+  const $table = $("<table>").addClass(".table-striped");
   const $thead = $("<thead>");
   const $tbody = $("<tbody>");
 
