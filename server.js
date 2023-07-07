@@ -75,6 +75,7 @@ const logout = require("./routes/logout");
 const cart = require("./routes/cart");
 const restaurantOrdersApi = require("./routes/restaurant-orders-api");
 const userOrderStatus = require("./routes/userOrderStatus-api");
+// const completeOrder = require("./routes/comeplete-order");
 
 // Mount all resource routes
 // Note: Feel free to replace the example routes below with your own
@@ -93,6 +94,7 @@ app.use("/logout", logout);
 app.use("/cart", cart);
 app.use("/api/restaurant-orders/", restaurantOrdersApi);
 app.use("/api/orders/", userOrderStatus);
+// app.use("/order", completeOrder);
 
 // Note: mount other resources here, using the same pattern above
 

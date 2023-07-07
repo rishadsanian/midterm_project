@@ -4,20 +4,22 @@
   background-color: rgba(255, 255, 255, 0.769);
   padding: 2rem;
   text-align: center;
-  border-radius: 5px;
+  margin: 0;
 }
 
 .section-title {
   font-family: "Source Sans 3", sans-serif;
-  font-size: 24px;
+  font-size: 2em;
   font-weight: bold;
   color: #220901;
-  margin-bottom: 1rem;
+  margin-bottom: 3em;
+  border-bottom: 1px solid #941B0C;
+  padding: 0.5em;
 }
 
 .location {
-  border: 1px solid #F6AA1C;
-  border-radius: 5px;
+  border: 1px solid rgba(246, 170, 28, 0.769);
+  border-radius: 7em;
   padding: 1rem;
   margin-bottom: 1rem;
 }
@@ -45,7 +47,7 @@
   display: flex;
   flex-direction: column;
   font-size: 14px;
-  color: #621708;
+  color: white;
 }
 .location .location-img {
   width: 100px;

@@ -1,7 +1,8 @@
 #user-authentication {
   display: none;
-  color: #621708;
+  color: white;
   padding: 20px;
+  margin: 0.25vw;
 }
 
 form {
@@ -11,8 +12,8 @@ form {
 
 .login-form {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.769);
-  color: #621708;
+  background-color: rgba(246, 170, 28, 0.769);
+  color: white;
   padding: 20px;
   border-radius: 2em;
   justify-content: center;
@@ -29,7 +30,7 @@ form {
   font-family: "Source Sans 3", sans-serif;
   font-size: 16px;
   font-weight: bold;
-  color: #621708;
+  color: white;
   width: 100px;
   margin-right: 10px; /* Adjust the margin as needed */
 }
@@ -45,11 +46,11 @@ form {
 }
 
 .login-form input[type=submit] {
-  background-color: #941B0C;
   color: #F6AA1C;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
+  border-color: #BC3908;
   font-family: "Source Sans 3", sans-serif;
   font-size: 16px;
   font-weight: bold;
@@ -61,6 +62,7 @@ form {
 .login-form input[type=submit]:hover {
   background-color: #F6AA1C;
   color: #BC3908;
+  padding-top: 0.5em;
 }
 
 .login-form .close-button {
@@ -69,7 +71,7 @@ form {
   right: 10px;
   background: none;
   border: none;
-  color: #621708;
+  color: white;
   font-size: 20px;
   cursor: pointer;
 }

@@ -1,10 +1,11 @@
 header {
-  background-color: #621708;
+  background-color: white;
   color: #F6AA1C;
-  padding: 0.625rem;
+  padding: 1em;
   position: sticky;
   top: 0;
   z-index: 100;
+  border-bottom: 0.5em #621708 solid;
 }
 header .custom-nav {
   display: flex;
@@ -18,7 +19,8 @@ header .custom-nav .navbar-brand {
 }
 header .custom-nav .navbar-brand .logo-text {
   font-family: "Pacifico", cursive;
-  font-size: 2rem;
+  font-size: 2.5em;
+  padding-left: 0.3em;
 }
 header .custom-nav .nav-links {
   display: flex;
@@ -37,17 +39,9 @@ header .custom-nav .nav-links li .nav-link {
   color: #F6AA1C;
   transition: color 0.3s ease;
   border-radius: 7em;
-  size: 1em;
+  font-size: 1.5em;
+  padding-right: 1em;
 }
 header .custom-nav .nav-links li .nav-link:hover {
   color: #BC3908;
-  background-color: #F6AA1C;
-  padding: 0.5em;
-}
-header .custom-nav .nav-links-end li {
-  margin-left: 0.5rem;
-  font-family: "Source Sans 3", sans-serif;
-  font-weight: bold;
-  width: 70px;
-  height: auto;
 }/*# sourceMappingURL=nav.css.map */

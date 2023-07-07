@@ -14,14 +14,17 @@ body {
 
 /* Hero section */
 .hero {
-  background-image: url("https://images.pexels.com/photos/6977372/pexels-photo-6977372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  // background-image: url("https://images.pexels.com/photos/6977372/pexels-photo-6977372.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
+  background-image: url($hero-background-image);
   background-size: cover;
   background-position: center;
   height: 31.25em;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 4em #621708 solid;
+   
+   border-bottom: 0.5em #621708 solid;
+   
 }
 
 .hero-content {
@@ -70,7 +73,7 @@ main {
 }
 /* Footer */
 .footer {
-  background-color: #621708;
+  background-color:#621708 ;
   width: 100%;
   position: relative;
   bottom: 0;

@@ -4,6 +4,7 @@
 display: none;
   color: $color-secondary;
   padding: 20px;
+  margin: 0.25vw ;
 }
 
 form {
@@ -12,9 +13,10 @@ form {
 }
 .login-form {
   display: flex;
-  background-color: rgba(255, 255, 255, 0.769);
+  background-color: rgba(246, 170, 28, 0.769);
   color: $color-secondary;
   padding: 20px;
+  
   border-radius: 2em;
   justify-content: center;
   align-items: center;
@@ -46,11 +48,12 @@ form {
   font-family: $font-family-secondary;
 }
 .login-form input[type="submit"] {
-  background-color: $color-accent;
+  // background-color: $color-accent;
   color: $color-neutral;
   padding: 10px 20px;
   border: none;
   border-radius: 4px;
+  border-color: $color-highlight;
   font-family: $font-family-secondary;
   font-size: 16px;
   font-weight: bold;
@@ -63,6 +66,7 @@ form {
 .login-form input[type="submit"]:hover {
   background-color: $color-neutral;
   color: $color-highlight;
+  padding-top: 0.5em;
 }
 
 .login-form .close-button {

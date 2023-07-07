@@ -17,7 +17,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 4em #621708 solid;
+  border-bottom: 0.5em #621708 solid;
 }
 
 .hero-content {
@@ -61,7 +61,7 @@ main {
   flex: 1;
   padding: 4% 15%;
   margin: 0;
-  background-color: #621708;
+  background-color: white;
 }
 
 /* Footer */

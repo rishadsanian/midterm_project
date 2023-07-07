@@ -1,15 +1,13 @@
-
-
 @import 'variables';
 
 header {
   background-color: $color-secondary;
   color: $color-neutral;
-  padding: 0.625rem;
+  padding: 1em;
   position: sticky;
   top: 0;
   z-index: 100;
-  
+  border-bottom: 0.5em #621708 solid;
 
   .custom-nav {
     display: flex;
@@ -21,11 +19,10 @@ header {
       align-items: center;
       text-decoration: none;
 
-    
-
       .logo-text {
         font-family: $font-family-logo;
-        font-size: 2rem;
+        font-size: 2.5em;
+        padding-left: 0.3em;
       }
     }
 
@@ -46,28 +43,14 @@ header {
           color: $color-neutral;
           transition: color 0.3s ease;
           border-radius: 7em;
-          size: 1em;;
+          font-size:1.5em;
+          padding-right: 1em;
 
           &:hover {
             color: $color-highlight;
-            background-color: $color-neutral;
-            padding:0.5em;
           }
         }
       }
     }
 
-    .nav-links-end {
-      li {
-        margin-left: 0.5rem;
-        font-family: $font-family-secondary;
-        font-weight: bold;
-        // padding: auto;
-        width:70px;
-        height: auto;
-      
-        ;
-      }
-    }
-  }
-}
+  }}

@@ -10,7 +10,8 @@
 
 //When dom is ready
 $(document).ready(function () {
-
+  showOrders();
+  // setInterval(fetchOrders, 10000)
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
   smoothScrollToMain();
@@ -18,12 +19,13 @@ $(document).ready(function () {
   $(".restaurants-container").toggle();
   $(".restaurants-user").toggle();
   $(".cart-container").toggle();
-
+  
   showLoginForm();
   if (user) {
     if (userType === "restaurant") {
       $(".restaurants-user").toggle();
-      renderPageAndLoadOrders(orders);
+      showOrders();
+  
     }
     if (userType === "customer") {
       $(".restaurants-container").toggle();
