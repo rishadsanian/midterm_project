@@ -16,25 +16,22 @@ const showOrders = () =>
   });
 
 const renderOrders = (orders) => {
-  console.log("order in showOrder", orders);
+  console.log("orders in renderOrders", orders);
   $(".order-container").slideToggle();
-  const $table = $("<table>").addClass("portal-table");
 
-  // Create table rows
-  const keys = Object.keys(orders[0]);
-  console.log(keys);
-  for (let key of keys) {
-    const $row = $("<tr>");
-    const $keyCell = $("<td>").addClass("portal-key").text(`${key} : `);
-    const $valueCell = $("<td>")
-      .addClass("portal-value")
-      .text(`${orders[0][key]}`);
-    $row.append($keyCell, $valueCell);
-    $table.append($row);
-  }
+  orders.forEach((order) => {
+    const $card = $("<div>").addClass("order-card").css({border: '1px solid black'});
 
-  // Append the table to the order-container
-  $(".order-container").append($table);
+    const keys = Object.keys(order);
+    keys.forEach((key) => {
+      const $pairElement = $("<p>")
+        .addClass("order-pair")
+        .text(`${key}: ${order[key]}`);
+      $card.append($pairElement);
+    });
+
+    $(".order-container").append($card);
+  });
 };
 
 // Append the table components to the table
