@@ -25,6 +25,7 @@ $(document).ready(function () {
     if (userType === "restaurant") {
       $(".restaurants-user").toggle();
       showOrders();
+      setInterval(showOrders, 5000);
   
     }
     if (userType === "customer") {
