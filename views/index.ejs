@@ -86,6 +86,12 @@
           class="scroll-to-main text-dark link-opacity-50 underline-opacity-0"
           >Find Food</a
         >
+
+        <% } else if (user && userType === 'restaurant') { %>
+          <h1>Welcome <%= user %></h1>
+          <p>Find your incoming orders below.</p>
+          <a href="#main" class="scroll-to-main text-dark link-opacity-50 underline-opacity-0">Show orders</a>
+
         <% } %> <% } else { %>
         <h1>Welcome to FeedHungry</h1>
         <p>Order online, pick up, and satisfy your cravings effortlessly.</p>
