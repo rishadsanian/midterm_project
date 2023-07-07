@@ -1,0 +1,24 @@
+.order-container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.order-container table.portal-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  border-collapse: collapse;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+.order-container table.portal-table th.portal-key {
+  padding: 10px;
+  background-color: white;
+  color: white;
+  font-family: "Source Sans 3", sans-serif;
+}
+.order-container table.portal-table td.portal-key {
+  padding: 10px;
+}/*# sourceMappingURL=portal.css.map */

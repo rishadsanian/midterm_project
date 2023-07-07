@@ -18,16 +18,16 @@ const showOrders = () =>
 const renderOrders = (orders) => {
   console.log("order in showOrder", orders);
   $(".order-container").slideToggle();
-  const $table = $("<table>").addClass("order-table");
-  
+  const $table = $("<table>").addClass("portal-table");
+
   // Create table rows
   const keys = Object.keys(orders[0]);
-
+  console.log(keys);
   for (let key of keys) {
     const $row = $("<tr>");
-    const $keyCell = $("<td>").addClass("order-key").text(`${key} : `);
+    const $keyCell = $("<td>").addClass("portal-key").text(`${key} : `);
     const $valueCell = $("<td>")
-      .addClass("order-value")
+      .addClass("portal-value")
       .text(`${orders[0][key]}`);
     $row.append($keyCell, $valueCell);
     $table.append($row);
@@ -35,32 +35,6 @@ const renderOrders = (orders) => {
 
   // Append the table to the order-container
   $(".order-container").append($table);
-
-  // const $row = $("<tr>");
-  // $row.append(`<td>${ordered_time}</td>`);
-  // $row.append(`<td>${item_name}</td>`);
-  // $row.append(`<td>${quantity}</td>`);
-  // $row.append(`<td>${orders[0][order]}</td>`);
-
-  // $tbody.append($row);
-  
-  // const $footerRow = $("<tr>");
-  // $footerRow.append(`<td>${customer_name}</td>`);
-  // const $table = $("<table>");
-  // const $thead = $("<thead>");
-  // const $tbody = $("<tbody>");
-  
-  // Create table header
-  // const $headerRow = $("<tr>");
-  // $headerRow.append("<th>Order Time</th>");
-  // $headerRow.append("<th>Item Name</th>");
-  // $headerRow.append("<th>Quantity</th>");
-  
-  // $thead.append($headerRow);
-  
-  // Create table
-  // $footerRow.append(`<td>${user_phone}</td>`);
-  // $tbody.append($footerRow);
 };
 
 // Append the table components to the table
