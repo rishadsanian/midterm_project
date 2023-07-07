@@ -1,7 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable camelcase */
 
-// const { response } = require("express");
+// /const { response } = require("express");
 // const twilio = require("twilio");
 
 const placeOrder = (cart) =>
@@ -81,8 +81,8 @@ const showCart = (cart) => {
 
   let $statusContainer = $("<div>")
     .addClass("status-container")
-    .html(`<p>Status: Order placed </p>`);
-
+    .append($("<p>").text("Status: Order Placed"))
+    .append($("<p>").text("Estimated time: 20 minutes"));
   // Append the table and place order button to the DOM
   $table.append($placeOrderButton, $statusContainer);
   $(".cart-container").empty().append($table);
