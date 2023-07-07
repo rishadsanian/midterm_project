@@ -16,7 +16,7 @@ const showOrders = () =>
   });
 const renderOrders = (orders) => {
   console.log("orders in renderOrders", orders);
-  $(".order-container").slideToggle();
+  // $(".order-container").slideToggle();
 
   orders.forEach((order) => {
     const $card = $("<div>").addClass("order-card");

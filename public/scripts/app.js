@@ -10,7 +10,7 @@
 
 //When dom is ready
 $(document).ready(function () {
-  showOrders();
+  // showOrders();
   // setInterval(fetchOrders, 10000)
   //event listeners and jquery constructors here, user flow
   console.log("app script is working");
