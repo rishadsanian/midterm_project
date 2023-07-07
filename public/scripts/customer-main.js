@@ -17,56 +17,42 @@ const showRestaurants = () => {
 
 //construct the page
 // Construct the page
-const renderRestaurants = function (restaurants) {
+const renderRestaurants = function(restaurants) {
   const $restaurantsContainer = $(".restaurants-container");
   $restaurantsContainer.empty(); // Clear any existing content
 
-  const $restuarantsTitle = $("<h2>")
+  const $restaurantsTitle = $("<h2>")
     .addClass("section-title")
     .text("Restaurants Near You");
 
-  $restaurantsContainer.append($restuarantsTitle);
+  $restaurantsContainer.append($restaurantsTitle);
 
   for (const location of restaurants) {
-    const $location = $("<div>").addClass(
-      `location-${location.id} card-hov-shadow `
-    );
+    const $location = $("<div>").addClass("location card-hov-shadow");
 
-    const $locationHeader = $("<header>")
-      .addClass("location card-header")
-      .append($("<p>").addClass("location-name").text(location.name));
-
-    $location.append($locationHeader);
-
-    const $locationBody = $("<div>").addClass("location-item card-body").css({
-      display: "flex",
-      "justify-content": "space-between",
-      "flex-wrap": "wrap",
-      "align-items": "center",
-    });
-
-    const $locationAddress = $("<div>")
-      .addClass("location-address")
-      .html(
-        `<p>${location.road}</p>
-         <p>${location.city}</p>`
-      );
-
+    const $locationHeader = $("<div>").addClass("location-header");
     const $locationImage = $("<img>")
       .addClass("location-img")
       .attr("src", location.picture_url)
-      .css({ width: "100px", height: "100px" });
+      .attr("alt", "Location Image");
+    const $locationName = $("<p>")
+      .addClass("location-name")
+      .text(location.name);
 
-    $locationBody.append($locationAddress, $locationImage);
+    $locationHeader.append($locationImage, $locationName);
+    $location.append($locationHeader);
+
+    const $locationBody = $("<div>").addClass("location-body");
+    const $locationAddress = $("<div>").addClass("location-address");
+    const $locationRoad = $("<p>").text(location.road);
+    const $locationCity = $("<p>").text(location.city);
+
+    $locationAddress.append($locationRoad, $locationCity);
+    $locationBody.append($locationAddress);
     $location.append($locationBody);
 
-    const $locationFooter = $("<footer>")
-      .addClass("location card-footer")
-      .css({
-        display: "flex",
-        "justify-content": "space-between",
-        alignItems: "center",
-      });
+    const $locationFooter = $("<div>").addClass("location-footer");
+    // Add footer content here
 
     $location.append($locationFooter);
     $location.on("click", () => {
