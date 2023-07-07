@@ -44,7 +44,8 @@ router.get("/:restaurant", (req, res) => {
   JOIN restaurants ON restaurants.id = orders.restaurant_id
   JOIN menu_items ON menu_items.id = orders.menu_item_id
   WHERE orders.restaurant_id = $1
-  ORDER BY orders.id DESC;`;
+  ORDER BY orders.id DESC
+  LIMIT 5;`;
 
   db.query(query, [1])
     .then((data) => {

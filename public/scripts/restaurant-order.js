@@ -14,19 +14,45 @@ const showOrders = () =>
     // redirect to /error -> error.ejs
     console.log(error);
   });
-
 const renderOrders = (orders) => {
   console.log("orders in renderOrders", orders);
   $(".order-container").slideToggle();
 
   orders.forEach((order) => {
-    const $card = $("<div>").addClass("order-card").css({border: '1px solid black'});
+    const $card = $("<div>").addClass("order-card");
+    $card.css({
+      border: "1px solid black",
+    });
 
     const keys = Object.keys(order);
     keys.forEach((key) => {
+      let value = order[key];
+      if (key === "status_id") {
+        // Map specific values for status_id
+        switch (value) {
+          case 1:
+            value = "New order";
+            break;
+          case 2:
+            value = "Prepared";
+            break;
+          case 3:
+            value = "Completed";
+            break;
+          case 4:
+            value = "Picked up";
+            break;
+          case 5:
+            value = "Cancelled";
+            break;
+          default:
+            break;
+        }
+      }
+
       const $pairElement = $("<p>")
         .addClass("order-pair")
-        .text(`${key}: ${order[key]}`);
+        .text(`${key}: ${value}`);
       $card.append($pairElement);
     });
 
