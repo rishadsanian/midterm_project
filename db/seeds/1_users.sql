@@ -1,4 +1,4 @@
-insert into users (isCustomer, first_name, last_name, phone, email, password) values (true, 'Rishad', 'Alman', '6477611907', 'rishad.s.a@gmail.com', 'password');
+insert into users (isCustomer, first_name, last_name, phone, email, password) values (true, 'Rishad', 'Alman', '1234567891', 'rishad@mail.com', 'password');
 insert into users (isCustomer, first_name, last_name, phone, email, password) values (true, 'Hans', 'Wang', '6135819664', 'wei.hans.wang@outlook.com', 'password');
 insert into users (isCustomer, first_name, last_name, phone, email, password) values (true, 'Yiyao', 'Chen', '6475250410', 'yiyaochen@gmail.com', 'password');
 insert into users (isCustomer, first_name, last_name, phone, email, password) values (true, 'Oralia', 'Bauman', '6377492687', 'obauman0@wiley.com', '7395620X');
